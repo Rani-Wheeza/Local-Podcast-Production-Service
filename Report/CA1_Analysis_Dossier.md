@@ -112,5 +112,63 @@ Contributors also need to know how their recording will be used and credited, an
 
 The Production Record System gives Kerry Community Media Collective a single, reliable record of each programme from proposal to publication and any later correction. It lets staff see what stage each proposal and episode has reached and what is blocking it, while keeping editorial discussion and sensitive contributor information restricted by role.
 
+## 2.2 In scope for the first release
 
+| **ID** | **Included activity or record**                                                                                                                                                                                                            |
+|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| S1     | Proposals, including series with planned episodes, and the editor's decision (accepted, rejected, returned or held) with any conditions                                                                                                    |
+| S2     | Contributors, their roles per episode, contact preferences, availability and agreed attribution                                                                                                                                            |
+| S3     | Consent: in what form it was given (paper, email or at the start of a recording), for what intended use, and where the evidence is held                                                                                                    |
+| S4     | Recording sessions, locations, bookings and equipment needs                                                                                                                                                                                |
+| S5     | Source recordings, drafts and approved versions, and how they relate                                                                                                                                                                       |
+| S6     | Draft reviews and their outcomes (approved, returned, postponed or withdrawn), with comments kept against the draft                                                                                                                        |
+| S7     | Permissions for music, archive clips and external material                                                                                                                                                                                 |
+| S8     | Scheduled publication dates, the channel, and the reason when a date changes                                                                                                                                                               |
+| S9     | Post-publication corrections and replacement versions                                                                                                                                                                                      |
+| S10    | An overview for the production coordinator covering proposals with no decision, held proposals, upcoming sessions, equipment needs, missing consent or permissions, drafts awaiting review and what blocks them, and scheduled publication |
+| S11    | Access restricted by production role, including progress information for partners without internal editorial notes                                                                                                                         |
+
+## 2.3 Out of scope
+
+| **Out of scope**                                                      | **Basis**                                                                                                                                                                   |
+|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Audio editing                                                         | Stated in the scenario                                                                                                                                                      |
+| Public streaming                                                      | Stated in the scenario                                                                                                                                                      |
+| Advertising                                                           | Stated in the scenario                                                                                                                                                      |
+| Financial accounting                                                  | Stated in the scenario                                                                                                                                                      |
+| Storing the audio files themselves                                    | Assumption A1: large files are not always practical to upload from outside the studio, so the system holds information about files, not the audio                           |
+| Deciding who may approve what, or what counts as a significant change | Assumption A4: the system records decisions and does not decide policy (Q2, Q5)                                                                                             |
+| Recording contributor concerns and their decisions                    | Deferred. The scenario says concerns may be raised and a consistent record is wanted, but gives no process, owner or visibility rule. Building it would invent policy (Q11) |
+
+## 2.4 Dependencies, constraints and assumptions
+
+Dependencies are things outside the system that it relies on: the public channels where episodes are published; the existing email, calendars and shared folders where audio and some documents will continue to live; paper consent forms; editors and authorised reviewers whose decisions drive status; partners and contributors who supply information; and staff and volunteers, who must keep the record current or it becomes incomplete.
+
+Constraints (C1 to C5) are stated in the scenario and assumptions (A1 to A13) are temporary. Both are listed separately in Section 5 so that no assumption is read as a confirmed rule.
+
+## 2.5 System boundary
+
+Inside the boundary is the Production Record System, covering S1 to S11. Outside it, and interacting with it, are the proposal editor, authorised editor, production coordinator, technical editor, technical volunteer and session organiser. Partners, contributors and the public audience are outside and are stakeholders, not actors, under assumption A5. Section 3 classifies them.
+
+# 3. Stakeholder and actor catalogue
+
+## 3.1 Stakeholder catalogue
+
+A stakeholder has an interest in, is affected by, or can influence the system. Influence reasons below avoid inventing authority the scenario does not give. The scenario's "editor" is divided into a proposal editor and an authorised editor because it names two different decision points.
+
+| **Stakeholder**                | **Type**          | **Goal or interest**                                                                                           | **Main concern**                                                       | **Influence and reason**                                                                                                             |
+|--------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Proposal editor                | Direct            | Record a clear decision on each proposal, with conditions                                                      | A friendly conversation being treated as approval                      | High. Editors review proposals, so decision and condition requirements come from this role                                           |
+| Authorised editor              | Direct            | Review a draft's title, description, credits, permissions and channel, then record the outcome                 | A corrected description confused with a new audio file                 | High. The scenario gives this role the pre-publication review. Whether it is the same person as the proposal editor is unknown (Q13) |
+| Production coordinator         | Direct            | A reliable overview of proposals, sessions, equipment, missing consent or permissions, reviews and publication | A finished draft blocked by one unnoticed missing item                 | High. Their needs are described in detail and shape FR12                                                                             |
+| Technical editor               | Direct            | Record whether music, archive clips and external material have permission                                      | An outstanding permission blocking publication                         | Medium. Records permissions that can block a draft; no wider authority is described                                                  |
+| Technical volunteers           | Direct            | Identify which recordings from a session are usable                                                            | Working filenames that do not show what is usable                      | Medium. Their need is practical; they have no stated decision role                                                                   |
+| Session organiser              | Direct            | Coordinate room, recording kit and technical support                                                           | A missing cable, recorder or microphone stopping a session             | Medium. Missing kit is a confirmed cause of failed sessions                                                                          |
+| Staff and volunteers (general) | Direct / indirect | Coordinate production work and keep accurate records                                                           | Seeing private correspondence or editorial discussion they do not need | Medium (inferred). With a small staff and many volunteers, whether they keep records current decides whether the record is useful    |
+| Contributors                   | Indirect          | Know where their recording appears, how they are credited and how it will be used                              | Unclear consent, use or credit                                         | Medium. Consent and attribution requirements come from them; missing confirmation can block a draft                                  |
+| Partner organisations          | External          | A realistic publication date, progress updates, an explanation when dates change                               | Dates changing without explanation; seeing internal editorial notes    | Medium. They propose programmes and can request delay but should not automatically see editorial notes                               |
+
+Collective management and the public audience are not listed. The scenario names no manager or owner, and says nothing about what the audience needs from the production record.
+
+## 3.2 Actor classification
 

@@ -693,23 +693,23 @@ I also recognise the limitations of the technical artefacts produced during this
 A representative record of my AI use is maintained in `Decisions/ai-interaction-log.md`. The log provides examples of the assistance requested and how the output was considered or used. Overall, AI helped me review my work, explore alternative interpretations and improve the presentation of the analysis. I remain responsible for checking the accuracy of the submitted content, understanding the decisions made and ensuring that the final dossier represents a reasoned analysis of Scenario 29.
 
 
-# Appendix A. Repository artefacts
+## Appendix A. Repository artefacts
 
-Status shows what exists now. Items marked to create must be added to the repository before submission and committed with readable history.
+This table identifies the main artefacts associated with the analysis dossier and their status before submission. The repository should contain the editable artefact sources and demonstrate a readable development history.
 
+| Path | Content | Status |
+|---|---|---|
+| `README.md` | Project overview, scenario reference, repository guide and diagram instructions | Updated and checked |
+| `Report/CA1_Analysis_Dossier.md` | Integrated requirements and domain analysis dossier | Prepared and checked |
+| `Requirements/user-stories.md` | User-story backlog (Appendix B) | Present and checked |
+| `Features/production_record.feature` | Gherkin scenarios GS1–GS5 | Present and checked |
+| `Diagrams/use-case-model.puml` and `Diagrams/use-case-model.png` | Use-case diagram source and exported image | Present and checked |
+| `Diagrams/domain-model.puml` and `Diagrams/domain-model.png` | Conceptual domain model source and exported image | Present and checked |
+| `Decisions/decision-log.md` | Decision log supporting the analysis and reflection | Present and checked |
+| `Decisions/ai-interaction-log.md` | Representative AI interaction log supporting Section 12 | Present and checked |
+| `References/references.md` | Sources used in the analysis | Present and checked |
+| Git history and tagged `CA1` release | Evidence of progressive development and identification of the submitted version | Verified; confirm the `CA1` tag exists |
 
-| **Path**                              | **Content**                                                 | **Status** |
-|---------------------------------------|-------------------------------------------------------------|------------|
-| README.md                             | Overview, scenario reference and how to render the diagrams | Drafted    |
-| report/                               | This dossier (Markdown and PDF)                             | Drafted    |
-| requirements/user-stories.md          | User-story backlog (Appendix B)                             | Drafted    |
-| features/production_record.feature    | Gherkin scenarios GS1 to GS5                                | Drafted    |
-| diagrams/use-case-model.puml and .png | Use-case diagram source and export                          | Drafted    |
-| diagrams/domain-model.puml and .png   | Domain model source and export                              | Drafted    |
-| decisions/decision-log.md             | Decision log                                                | Drafted    |
-| references/references.md              | Sources                                                     | Drafted    |
-| AI interaction log                    | Representative log (Section 12)                             | To create  |
-| Git history and tagged CA1 release    | Progressive commits and a release tag                       | To create  |
 
 # Appendix B. User-story backlog
 

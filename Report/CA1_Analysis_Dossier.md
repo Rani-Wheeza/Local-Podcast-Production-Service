@@ -347,7 +347,7 @@ Every functional requirement has a use case and every use case traces to a requi
 
 ![Production Record System use-case diagram](../Diagrams/use-case-model.png)
 
-*Figure 1: Production Record System use-case diagram (source: diagrams/use-case-model.puml)*
+*Figure 1: Production Record System use-case diagram (source: Diagrams/use-case-model.puml)*
 
 ## 6.4 Modelling decisions
 
@@ -542,9 +542,9 @@ Result: 15 conceptual classes. These are Proposal, Episode, Proposal Decision, P
 
 The conceptual model uses the 15 classes from Section 8. It has no methods, controllers, repositories, interface controls, keys or navigability. The arrow after each association name shows reading direction only.
 
-![Conceptual domain model](../diagrams/domain-model.png)
+![Conceptual domain model](../Diagrams/domain-model.png)
 
-*Figure 2: Conceptual domain model (source: diagrams/domain-model.puml)*
+*Figure 2: Conceptual domain model (source: Diagrams/domain-model.puml)*
 
 ## 9.1 Classes and attributes
 
@@ -668,7 +668,15 @@ Several multiplicities come from reasoning, not scenario evidence, for example z
 
 # 11. Reflection
 
-*\[To be completed.\]*
+One of the main challenges in this analysis was distinguishing information confirmed by the scenario from assumptions and questions that still required clarification. For example, rather than deciding which roles could approve proposals or publication, I left approval authority as an unresolved question (Q5). This avoids turning an interpretation into a confirmed business rule before the relevant stakeholders have clarified their responsibilities.
+
+A second important decision was to defer the detailed handling of contributor concerns rather than inventing a process that the scenario did not establish (D2). I also kept the proposal editor and authorised editor as distinct roles in the analysis while recording the open question of whether the same person could perform both roles (D4, Q13). This preserves the distinction between proposal decisions and approval of a production draft without assuming that the roles must always belong to different people.
+
+Feedback on my draft led me to revise the consequences section, where I had stated that missing information could cause proposals to be “shelved and never produced”. This outcome was not confirmed by the scenario, which describes scattered production information and blocked drafts, so I reclassified it as an inferred risk rather than a confirmed consequence. Similarly, the scenario confirms that partners sometimes mistake encouragement for approval, while the possibility of them planning around an assumed approval is an inferred consequence.
+
+Another important modelling decision was to distinguish between a draft awaiting review, a draft blocked by an outstanding permission and a draft approved for publication (D3). These states represent different conditions and should not be treated as interchangeable. Making the distinctions explicit supports clearer requirements and more meaningful Gherkin scenarios, particularly when checking whether a draft can proceed towards publication.
+
+The main limitation is that several operational decisions remain unresolved, including final approval authority, the handling of significant changes and when new consent may be required for reuse, editing or publication through another channel (Q3). With more time, I would seek clarification from the relevant stakeholders, update the decision log and traceability links, and review the requirements and domain model against the confirmed answers. This would help validate the proposed analysis before any system design or implementation began.
 
 # 12. AI declaration
 

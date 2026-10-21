@@ -39,7 +39,7 @@ Start with the analysis dossier in `Report/`. The dossier brings together the an
     └── Supporting assessment documentation
 ```
 
-*The structure above describes the intended organisation. Check that each listed file exists in the repository before submission.*
+*The tree shows the intended organisation. Verify that each listed file exists in the repository before submission.*
 
 ## Repository guide
 
@@ -56,7 +56,7 @@ Start with the analysis dossier in `Report/`. The dossier brings together the an
 
 ## Summary of the analysis
 
-The dossier covers the following analysis artefacts. The identifiers and counts should be checked against the final versions before submission.
+The dossier covers the following analysis artefacts. Verify the counts against the final versions before submission.
 
 - **Requirements:** 12 functional requirements (FR1–FR12) and four non-functional requirements (NFR1–NFR4).
 - **Use cases:** 11 use cases (UC1–UC11), with UC2 (record a proposal decision) specified in detail.
@@ -104,10 +104,9 @@ AI assistance was used during the analysis and preparation of the dossier. This 
 
 | Item | Status |
 |---|---|
-| Requirements, use cases, Gherkin, domain model and traceability | Analysis artefacts prepared; final consistency check required |
+| Requirements, use cases, Gherkin, domain model and traceability | Prepared; final consistency check required |
 | Reflection (Section 11) | Drafted; verify against the final dossier |
-| AI declaration (Section 12) | Drafted; verify and save in the final dossier |
-| AI interaction log | Drafted; save as `Decisions/ai-interaction-log.md` |
+| AI declaration (Section 12) | Drafted; confirm it is included in the final dossier |
+| AI interaction log | Drafted; confirm `Decisions/ai-interaction-log.md` is committed |
 | PDF dossier in `Report/` | To add if not yet committed |
 | Tagged `CA1` release | To create if required by the assignment brief |
-

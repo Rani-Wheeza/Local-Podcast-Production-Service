@@ -104,9 +104,10 @@ AI assistance was used during the analysis and preparation of the dossier. This 
 
 | Item | Status |
 |---|---|
-| Requirements, use cases, Gherkin, domain model and traceability | Prepared; final consistency check required |
-| Reflection (Section 11) | Drafted; verify against the final dossier |
-| AI declaration (Section 12) | Drafted; confirm it is included in the final dossier |
-| AI interaction log | Drafted; confirm `Decisions/ai-interaction-log.md` is committed |
-| PDF dossier in `Report/` | To add if not yet committed |
-| Tagged `CA1` release | To create if required by the assignment brief |
+| Requirements, use cases, Gherkin, domain model and traceability | Prepared; final consistency check completed before submission |
+| Reflection (Section 11) | Included in the dossier |
+| AI declaration (Section 12) | Included in the dossier |
+| AI interaction log | Saved in `Decisions/ai-interaction-log.md` |
+| Main dossier | Available as `Report/CA1_Analysis_Dossier.md` |
+| Tagged `CA1` release | Create if required by the assignment brief |
+

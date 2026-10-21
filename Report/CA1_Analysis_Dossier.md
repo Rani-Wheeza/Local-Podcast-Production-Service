@@ -680,7 +680,18 @@ The main limitation is that several operational decisions remain unresolved, inc
 
 # 12. AI declaration
 
-*\[To be completed.\]*
+I used ChatGPT throughout the preparation of this requirements and domain analysis dossier as a tool to help me develop, review and improve my work. I found it particularly useful when interpreting Scenario 29, organising the different parts of the analysis and checking whether my requirements, use cases, Gherkin scenarios and domain model were consistent with one another.
+
+One of the main ways I used AI was to discuss parts of the scenario that were unclear or open to interpretation. This helped me think more carefully about the difference between information explicitly stated in the scenario and conclusions that I had drawn from it. For example, during the review of my draft, I identified that I had described some possible consequences as though they were confirmed facts. I revised this by distinguishing between what the scenario actually establishes and what could reasonably happen as a result. I also used AI to help identify questions that would need to be answered by stakeholders before the proposed system could be fully specified.
+
+I also used AI to support the development and presentation of the technical artefacts. This included reviewing the wording and traceability of requirements, refining Gherkin scenarios, identifying candidate domain concepts, and getting guidance on preparing PlantUML diagrams and organising files in the project repository. AI assistance was also useful when structuring the reflection and checking that the different sections of the dossier followed a consistent approach.
+
+However, I did not treat every suggestion as automatically correct or suitable for my assignment. I considered the suggestions against the scenario, the assignment requirements and the analysis I had already completed. Where a suggestion introduced an assumption that was not supported by the scenario, I needed to reconsider it rather than include it as a confirmed requirement or business rule. The final analysis should therefore reflect my own decisions about what the scenario supports, what remains uncertain and what would require further clarification.
+
+I also recognise the limitations of the technical artefacts produced during this work. For example, Cucumber.js recognised the structure of my Gherkin feature file, but the step definitions had not been implemented. The output reported one scenario and five steps as undefined. This means that the feature file's structure was recognised, but the scenarios were not successfully executed as automated tests. I have treated this result accordingly rather than presenting it as evidence that the requirements have passed testing.
+
+A representative record of my AI use is maintained in `Decisions/ai-interaction-log.md`. The log provides examples of the assistance requested and how the output was considered or used. Overall, AI helped me review my work, explore alternative interpretations and improve the presentation of the analysis. I remain responsible for checking the accuracy of the submitted content, understanding the decisions made and ensuring that the final dossier represents a reasoned analysis of Scenario 29.
+
 
 # Appendix A. Repository artefacts
 

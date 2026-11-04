@@ -1,113 +1,27 @@
-# CA1 Analysis: Local Podcast Production Service
+# CA2 – Collaborative Object-Oriented Design
 
-Individual requirements and domain analysis for **Scenario 29: Kerry Community Media Collective** (module SAAD71000, CA1).
+## Kerry Community Media Collective – Local Podcast Production Service
 
-## What this project is
+This repository contains the group's work for CA2, based on the selected Kerry Community Media Collective – Local Podcast Production Service scenario.
 
-Kerry Community Media Collective produces local-interest podcast programmes. Proposals, contributor details, bookings, audio files, review notes and publication information are spread across email, shared folders, calendars and paper consent forms. This makes it difficult to see what stage a programme has reached and what is blocking it from progressing.
+The project builds upon the individual CA1 submissions and will be used to collaboratively develop the system analysis and object-oriented design.
 
-This repository analyses the problem and defines the requirements and conceptual design for a first-release **Production Record System** to coordinate proposals and production records. Audio editing, public streaming, advertising and financial accounting are outside the proposed system's scope.
+### Repository Structure
 
-No working software system is implemented. The project focuses on requirements and domain analysis, including requirements, use cases, behaviour examples and a conceptual domain model.
+- `CA1_Reference/` – Original CA1 submissions and supporting materials.
+- `CA2/` – Working documents and artefacts developed for CA2.
 
-## Start here
+### Collaboration
 
-Start with the analysis dossier in `Report/`. The dossier brings together the analysis in the order required by the assignment brief. The other folders contain the supporting artefacts and editable source files.
+GitHub will be used to manage project files, track tasks, collaborate on design artefacts and document project progress.
 
-## Repository structure
+*Further project details and group decisions will be added as the work progresses.*
 
-```text
-├── README.md
-├── Report/
-│   ├── CA1_Analysis_Dossier.pdf
-│   └── CA1_Analysis_Dossier.md
-├── Requirements/
-│   └── user-stories.md
-├── Features/
-│   └── production_record.feature
-├── Diagrams/
-│   ├── use-case-model.puml
-│   ├── use-case-model.png
-│   ├── domain-model.puml
-│   └── domain-model.png
-├── Decisions/
-│   ├── decision-log.md
-│   └── ai-interaction-log.md
-├── References/
-│   └── references.md
-└── Documentation/
-    └── Supporting assessment documentation
-```
+**Group Members:** 
 
-*The tree shows the intended organisation. Verify that each listed file exists in the repository before submission.*
+1. Rani Wheeza
+2. Jan Arno Coetzer
+3. Tsubasa Hirose
+4. Jack O Mahoney
 
-## Repository guide
-
-| Location | Contents |
-|---|---|
-| `Report/` | Integrated analysis dossier in Markdown and PDF formats, where available. |
-| `Requirements/` | User-story backlog and requirements artefacts. |
-| `Features/production_record.feature` | Gherkin feature file containing scenarios GS1–GS5. |
-| `Diagrams/` | PlantUML source files and exported images for the use-case and domain models. |
-| `Decisions/decision-log.md` | Analysis decisions, alternatives and rationale, if maintained as a separate file. |
-| `Decisions/ai-interaction-log.md` | Representative record of AI assistance, referenced in Section 12 of the dossier. |
-| `References/references.md` | Sources and tools used during the analysis. |
-| `Documentation/` | Supporting assessment documentation, where included. |
-
-## Summary of the analysis
-
-The dossier covers the following analysis artefacts. Verify the counts against the final versions before submission.
-
-- **Requirements:** 12 functional requirements (FR1–FR12) and four non-functional requirements (NFR1–NFR4).
-- **Use cases:** 11 use cases (UC1–UC11), with UC2 (record a proposal decision) specified in detail.
-- **Domain model:** 15 candidate conceptual classes.
-- **Open questions:** 13 clarification questions (Q1–Q13) and 13 assumptions (A1–A13), distinguished from facts confirmed by the scenario.
-- **Behaviour examples:** Five Gherkin scenarios (GS1–GS5).
-
-## Identifiers
-
-Identifiers are used to maintain traceability between the analysis artefacts.
-
-| Prefix | Meaning | Prefix | Meaning |
-|---|---|---|---|
-| P | Problem | UC | Use case |
-| S | Scope item | GS | Gherkin scenario |
-| G | Actor goal | US | User story |
-| FR / NFR | Functional / non-functional requirement | BR | Business rule |
-| C | Constraint | A | Assumption |
-| R | Risk | Q | Clarification question |
-| D | Decision | | |
-
-## Evidence and uncertainty
-
-The dossier distinguishes between **confirmed** facts stated in the scenario, **inferred** consequences and **assumptions** that remain subject to confirmation. Where the scenario leaves a policy unresolved, such as what constitutes a significant change, the analysis records a clarification question rather than inventing a definite rule.
-
-## Rendering the diagrams
-
-The `.puml` files are the editable sources for the diagrams. They can be opened using the [PlantUML online editor](https://editor.plantuml.com/) or a compatible editor or IDE plugin.
-
-## Checking the Gherkin
-
-The feature file is located at `Features/production_record.feature`. It contains five behaviour scenarios intended to illustrate proposal decisions, draft readiness and publication-date changes.
-
-Cucumber.js recognised the feature structure, but the recorded test output reported one scenario and five steps as undefined because step definitions had not been implemented. This confirms recognition of the Gherkin structure, not successful execution of automated tests against a working system.
-
-## Working history
-
-The Git commit history records changes made during the development of the analysis. See the repository's commit history for the recorded revisions.
-
-## AI use
-
-AI assistance was used during the analysis and preparation of the dossier. This use is described in Section 12 of the report, with representative interactions recorded in `Decisions/ai-interaction-log.md`.
-
-## Project status
-
-| Item | Status |
-|---|---|
-| Requirements, use cases, Gherkin, domain model and traceability | Prepared; final consistency check completed before submission |
-| Reflection (Section 11) | Included in the dossier |
-| AI declaration (Section 12) | Included in the dossier |
-| AI interaction log | Saved in `Decisions/ai-interaction-log.md` |
-| Main dossier | Available as `Report/CA1_Analysis_Dossier.md` |
-| Tagged `CA1` release | Create if required by the assignment brief |
-
+**Module:** Software Analysis and Design

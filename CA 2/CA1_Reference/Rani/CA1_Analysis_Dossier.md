@@ -2,7 +2,7 @@
 
 Scenario 29: Local Podcast Production Service (Kerry Community Media Collective)
 
-Module SAAD71000 \| Student name and number: \[Rani Wheeza -T00244793\] \| Repository link: \[[Local Podcast Production Service](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service.git)\]
+Module SAAD71000 \| Student name and number: \[Rani Wheeza \] \| Repository link: \[[Local Podcast Production Service](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service.git)\]
 
 ## Contents and conventions
 

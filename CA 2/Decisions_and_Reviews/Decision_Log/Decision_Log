@@ -1,0 +1,73 @@
+# Group Decision Log (CA2)
+
+Short dated records of significant group decisions. Each entry states the context, the decision, the reasoning and the consequences.
+
+**Status values:** Proposed (drafted, not yet agreed) · Agreed (confirmed by the group) · Superseded (replaced by a later decision)
+
+Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier and the reconciliation record.
+
+| ID | Date | Title | Status |
+|---|---|---|---|
+| DEC-01 | _02/11/26_ | Scenario 29 selected for CA2 | Agreed (lecturer approved) |
+| DEC-02 | _02/11/26_ | GitHub Projects used as the group board | Proposed |
+| DEC-03 | _04/11/26_ | Scope changes from lecturer instructions | Agreed (lecturer instruction) |
+| DEC-04 | _09/11/26_ | Reconciliation decisions recorded separately | Proposed |
+
+---
+
+## DEC-01: Scenario 29 selected for CA2
+
+- **Date:** _02/11/26_ · Lecturer approval: _02/11/26_
+- **Context:** Each member proposed their CA1 scenario: 29 Local Podcast Production Service (Rani), 31 KETCo (Arno), 11 Atlantic Edge Experiences (Jack) and 36 Banking Operations (Tsubasa). The group compared them against scope, behavioural richness, OO potential, sliceability, testability and comparability.
+- **Decision:** Scenario 29, Local Podcast Production Service, is the basis for all CA2 work.
+- **Reasoning:** It has a clear and manageable boundary, connected workflows with alternative outcomes (decisions, reviews, corrections) and well-defined domain concepts. See the scenario suitability matrix.
+- **Rejected alternatives:** Scenarios 31, 11 and 36. Reasons are recorded in the matrix.
+- **Consequences:** All CA2 artefacts build on the Scenario 29 analysis. The other three CA1s are used for method, not content (reconciliation record, RD-14).
+- **Evidence:** `Group_Documents/Scenario_Suitability_Matrix/` · issue #2
+
+## DEC-02: GitHub Projects used as the group board
+
+- **Date:** _02/11/26_
+- **Context:** The brief names Trello or Microsoft Planner for the board. It also allows the authoritative backlog to be kept in GitHub Issues.
+- **Decision:** Use GitHub Projects (kanban) with every backlog item as a GitHub issue, instead of Trello or Planner.
+- **Reasoning:** Keeping the board, issues, commits and pull requests in one place lets each commit link to its card through the issue number. This makes progress and review easier to trace, and avoids keeping two tools in step.
+- **Rejected alternatives:** Trello or Planner mirrored from GitHub Issues. Rejected because keeping two tools synchronised adds work without adding evidence.
+- **Consequences:** Board columns follow the brief: Backlog, Ready, In Progress, Peer Review, Blocked, Done. Commit messages reference issue numbers, for example `(#6)`. Board captures are exported for submission. _Confirm with the lecturer that this is acceptable._
+- **Evidence:** Project board · issue #5
+
+## DEC-03: Scope changes from lecturer instructions
+
+- **Date:** _04/11/26_
+- **Context:** After scenario approval, the lecturer changed the assessment.
+- **Decision:** The group follows these instructions:
+  1. CA3 will not run, so no CA3 slice specifications are produced.
+  2. Four artefacts are removed from CA2: architecture and integration contract, CA3 slice specifications, technology decision record, and project and contribution evidence.
+  3. CA2 is now worth 30% of the module instead of 15%.
+- **Reasoning:** Lecturer instruction.
+- **Consequences:** The backlog card for architecture and integration contracts was deleted, and contribution evidence was removed from the walkthrough card. The implementation catalogue is ordered by value, dependency and risk instead of CA3 slices. The `Architecture/Integration_Contracts/` and `Individual_Contributions/` folders are no longer needed. _Ask the lecturer how the rubric marks for the removed artefacts are redistributed._
+- **Evidence:** Reconciliation record, Section 3 (L2–L4)
+
+## DEC-04: Reconciliation decisions recorded separately
+
+- **Date:** _09/11/26_
+- **Context:** Reconciling the CA1 analyses produced 19 decisions (RD-01 to RD-19), including corrections to the Scenario 29 analysis.
+- **Decision:** The reconciliation record holds the RD decisions in full. This log does not repeat them. Once the group agrees them, add one line here: "RD-01 to RD-19 agreed on _11/11/26_, except _changes_."
+- **Reasoning:** Avoids two copies of the same decisions drifting apart.
+- **Consequences:** CA1 decisions D1, D2, D4, D5, D6, D8 and D10 carry forward (RD-03). From now on, new design decisions are logged here, for example controller choice, responsibility allocation and changes to the domain model.
+- **Evidence:** `Group_Documents/Reconciliation_Record/CA1_Reconciliation_Record.md` · issue #6
+
+---
+
+## Template for new entries
+
+```markdown
+## DEC-NN: Title
+
+- **Date:**
+- **Context:**
+- **Decision:**
+- **Reasoning:**
+- **Rejected alternatives:**
+- **Consequences:**
+- **Evidence:** (file path, issue number)
+```

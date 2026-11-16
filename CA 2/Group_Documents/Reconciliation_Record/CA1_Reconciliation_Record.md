@@ -2,8 +2,8 @@
 
 **Scenario:** 29 Local Podcast Production Service (Kerry Community Media Collective)
 **Board item:** Create reconciliation and expansion record
-**Status:** Draft for group review. Every decision below is *Proposed* until the group agrees it and records the meeting in Section 8.
-**Prepared by:** Rani | **Reviewer:** Arno, Jack, Tsubasa
+**Status:** Final. All decisions agreed by the group (Section 8). RD-06 and RD-08 were revised after peer review on issue #6.
+**Prepared by:** Rani | **Reviewer:** Tsubasa
 
 ## 1. Purpose
 
@@ -51,7 +51,7 @@ The four CA1s analyse **different scenarios**, so their requirements and domain 
 | Arno | 31 KETCo | Requirements and business architecture specification | Status rules tied to recorded decisions; sequential version numbers for reports | Yes, RD-12 |
 | Tsubasa | 36 Banking | Requirements and domain analysis dossier | Evidence vs uncertainty register; approval and post-change review workflows | Partly, RD-13 |
 
-_Each member: confirm or correct your own row before this record is approved._
+Each member confirmed their own row on _13/11/26_.
 
 ## 5. Reconciliation decisions
 
@@ -77,9 +77,9 @@ Decision types: **Accepted** (kept unchanged), **Changed** (kept but corrected),
 
 | ID | From | Item | Decision | Affects | Status |
 |---|---|---|---|---|---|
-| RD-11 | Jack | Two-column actor/system use-case format with named alternative scenarios | Adopt for all detailed use cases in the baseline. The actor/system split maps directly onto SSD messages and returns. | Baseline, SSDs | Proposed |
-| RD-12 | Arno | Sequential version numbers for reports | Add `versionNumber` to `Draft`, sequential per episode. This gives each draft a stable identifier (FR7) without deciding how versions relate, which stays open under Q4. | Domain model, DCD, FR7 | Proposed |
-| RD-13 | Tsubasa | Evidence vs uncertainty register | The Scenario 29 CA1 already separates known evidence from uncertainty (Section 1.5), so no new artefact. Approval and review workflows from Scenario 36 are noted as a comparison for UC2 and UC8 design. | None | Proposed |
+| RD-11 | Jack | Two-column actor/system use-case format with named alternative scenarios | Adopt for all detailed use cases in the baseline. The actor/system split maps directly onto SSD messages and returns. | Baseline, SSDs | Agreed |
+| RD-12 | Arno | Sequential version numbers for reports | Add `versionNumber` to `Draft`, sequential per episode. This gives each draft a stable identifier (FR7) without deciding how versions relate, which stays open under Q4. | Domain model, DCD, FR7 | Agreed |
+| RD-13 | Tsubasa | Evidence vs uncertainty register | The Scenario 29 CA1 already separates known evidence from uncertainty (Section 1.5), so no new artefact. Approval and review workflows from Scenario 36 are noted as a comparison for UC2 and UC8 design. | None | Agreed |
 
 ### 5.3 Rejected
 
@@ -112,21 +112,24 @@ The baseline is the Scenario 29 CA1 analysis with these changes applied:
 
 ## 7. New clarification questions
 
-These continue the CA1 numbering (Q1–Q13).
+These continue the CA1 numbering (Q1–Q13). The brief asks for questions to be recorded, and the group resolved both with design assumptions that can be reversed if the lecturer or an expansion brief says otherwise.
 
-| ID | Question | Raised by | Affects |
-|---|---|---|---|
-| Q14 | Is "contributor confirmation" in BR5 the same as consent, or a separate confirmation (for example, of credit or content)? | RD-05 | BR5, Consent, Contribution |
-| Q15 | Which editorial decisions block a draft: an unresolved returned or postponed review, or something else? | RD-06 | BR5, UC8 |
-| Q16 | Is a lecturer expansion brief expected, and by when? | L5 | Whole baseline |
+| ID | Question | Raised by | Resolution | Affects |
+|---|---|---|---|---|
+| Q14 | Is "contributor confirmation" in BR5 the same as consent, or a separate confirmation (for example, of credit or content)? | RD-05 | Resolved by group decision (DEC-05): treated as consent. | BR5, Consent, Contribution |
+| Q15 | Which editorial decisions block a draft? | RD-06 | Resolved by group decision (DEC-05): only a draft returned for changes and not yet reviewed again. | BR5, UC8 |
+
+Both questions are carried into the analysis baseline's clarification-question register.
 
 ## 8. Group agreement
 
 | Item | Record |
 |---|---|
-| Meeting date | _date_ |
-| Members present | _names_ |
-| Decisions agreed | _list RD numbers_ |
-| Decisions changed at the meeting | _RD number and what changed_ |
-| Reviewer sign-off | _name, date_ |
-| Board item moved to Done | _date_ |
+| Peer review | Section D decisions reviewed on issue #6 by _Tsubasa_ on _13/11/26_. RD-06 and RD-08 revised; reviewer confirmed the changes. Other proposals agreed. |
+| Meeting date | _13/11/26_ |
+| Members present | Rani, Arno, Jack, Tsubasa |
+| Decisions agreed | RD-01 to RD-19 |
+| Decisions changed | RD-06 (narrowed to a draft returned for changes and not reviewed again) and RD-08 (changed to assumption A14, linked to Q6), both after peer review |
+| Open questions | Q14 and Q15 resolved by group decision (DEC-05) |
+| Reviewer sign-off | _Tsubasa, 16/11/26_ |
+| Board item moved to Done | _16/11/26_ |

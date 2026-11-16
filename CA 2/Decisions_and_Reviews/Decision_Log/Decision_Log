@@ -56,6 +56,18 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Consequences:** CA1 decisions D1, D2, D4, D5, D6, D8 and D10 carry forward (RD-03). From now on, new design decisions are logged here, for example controller choice, responsibility allocation and changes to the domain model.
 - **Evidence:** `Group_Documents/Reconciliation_Record/CA1_Reconciliation_Record.md` · issue #6
 
+## DEC-05: Q14 and Q15 resolved by group decision
+
+- **Date:** _13/11/26_
+- **Context:** Reconciliation found two gaps in the scenario. BR5 says a draft can be blocked by an outstanding "contributor confirmation" (Q14) or "editorial decision" (Q15), and the scenario defines neither. The brief asks for questions to be recorded; it does not require them to be sent to the lecturer.
+- **Decision:** The group adopts two design assumptions instead of waiting for an answer:
+  1. Contributor confirmation means an outstanding Consent for a Contribution on the draft's episode (RD-05).
+  2. An editorial decision is outstanding only when a draft was returned for changes and has not been reviewed again (RD-06). An unreviewed or postponed draft is not shown as Blocked, but it cannot be published without approval.
+- **Reasoning:** Both readings fit the existing domain model and business rules, so no new class or policy is invented. The design can go ahead without depending on an external answer.
+- **Rejected alternatives:** Waiting for lecturer clarification before designing UC8. Rejected because it would block the design work, and the assumptions are easy to reverse.
+- **Consequences:** BR5 and the glossary are reworded in the analysis baseline. Q14 and Q15 stay in the clarification-question register marked as resolved by this decision. Revisit if the lecturer or an expansion brief says otherwise.
+- **Evidence:** Reconciliation record, RD-05, RD-06 and Section 7 · issue #6
+
 ---
 
 ## Template for new entries

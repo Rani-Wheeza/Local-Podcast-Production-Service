@@ -1,6 +1,6 @@
-# Scenario suitability matrix (CA2)(draft)
+# Scenario suitability matrix (CA2)
 
-Status: draft template. Summaries come from the scenario documents. Evaluation cells and selection reasons are left blank for the group to decide.
+**Status:** Final. Ratings and selection agreed by the group; selection approved by the lecturer (Section 6).
 
 ## 1. Scenarios proposed by each member
 The following table summarises the four scenarios originally proposed by the group members in CA1. These summaries are based on the supplied scenario documents and analysis artefacts.
@@ -9,21 +9,18 @@ The following table summarises the four scenarios originally proposed by the gro
 |---|---|---|---|
 | Rani | 29 Local Podcast Production Service | Kerry Community Media Collective | A small media collective produces local podcast programmes. Proposals, contributor details, consent, audio files, review notes and publication information are spread across email, folders, calendars and paper forms. The system would coordinate proposals and production records: proposal decisions, contributors and consent, recording sessions, source recordings and drafts, draft review, publication and corrections. Audio editing, streaming, advertising and accounting are out of scope. |
 | Tsubasa | 36 Banking Operations Change and Incident Service | Atlantic International Banking Services, Tralee Office | An internal banking operations office coordinates planned service changes and investigates operational incidents. Requests, approvals, plans, incident updates and review evidence are spread across email, spreadsheets, tickets and chat. The system would coordinate change requests and approvals, scheduling and dependencies, implementation outcomes, incidents, status communication and post-change or post-incident reviews. Customer account processing, trading, transaction authorisation, fraud decisions and detailed cybersecurity are out of scope. |
-| Arno | 31 KETCo Unified Digital Platform | KETCo Unified Digital Platform | KETCo operates a laboratory that tests water and soil samples for local and rural stakeholders. Its existing processes rely on paper forms, spreadsheets and emails to manage sample requests, collection information, intake checks, laboratory assignments, testing and reporting. The proposed platform would centralise sample management, chain-of-custody records, test assignments, measurements, equipment checks and report management. |
+| Arno | 31 Environmental Sample Testing Service (KETCo Unified Digital Platform) | Kerry Environmental Testing Cooperative (KETCo) | KETCo operates a laboratory that tests water and soil samples for local and rural stakeholders. Its existing processes rely on paper forms, spreadsheets and emails to manage sample requests, collection information, intake checks, laboratory assignments, testing and reporting. The proposed platform would centralise sample management, chain-of-custody records, test assignments, measurements, equipment checks and report management. |
 | Jack | 11 Atlantic Edge Experiences | Atlantic Edge Experiences | An outdoor activity provider offering guided kayaking, coastal walking and introductory outdoor activities along the Wild Atlantic Way. The proposed system would coordinate bookings, participant information, instructor schedules, equipment readiness and activity sessions. Its purpose is to improve the management of activity operations and the recording of session outcomes and disruptions. |
 
 ## 2. Evaluation against the CA2 criteria
-Each scenario will be evaluated against the same six criteria identified in the CA2 brief.
+Each scenario was evaluated against the same six criteria identified in the CA2 brief, using one rating scale:
 
-A consistent rating scale will be used:
-
--**High:** Strong evidence that the scenario satisfies the criterion.
+- **High:** Strong evidence that the scenario satisfies the criterion.
 
 - **Medium:** The scenario satisfies the criterion, but some limitations or uncertainties exist.
 
 - **Low:** Significant limitations affect the scenario's suitability against the criterion.
 
-The ratings below are preliminary assessments and are subject to group review.
 
 
 | Criterion            | What to check                                                                                       | Rani – Podcast | Arno – KETCo | Jack – Atlantic Edge | Tsubasa – Banking |
@@ -36,9 +33,7 @@ The ratings below are preliminary assessments and are subject to group review.
 | Comparability        | Is there sufficient information to evaluate the scenario consistently against the other candidates? | High           | High         | Medium               | High              |
 
 
-# 3. Reasons for each rating
-
-The following explanations provide the initial reasoning behind the proposed ratings. They should be reviewed by the group before the ratings are finalised.
+## 3. Reasons for each rating
 
 ### 3.1 Scope
 
@@ -62,7 +57,7 @@ The following explanations provide the initial reasoning behind the proposed rat
 
 | Scenario             | Rating | Reason                                                                                                                                                                                                                                                     |
 | -------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rani – Podcast       | High   | The scenario provides identifiable domain concepts such as Proposal, Episode, ProposalDecision, Contributor, Consent, RecordingSession, SourceRecording, Draft, Review and Publication. These concepts have meaningful relationships and responsibilities. |
+| Rani – Podcast       | High   | The scenario provides identifiable domain concepts such as Proposal, Episode, ProposalDecision, Contributor, Consent, RecordingSession, SourceRecording, Draft, Permission, DraftReview, Publication and Correction. These concepts have meaningful relationships and responsibilities. |
 | Arno – KETCo         | High   | The scenario contains domain concepts relating to sample requests, samples, sample tracking, custody records, test assignments, analysts, instruments, measurements and reports. These provide opportunities for modelling objects and relationships.      |
 | Jack – Atlantic Edge | High   | The scenario includes concepts such as Activity, Session, Booking, Participant, Instructor, Equipment, EquipmentInspection, ReadinessCheck and Incident. These concepts have identifiable relationships within the activity-management process.            |
 | Tsubasa – Banking    | High   | The scenario includes concepts such as ChangeRequest, Approval, Service, ImplementationWindow, ImplementationOutcome, Incident and Review. These provide opportunities to assign responsibilities and model relationships.                                 |
@@ -115,7 +110,7 @@ The comparison indicates that each candidate has strengths, but they differ in s
 
 The group selected the Local Podcast Production Service proposed by Rani.
 
-The following points provide the proposed justification for the selection:
+The selection is justified as follows:
 
 1. **Clear organisational problem:** Production information is distributed across emails, shared folders, calendars and paper forms. This creates difficulties tracking proposals, contributors, recording sessions, reviews and publication.
 
@@ -129,6 +124,8 @@ The following points provide the proposed justification for the selection:
 
 6. **Suitable for collaborative analysis and design:** The production process can be examined through four related areas: proposal management; contributors and consent; recording and draft management; and review and publication.
 
+**Deciding factor.** The ratings are close: all four scenarios rate High on behavioural richness, OO potential and testability. Scenario 29 and Scenario 11 had the strongest overall profiles. Scenario 29 was preferred because its CA1 analysis was already consolidated into one dossier with traceability, business rules, Gherkin and a domain model, so it could serve as the analysis baseline with the least rework. This is reflected in the Scope and Comparability ratings.
+
 The group considered the scenario suitable for the remaining CA2 analysis and design work. The lecturer subsequently approved the selection.
 
 ## 6. Group decision and approval record
@@ -138,21 +135,11 @@ The group considered the scenario suitable for the remaining CA2 analysis and de
 | Selected scenario             | Scenario 29 – Local Podcast Production Service |
 | Organisation                  | Kerry Community Media Collective               |
 | Proposed by                   | Rani                                           |
-| Group decision                | Selected – meeting confirmation to be recorded |
-| Lecturer approval             | Approved                                       |
-| CA3 slices and implementation | Excluded following lecturer approval           |
-| Date of group decision        | To be completed                                |
-| Date of lecturer approval     | To be completed                                |
-| Group members present         | To be completed                                |
-
-### Outstanding actions
-
-- [ ] All four members review the scenario summaries.
-- [ ] All four members review and agree on the evaluation criteria.
-- [ ] Review and confirm the provisional ratings.
-- [ ] Agree on the final selection justification.
-- [ ] Record the group meeting and decision.
-- [ ] Record the lecturer's approval and any additional instructions, if provided.
+| Group decision                | Selected                                       |
+| CA3 slices and implementation | Removed by lecturer instruction (DEC-03)       |
+| Date of group decision        | _16/11/26_                                     |
+| Group members present         | Rani, Arno, Jack, Tsubasa                      |
+| Decision record               | DEC-01 in the group decision log               |
 
 ## 7. Conclusion
 
@@ -160,8 +147,4 @@ The comparison demonstrates that all four proposed scenarios have potential for 
 
 The Local Podcast Production Service was selected because it offers a clear organisational problem, a manageable system boundary, connected business workflows and meaningful domain concepts.
 
-The completed matrix and supporting decision record will form part of the group's CA2 scenario evaluation evidence.
-
----
-
-**Document status:** Draft for group review. The ratings, evaluation explanations and meeting records require group confirmation before being treated as final.
+The completed matrix and decision record DEC-01 form the group's CA2 scenario evaluation evidence.

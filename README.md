@@ -6,6 +6,15 @@ This repository contains the group's work for CA2, based on the selected Kerry C
 
 The project builds upon the individual CA1 submissions and will be used to collaboratively develop the system analysis and object-oriented design.
 
+## Product Goal
+
+Give Kerry Community Media Collective one reliable production record, so that staff can see
+where every programme stands, from proposal through publication to any later correction, and
+what is blocking it, while editorial notes and sensitive contributor information stay
+restricted by role.
+
+See [`CA 2/Group_Documents/Product_Goal/product-goal.md`](CA%202/Group_Documents/Product_Goal/product-goal.md).
+
 ### Repository Structure
 
 - `CA1_Reference/` – Original CA1 submissions and supporting materials.

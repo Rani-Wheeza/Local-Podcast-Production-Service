@@ -1,0 +1,145 @@
+@startuml domain-model
+' Refined domain model (CA2) - Scenario 29 Local Podcast Production Service
+' Changes from CA1: RD-04 (Draft status values, Blocked derived),
+'                   RD-07 (DraftReview is for PublicationChannel),
+'                   RD-12 (Draft.versionNumber)
+title Refined Domain Model - Production Record System (CA2)
+
+hide circle
+hide methods
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+class PartnerOrganisation {
+  name
+}
+
+class Proposal {
+  subject
+  intendedAudience
+  format
+  expectedDuration
+  preferredPublicationPeriod
+  programmeType
+  proposedBy
+}
+
+class ProposalDecision {
+  outcome
+  decisionDate
+  conditions
+  decidedBy
+}
+
+class Episode {
+  title
+  description
+}
+
+class Contributor {
+  name
+  contactPreference
+  availability
+}
+
+class Contribution {
+  role
+  agreedCredit
+}
+
+class Consent {
+  form
+  intendedUse
+  dateGiven
+}
+
+class RecordingSession {
+  date
+  locationType
+  locationDescription
+  equipmentNeeded
+}
+
+class SourceRecording {
+  workingName
+  usabilityNote
+}
+
+class Draft {
+  versionNumber
+  versionDescription
+  status
+}
+
+class Permission {
+  materialDescription
+  materialSource
+  permittedUse
+  status
+}
+
+class DraftReview {
+  outcome
+  reviewDate
+  reviewedBy
+  comments
+}
+
+class Publication {
+  scheduledDate
+  actualDate
+  reasonForDateChange
+}
+
+class PublicationChannel {
+  name
+}
+
+class Correction {
+  type
+  reason
+  correctionDate
+}
+
+PartnerOrganisation "0..1" -- "0..*" Proposal : proposes >
+Proposal "1" -- "1..*" Episode : plans >
+Proposal "1" -- "0..*" ProposalDecision : receives >
+Proposal "0..*" -- "0..*" Contributor : names as proposed >
+
+Contributor "1" -- "0..*" Contribution : makes >
+Episode "1" -- "0..*" Contribution : involves >
+Contribution "1" -- "0..*" Consent : is covered by >
+
+Episode "1" -- "0..*" RecordingSession : is recorded in >
+RecordingSession "1" -- "0..*" SourceRecording : produces >
+Episode "1" -- "0..*" Draft : is edited into >
+Draft "0..*" -- "1..*" SourceRecording : draws on >
+
+Permission "0..*" -- "1..*" Draft : is needed by >
+Draft "1" -- "0..*" DraftReview : is reviewed in >
+DraftReview "0..*" -- "1" PublicationChannel : is for >
+
+Draft "1" -- "0..*" Publication : is released as >
+PublicationChannel "1" -- "0..*" Publication : carries >
+
+Publication "1" -- "0..*" Correction : is amended by >
+Correction "0..1" -- "0..1" Draft : introduces replacement >
+
+note bottom of Draft
+  status: awaiting review | returned for changes |
+  postponed | withdrawn | approved (RD-04).
+  "Approved version" is a status, not a class (A11).
+  Blocked and ready to be scheduled are derived,
+  not stored (BR5, RD-04).
+  versionNumber is sequential per episode (RD-12).
+end note
+
+note right of DraftReview
+  Approval applies per channel (A9, RD-07).
+end note
+
+note bottom of Correction
+  A replacement Draft is reviewed through
+  UC8 before publication (A14, Q6 open).
+end note
+@enduml

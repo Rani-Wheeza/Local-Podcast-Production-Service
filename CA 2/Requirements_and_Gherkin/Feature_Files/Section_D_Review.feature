@@ -45,7 +45,7 @@ Feature: Review, publication and correction
       When the authorised editor records the outcome "returned for changes" with the comment "shorten the introduction"
       Then the draft is shown as returned for changes
       And the comment, the editor's name and the date are kept against that draft
-      And the draft is shown as blocked
+      And the draft is shown as blocked by an outstanding editorial decision
       And the draft is not shown as approved
       And the draft is not shown as ready to be scheduled
 

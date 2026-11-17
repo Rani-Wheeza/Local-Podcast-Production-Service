@@ -71,7 +71,7 @@ The Production Record System gives Kerry Community Media Collective a single, re
 
 Dependencies are things outside the system that it relies on: the public channels where episodes are published; the existing email, calendars and shared folders where audio and some documents will continue to live; paper consent forms; editors and authorised reviewers whose decisions drive status; partners and contributors who supply information; and staff and volunteers, who must keep the record current or it becomes incomplete.
 
-Constraints (C1 to C5) are stated in the scenario and assumptions (A1 to A13) are temporary. Both are listed separately in Section 5 so that no assumption is read as a confirmed rule.
+Constraints (C1 to C5) are stated in the scenario and assumptions (A1 to A14) are temporary. Both are listed separately in Section 5 so that no assumption is read as a confirmed rule.
 
 ## 2.5 System boundary
 
@@ -266,7 +266,7 @@ Inside the boundary is the Production Record System. Outside are the people who 
 | UC5    | Record a recording session and equipment needs, including any missing item                                                                                                                                                                                            | Production coordinator, with session organiser | G4, G5   | FR6              |
 | UC6    | Record source recordings and draft versions. An approved draft is not assumed to be the version published                                                                                                                                                             | Technical volunteer                            | G6       | FR7              |
 | UC7    | Record permissions for material used                                                                                                                                                                                                                                  | Technical editor                               | G7       | FR8              |
-| UC8    | Review a draft. The authorised editor records the outcome. A draft with an outstanding permission, contributor confirmation or editorial decision is shown as blocked (BR5). A draft with nothing outstanding is not automatically approved; the editor still decides | Authorised editor                              | G8       | FR9, FR8         |
+| UC8    | Review a draft. The authorised editor records the outcome. A draft with an outstanding permission, outstanding consent or outstanding editorial decision (returned for changes and not yet reviewed again) is shown as blocked (BR5, DEC-05). A draft with nothing outstanding is not automatically approved; the editor still decides | Authorised editor                              | G8       | FR9, FR8         |
 | UC9    | Record or change a publication date, keeping the earlier date and the reason                                                                                                                                                                                          | Production coordinator                         | G12      | FR10             |
 | UC10   | Record a post-publication correction or replacement, linked to the original publication and identified as a metadata correction or a new audio version                                                                                                                | Authorised editor                              | G9       | FR11             |
 | UC11   | View the production overview, including proposals with no decision, held proposals and what is blocking each draft                                                                                                                                                    | Production coordinator                         | G3       | FR12             |
@@ -319,20 +319,23 @@ Chosen because it addresses the scenario's clearest problem: a friendly conversa
 | Postconditions               | Success: decision, date, person and conditions are kept; earlier decisions stay on record; a proposal with a recorded decision no longer shows as having none; a held proposal remains visible as held. Abandoned (E3): nothing changes                                                                                                                                                                                                                                                                                                                                               |
 | Related items                | FR3, FR12, S1, G1, BR1, BR2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Open points                  | Who may record a decision for each programme type or channel is unresolved (Q5), so no rule is assumed. Whether a reason is required for rejection, or a period for a hold, is not stated, so both are optional                                                                                                                                                                                                                                                                                                                                                                       |
-
 # 7. Gherkin
 
-The CA1 scenarios GS1 to GS5 are kept with their identifiers. Each section adds scenarios for its use cases in its own feature file, tagged `@FRx @UCx @BRx` and a case type (`@success`, `@alternative`, `@failure`, `@boundary`).
+The CA1 scenarios GS1 to GS5 are kept with their identifiers. Each section adds scenarios for its use cases in its own feature file, tagged `@FRx @UCx @BRx` and a case type (`@success`, `@alternative`, `@failure`, `@boundary`), plus its scenario number (for example `@GS10`).
 
 | Feature file | Section | Use cases | Scenario numbers |
 |---|---|---|---|
 | `CA 1/Features/production_record.feature` | CA1 baseline | UC2, UC8, UC9, UC11 | GS1–GS5 |
-| `Feature_Files/Section_A_Proposal.feature` | A – Proposal management | UC1, UC2 | _agree at group meeting_ |
-| `Feature_Files/Section_B_Contributors.feature` | B – Contributors and consent | UC3, UC4 | _agree at group meeting_ |
-| `Feature_Files/Section_C_Recording.feature` | C – Recording and drafts | UC5, UC6, UC7 | _agree at group meeting_ |
-| `Feature_Files/Section_D_Review.feature` | D – Review and publication | UC8, UC9, UC10 | GS30–GS36 |
+| `Feature_Files/Section_A_Proposal.feature` | A – Proposal management | UC1, UC2 | GS10–GS19 |
+| `Feature_Files/Section_B_Contributors.feature` | B – Contributors and consent | UC3, UC4 | GS20–GS29 |
+| `Feature_Files/Section_D_Review.feature` | D – Review and publication | UC8, UC9, UC10 | GS30–GS39 |
+| `Feature_Files/Section_C_Recording.feature` | C – Recording and drafts | UC5, UC6, UC7 | GS40–GS49 |
 
-Priority gaps carried from CA1: FR1, FR2, FR4, FR5, FR6, FR7 and FR11 had no scenario. FR5 (consent) is first (RD-09). Scenarios must use the terms in Section 8, especially Blocked, awaiting review and ready to be scheduled.
+Scenario number blocks were agreed by the group so the feature files can be merged without clashes. A section that needs more than ten scenarios asks the group for a further block.
+
+Gaps carried from CA1: FR1, FR2, FR4, FR5, FR6 and FR7 had no scenario. FR1 and FR2 belong to Section A, FR4 and FR5 to Section B, and FR6 and FR7 to Section C. FR5 (consent) is first (RD-09). FR11 is now covered by GS35 and GS36 in Section D.
+
+Scenarios must use the terms in Section 8, especially Blocked, awaiting review and ready to be scheduled.
 
 # 8. Glossary
 

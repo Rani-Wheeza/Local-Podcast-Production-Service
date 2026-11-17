@@ -39,12 +39,13 @@ Feature: Review, publication and correction
       And the draft is not shown as approved
       And the draft is not shown as ready to be scheduled
 
-    @FR9 @UC8 @BR4 @alternative @GS31
+    @FR9 @UC8 @BR4 @BR5 @alternative @GS31
     Scenario: Authorised editor returns a draft for changes
       Given the draft "Episode 2: The Last Currach Builder" is awaiting review
       When the authorised editor records the outcome "returned for changes" with the comment "shorten the introduction"
       Then the draft is shown as returned for changes
       And the comment, the editor's name and the date are kept against that draft
+      And the draft is shown as blocked
       And the draft is not shown as approved
       And the draft is not shown as ready to be scheduled
 

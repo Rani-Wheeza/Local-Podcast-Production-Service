@@ -34,9 +34,9 @@ S6, S8 and S9 are the scope items for these use cases (ED10).
 | Recording a proposal and its editorial decision | Section A | UC2 records the proposal decision. UC8 starts at review of a draft (ED26, ED27). |
 | Creating and versioning drafts | Section C | UC6 records source recordings and draft versions. An approved draft is not assumed to be the version published (ED26). |
 | Recording contributor consent | Section B | UC4 records consent. The Section D scenarios read whether consent is confirmed. They do not record it (ED26). |
-| Recording permissions for material | No section is assigned | UC7 and FR8. The technical editor records permission for music, archive clips and external material (ED18, ED26). Section D does not record the permission. GS3, GS4 and GS30 only read whether it is outstanding. |
-| The production overview | No section is assigned | UC11 and FR12 list several overview categories (ED19, ED26). GS4 shows one blocked draft. This section adds no overview scenario. |
-| Recording contributor concerns before or after publication | Section B / Shared | The scenario notes that a contributor may raise a concern requiring a consistent record of the request and decision. Section D records the resulting editorial outcome if a draft is withdrawn (GS33) or corrected post-publication (GS35, GS36), but does not manage contributor correspondence or dispute workflows. |
+| Recording permissions for material | Section C | UC7 and FR8. Section C says record permissions for material used. |
+| The production overview | Shared | UC11 and FR12 list several overview categories (ED19, ED26). GS4 shows one blocked draft. This section adds no overview scenario. |
+| Recording contributor concerns before or after publication | Deferred (RD-17) | The scenario says concerns may be raised and a consistent record is wanted, but gives no process, owner or visibility rule. Building it would invent policy (Q11). Remains deferred (RD-17)  |
 
 ## Requirements Review
 
@@ -60,6 +60,13 @@ The CA1 statements below are summaries, not direct quotations. The decisions dis
 
 FR10 and FR11 remain Should. The dossier gives that priority because the process can still run without them in a first release, while the scenario names a real problem for each (ED20).
 
+### Decision
+| ID | Decision | Reason |
+|---|---|---|
+| UC8 |	Keep | The use case records approval, returned for changes, postponed and withdrawn. A draft returned for changes and not reviewed again is shown as blocked (BR5, DEC-05). The scenarios are GS3, GS4 and GS30 to GS33.|
+| UC9 | Keep	| The use case records the publication date, the channel and the reason for a change. No rule says the system rejects a publication date. The scenarios are GS34 and GS5.|
+| UC10 | Keep | The use case records a correction linked to the original publication, with its type, the person and the date. What happens next stays open (Q6). The scenarios are GS35 and GS36.|
+
 ### Business rules
 
 The review keeps BR3, BR4, BR5 and BR8. The scenarios test specific results from these rules.
@@ -68,14 +75,14 @@ The review keeps BR3, BR4, BR5 and BR8. The scenarios test specific results from
 |---|---|---|---|---|
 | BR3 | An authorised editor reviews a draft, its title, description, credits, permissions and intended channel before publication. | Keep. | The scenario states this rule. GS3 records approval by an authorised editor for one channel. The scenarios do not decide who may approve each programme type or channel. | ED23, ED25 |
 | BR4 | A review outcome is approved, returned for changes, postponed or withdrawn. | Keep. | The scenario states these four outcomes. GS3, GS31, GS32 and GS33 record one each. | ED23, ED15 |
-| BR5 | An outstanding permission, contributor confirmation or editorial decision blocks publication. | Keep. | The scenario states this rule. GS4 shows a technically complete draft not released, and shown as blocked by an outstanding archive-clip permission. The CA1 model states that the draft is not released. It does not state that the system prevents the editor from recording approval while something is outstanding. GS4 does not add that prevention. | ED05, ED23, ED28 |
+| BR5 | An outstanding permission, contributor confirmation or editorial decision blocks publication. | Keep. | The scenario states this rule. GS4 shows a technically complete draft not released, and shown as blocked by an outstanding archive-clip permission. The CA1 model states that the draft is not released. It does not state that the system prevents the editor from recording approval while something is outstanding. GS4 does not add that prevention. GS31 records the outcome "returned for changes". Until that draft is reviewed again, the outstanding editorial decision is shown as blocked (BR5, DEC-05). GS32 and GS33 do not show the draft as blocked.| ED05, ED23, ED28 |
 | BR8 | A metadata correction can be distinguished from a new audio version. | Keep. | The rule is implied. The dossier says how the two differ is not defined. GS35 and GS36 show the recorded type. They do not define the difference beyond that type. | ED06, ED23, ED32 |
 
-GS31, GS32 and GS33 show the draft as not approved and not ready to be scheduled. They do not call that draft blocked. This review does not define which recorded review outcome BR5 means by an outstanding editorial decision.
+GS31, GS32 and GS33 show the draft as not approved and not ready to be scheduled. Only GS31 shows the draft as blocked. GS32 and GS33 do not.
 
 ### Assumptions
 
-The review keeps the four assumptions as assumptions. The scenarios do not confirm them.
+The review keeps the five assumptions as assumptions. The scenarios do not confirm them.
 
 | ID | CA1 statement: summary | Decision | Reason | Evidence |
 |---|---|---|---|---|
@@ -83,6 +90,7 @@ The review keeps the four assumptions as assumptions. The scenarios do not confi
 | A8 | Only an authorised editor records a release decision. | Keep as an assumption. | GS3, GS35 and GS36 use the authorised editor. They do not test another role recording the release. Q5 remains open. | ED24, ED25 |
 | A9 | Approval to publish applies per channel. | Keep as an assumption. | GS3 approves the draft for the "podcast feed" channel, as in the CA1 scenario. The scenario does not test approval for every channel at once, and it does not confirm A9. | ED24, ED30 |
 | A11 | An approved draft is a status of a draft, not a separate item. | Keep as an assumption. | The scenarios show the draft as approved. They do not introduce a separate approved-version item. How versions relate remains Q4. | ED24, ED35 |
+| A14 | If a replacement is modelled as a Draft and then published, it is reviewed through UC8 before publication. | Keep as an assumption. | The baseline records this assumption (RD-08). GS35 and GS36 do not test it. Q6 stays open. | analysis-baseline.md, A14 |
 
 ### Open questions
 
@@ -129,7 +137,7 @@ New scenarios start at GS30. The group must confirm the numbers before the featu
 | GS3: Authorised editor approves a reviewed draft with nothing outstanding | Success | The authorised editor's approval, name and date are recorded for the named channel. The draft is shown as ready to be scheduled. | FR9 | UC8 | BR3 | ED15, ED27, ED30, ED40 |
 | GS4: Technically complete draft blocked by an outstanding permission | Failure | The draft is not released. It is shown as blocked by the outstanding archive-clip permission. | FR8, FR9, FR12 | UC8 | BR5 | ED18, ED19, ED23, ED28 |
 | GS30: A draft with nothing outstanding is not approved automatically | Boundary | With consent confirmed, permission granted and no review outcome, the draft is shown as awaiting review. It is not shown as approved or ready to be scheduled. | FR9 | UC8 | BR3 | ED27, ED28, ED37, ED40 |
-| GS31: Authorised editor returns a draft for changes | Alternative | The outcome "returned for changes", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled. | FR9 | UC8 | BR4 | ED15, ED23, ED37 |
+| GS31: Authorised editor returns a draft for changes| Alternative | The outcome "returned for changes", the comment, the editor's name and the date are kept. The draft is shown as blocked, not approved and not ready to be scheduled. | FR9 | UC8 | BR4, BR5 | ED15, ED23, ED37 |
 | GS32: Authorised editor postpones a draft | Alternative | The outcome "postponed", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled. | FR9 | UC8 | BR4 | ED15, ED23, ED37 |
 | GS33: Authorised editor records a draft as withdrawn | Alternative | The outcome "withdrawn", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled. | FR9 | UC8 | BR4 | ED15, ED23, ED37 |
 | GS34: Publication date and channel are recorded | Success | An approved draft that is ready to be scheduled is shown as scheduled for 14 November on the "podcast feed" channel. | FR10 | UC9 | CA1 states no separate rejection rule for FR10. | ED16, ED27, ED38 |
@@ -142,7 +150,7 @@ New scenarios start at GS30. The group must confirm the numbers before the featu
 - **Requirement wording:** FR8, FR9, FR10, FR11 and FR12 remain unchanged. The scenarios add test coverage.
 - **Identifiers:** GS3, GS4 and GS5 keep their CA1 numbers. The feature file places GS5 after GS34 and states that GS5 keeps its CA1 number.
 - **No automatic approval:** GS30 follows US8 and UC8. A draft with nothing outstanding is not approved until the authorised editor records approval (ED27, ED37, ED40).
-- **Returned, postponed and withdrawn:** These are BR4 outcomes. Each scenario records one outcome. None of them describes a later process.
+- **Returned, postponed and withdrawn:** These are BR4 outcomes. Each scenario records one outcome. None of them describes a later process. Only "returned for changes" is shown as blocked.
 - **Withdrawal request:** Q6 asks how a withdrawal request is handled. GS33 records the review outcome "withdrawn". It does not answer Q6.
 - **Outstanding permission:** GS4 isolates one outstanding archive-clip permission. It does not replace a test for outstanding consent. Section D does not record consent or permission.
 - **Approval while something is outstanding:** The CA1 model does not say the system prevents the editor from recording approval in that case. It says the draft is not released (ED28). GS4 follows that limit.
@@ -165,6 +173,10 @@ The group must resolve the dependencies below before final integration. Until th
 | Later sections | Common terms for blockers and release decisions | A section that adds a blocker or a release scenario must use the same terms as GS3 and GS4. |
 | Scenario numbers | GS30 to GS36 in this feature | The group must confirm that the numbers do not collide before merge. |
 | Common test data | Shared episode titles, channel names and dates | A change to the test data must preserve the behaviour that each scenario tests. |
+
+## SSD（System Sequence Diagram）
+
+## Operation Contract
 
 ## CRC Cards
 

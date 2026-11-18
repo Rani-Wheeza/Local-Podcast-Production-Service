@@ -11,7 +11,7 @@ This section covers recording sessions, source recordings, draft versions and pe
 
 Suggested order, with the recording/draft relationship review before detailed design:
 
-- [ ] #13 Review recording-session and draft requirements
+- [x] #13 Review recording-session and draft requirements
 - [ ] #17 Update relevant Gherkin scenarios
 - [ ] #41 Review relationships between recordings and drafts
 - [ ] #23 Produce SSDs and operation contracts for UC5–UC7
@@ -64,19 +64,19 @@ Check each requirement against the scenario, its source evidence, linked goal/us
 
 | ID | Rule, constraint or assumption | Effect on Section C | Decision or status |
 |---|---|---|---|
-| BR3 | An authorised editor reviews a draft, including its permissions, before publication. |  |  |
-| BR5 | A draft with an outstanding permission, contributor confirmation or editorial decision is blocked from publication. |  |  |
-| C3 | Large audio files are not always practical to upload from outside the studio. |  |  |
-| A1 | The system holds information about audio files, not the audio itself. |  |  |
-| A11 | An approved draft is a status of a draft, not a separate item. |  |  |
-| A12 | Each recording session relates to one episode. |  |  |
+| BR3 | An authorised editor reviews a draft, including its permissions, before publication. | Section C records permissions for the draft. Section D handles the authorised editor's review before publication. This keeps permission tracking separate from the approval decision. | Keep as detailed review is covered by UC8 |
+| BR5 | A draft with an outstanding permission, contributor confirmation or editorial decision is blocked from publication. | Missing permissions or consent can block publication. A draft returned for changes is blocked until it is reviewed again. | Keep |
+| C3 | Large audio files are not always practical to upload from outside the studio. | Avoid assuming large audio files must be uploaded; consider file information or references instead. | Keep|
+| A1 | The system holds information about audio files, not the audio itself. | UC6 stores details about source recordings rather than the audio content itself. | Keep |
+| A11 | An approved draft is a status of a draft, not a separate item. | In UC6, mark an existing Draft as approved rather than creating a separate approved-draft record. | Keep |
+| A12 | Each recording session relates to one episode. | Associate each session with one episode; an episode may have multiple sessions. | Keep |
 
 #### Open questions
 
 | ID | Question | Effect on Section C | Status |
 |---|---|---|---|
-| Q4 | How are source recordings, drafts and approved versions identified and related? |  |  |
-| Q8 | Does the system hold audio files or only references to them? |  |  |
+| Q4 | How are source recordings, drafts and approved versions identified and related? | This affects how UC6 links source recordings to drafts. RD-12 numbers drafts, but their relationships are still undecided. | Carry forward. |
+| Q8 | Does the system hold audio files or only references to them? | This affects whether UC6 stores audio or just keeps track of the files. Until decided, don't design audio storage. | Carry forward. |
 
 These are CA1 open questions; do not treat them as resolved design rules without group agreement.
 

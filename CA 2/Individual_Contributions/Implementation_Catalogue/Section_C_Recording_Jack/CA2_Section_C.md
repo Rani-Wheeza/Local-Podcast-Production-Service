@@ -56,9 +56,9 @@ Check each requirement against the scenario, its source evidence, linked goal/us
 
 | ID | CA1 statement: summary | Priority | CA1 verification | Decision | Reason | Evidence |
 |---|---|---|---|---|---|---|
-| FR6 | Record a session's date, location, required equipment and any required item reported missing. | Should | Record a session needing a recorder, mark one component missing, and check the session shows it. | Keep | Session date, location, equipment needs any missing items to be recorded are shown to be required | S4, G4, G5, UC5; US5 |
-| FR7 | Record source recordings and drafts of an episode, show their relationships, and identify which draft is approved. | Must | Record one session with several files and two drafts; check each draft links to its sources. | Keep | Files are shown to be required to link to sessions and drafts to their source recordings. | S5, G6, UC6; US6 |
-| FR8 | Let the technical editor record permission status for music, archive clips and external material against the draft, and show outstanding permissions. | Must | Record one granted and one outstanding permission on a draft; check the outstanding one is shown. | Keep | Permission status is shown to be required to be recorded against drafts and outstanding permissions need to be visible | S7, G7, UC7; US7 |
+| FR6 | Record a session's date, location, required equipment and any required item reported missing. | Should | Record a session needing a recorder, mark one component missing, and check the session shows it. | Keep | A missing cable, recorder or microphone can stop a session, so staff need to record the required equipment and any missing items (S4, G4, G5). | S4, G4, G5, UC5; US5 |
+| FR7 | Record source recordings and drafts of an episode, show their relationships, and identify which draft is approved. | Must | Record one session with several files and two drafts; check each draft links to its sources. | Keep | Working filenames make the correct source hard to find, and several drafts can exist for one episode, so each draft needs clear source links (S5, G6). | S5, G6, UC6; US6 |
+| FR8 | Let the technical editor record permission status for music, archive clips and external material against the draft, and show outstanding permissions. | Must | Record one granted and one outstanding permission on a draft; check the outstanding one is shown. | Keep | An outstanding permission can block a finished draft, so permission status must be recorded against the draft and made visible (S7, G7). | S7, G7, UC7; US7 |
 
 #### Relevant rules and assumptions
 
@@ -70,17 +70,16 @@ Check each requirement against the scenario, its source evidence, linked goal/us
 | A1 | The system holds information about audio files, not the audio itself. | UC6 stores details about source recordings rather than the audio content itself. | Keep |
 | A11 | An approved draft is a status of a draft, not a separate item. | In UC6, mark an existing Draft as approved rather than creating a separate approved-draft record. | Keep |
 | A12 | Each recording session relates to one episode. | Associate each session with one episode; an episode may have multiple sessions. | Keep |
+| A14 | If a replacement is modelled as a Draft and then published, BR3 applies and it is reviewed through UC8 before publication (Q6 remains open). | If Section C records a replacement draft, its review remains part of UC8 in Section D. | Keep as an assumption; do not resolve Q6 here. |
 
 #### Open questions
 
 | ID | Question | Effect on Section C | Status |
 |---|---|---|---|
 | Q4 | How are source recordings, drafts and approved versions identified and related? | This affects how UC6 links source recordings to drafts. RD-12 numbers drafts, but their relationships are still undecided. | Carry forward. |
-| Q8 | Does the system hold audio files or only references to them? | This affects whether UC6 stores audio or just keeps track of the files. Until decided, don't design audio storage. | Carry forward. |
+| Q8 | Does the system hold audio files or only references to them? | This affects whether UC6 stores audio or just keeps track of the files. | Resolved: storing audio was rejected; the system records file information only (D8, RD-16). |
 
-These are CA1 open questions; do not treat them as resolved design rules without group agreement.
-
-The reconciliation record also contains proposed changes to how BR5 and the blocked draft state are interpreted (RD-04 to RD-06). Confirm their group status and align Section C terminology with Section D before finalising the design.
+Q4 remains open. Q8 is resolved: the system records information about audio files, not the audio itself.
 
 ## Task #17 — Update relevant Gherkin scenarios
 

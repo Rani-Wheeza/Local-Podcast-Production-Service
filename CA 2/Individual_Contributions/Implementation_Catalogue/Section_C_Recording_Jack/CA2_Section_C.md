@@ -48,10 +48,6 @@ Suggested order, with the recording/draft relationship review before detailed de
 
 ### Requirements Review
 
-#### Review method
-
-Check each requirement against the scenario, its source evidence, linked goal/use case, priority and verification method. Record review decisions and reasons below; note unresolved questions instead of treating assumptions as confirmed rules.
-
 #### Functional requirements
 
 | ID | CA1 statement: summary | Priority | CA1 verification | Decision | Reason | Evidence |
@@ -102,12 +98,13 @@ CA1 user stories and acceptance criteria to preserve:
 
 | Scenario | Type | Test coverage | Requirement | Use case | Rule or constraint |
 |---|---|---|---|---|---|
-|  |  |  |  |  |  |
-
-### Review decisions and limits
-
-- [Record what the scenarios do and do not establish.]
-- [Confirm scenario identifiers with the group before merging.]
+| GS40: Record a session and its missing equipment | Success | The session retains its date, location, required equipment and the component reported missing. | FR6 / US5 | UC5 | Missing equipment is visible, but the system does not assume the session cannot proceed. |
+| GS41: Missing equipment remains visible without stopping the session | Boundary | Missing equipment is shown on the session even though staff continue with the planning record. | FR6 / US5 | UC5 | No rule is assumed that prevents the session from being recorded or proceeding. |
+| GS42: Record several source recordings for one session | Success | Several files are linked to the same recording session and keep their working filenames. | FR7 / US6 | UC6 | One session may produce several source recordings. |
+| GS43: Link sources to a draft | Success | An existing draft identifies the source recordings used to create it. | FR7 / US6 | UC6 | A draft links to its sources rather than relying on filenames to identify them. |
+| GS44: Identify the approved draft | Alternative | An existing draft is marked as approved while the other draft is not approved. | FR7 / US6 | UC6 | A11: approved is a status of a draft, not a separate draft record. |
+| GS45: Record granted and outstanding permissions | Success | A granted permission and an outstanding permission are retained against the same draft. | FR8 / US7 | UC7 | Permission status is associated with the draft that uses the material. |
+| GS46: Display an outstanding permission | Boundary | Viewing a draft makes its outstanding permission visible. | FR8 / US7 | UC7 | BR5: an outstanding permission can block publication, but the review decision remains with UC8. |
 
 ## Task #41 — Review relationships between recordings and drafts
 

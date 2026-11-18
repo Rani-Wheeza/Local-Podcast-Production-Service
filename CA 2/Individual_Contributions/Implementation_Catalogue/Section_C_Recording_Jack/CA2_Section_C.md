@@ -112,11 +112,11 @@ Review these CA1 associations and multiplicities against the agreed group domain
 
 | Relationship | Current model | Review or decision | Open question or impact |
 |---|---|---|---|
-| Episode and RecordingSession | One Episode to zero or more sessions; each session relates to one Episode (A12). |  |  |
-| RecordingSession and SourceRecording | One session produces zero or more source recordings. |  |  |
-| Episode and Draft | One Episode may have zero or more drafts; several drafts can exist. |  | Q4 |
-| Draft and SourceRecording | A draft draws on one or more source recordings; a source recording may be used by zero or more drafts. |  | Q4 |
-| Draft and Permission | A draft may need zero or more permissions; a permission may relate to one or more drafts. |  | FR8; check against the agreed model. |
+| Episode and RecordingSession | One Episode to zero or more sessions; each session relates to one Episode (A12). | Agrees with the group model. | None; A12 covers this. |
+| RecordingSession and SourceRecording | One session produces zero or more source recordings. | Agrees with the group model. | None. |
+| Episode and Draft | One Episode may have zero or more drafts; several drafts can exist. | Agrees: each Draft belongs to one Episode. | Q4: how draft versions relate is still open. |
+| Draft and SourceRecording | A draft draws on one or more source recordings; a source recording may be used by zero or more drafts. | Agrees with the group model. | Q4: how draft versions relate is still open. |
+| Draft and Permission | A draft may need zero or more permissions; a permission may relate to one or more drafts. | Agrees with the group model. | FR8 doesn’t say whether one permission can cover multiple drafts. |
 
 ## Task #23 — Produce SSDs and operation contracts (UC5–UC7)
 

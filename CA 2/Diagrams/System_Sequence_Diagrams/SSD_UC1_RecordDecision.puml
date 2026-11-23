@@ -1,0 +1,34 @@
+@startuml SSD_UC1_RecordProposal
+title SSD - UC1 Record a programme or series proposal
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : recordProposal(proposer, subject, details)
+alt subject given
+  S --> PC : proposal, details not given shown as "not yet known",\nno recorded decision (BR1)
+else subject missing
+  S --> PC : proposal not recorded: subject required
+end
+
+loop for each planned episode (1..*)
+  PC -> S : addPlannedEpisode(proposal, title, description)
+  S --> PC : episode linked to the proposal
+end
+
+opt later details become known (UC1 6a)
+  PC -> S : updateProposalDetails(proposal, details)
+  S --> PC : proposal with updated details
+end
+
+note right of S
+  proposer = staff member, volunteer
+  or partner organisation (DEC-07, proposed)
+  details = intended audience, format,
+  expected duration, proposed contributors,
+  preferred publication period (FR1)
+  Series = several planned episodes (FR2, A10)
+  Scenarios: GS10, GS11, GS12
+end note
+@enduml

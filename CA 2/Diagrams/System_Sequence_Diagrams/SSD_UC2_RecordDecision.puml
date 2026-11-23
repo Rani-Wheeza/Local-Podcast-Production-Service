@@ -1,0 +1,31 @@
+@startuml SSD_UC2_RecordDecision
+title SSD - UC2 Record a proposal decision
+hide footbox
+
+actor ":Proposal Editor" as PE
+participant ":Production Record System" as S
+
+PE -> S : selectProposal(proposal)
+S --> PE : proposal details, earlier decisions and conditions
+
+PE -> S : recordDecision(proposal, outcome, conditions, note)
+alt outcome = accepted
+  S --> PE : proposal shown as accepted with its conditions (GS1, GS14)
+else outcome = rejected
+  S --> PE : proposal shown as rejected, with any reason (GS13)
+else outcome = returned for revision
+  S --> PE : proposal shown as returned; open for a later decision
+else outcome = held for future consideration
+  S --> PE : proposal shown as held, not as awaiting a decision (GS15, A13)
+else proposal already accepted or rejected
+  S --> PE : decision not recorded: reopening depends on Q2
+end
+
+note right of S
+  Decision date and editor are recorded
+  by the system, not entered (FR3).
+  Incomplete proposal: decision allowed (Q1, E1).
+  Abandoned (E3): no system event is sent,
+  so no decision is recorded (GS16).
+end note
+@enduml

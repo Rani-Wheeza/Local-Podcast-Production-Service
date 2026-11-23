@@ -182,3 +182,63 @@ GS1 and GS2 keep their CA1 numbers. New scenarios use GS10–GS19.
 | Section B | Proposed contributors named in UC1 are the same Contributor class Section B maintains; names must match. |
 | UC11 (shared) | The overview depends on decisions recorded in UC2. GS2 stays with UC11. |
 | Scenario numbers | GS10–GS19 as agreed in baseline Section 7. |
+
+## System sequence diagrams (#21)
+
+| Use case | Diagram | System operations |
+|---|---|---|
+| UC1 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC1_RecordProposal.puml` | `recordProposal`, `addPlannedEpisode`, `updateProposalDetails` |
+| UC2 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC2_RecordDecision.puml` | `selectProposal` (query), `recordDecision` |
+
+`selectProposal` only returns information and changes nothing, so it has no contract.
+
+## Operation contracts (#21)
+
+### CO1: recordProposal
+
+| Item | Content |
+|---|---|
+| Operation | `recordProposal(proposer, subject, details)` |
+| Cross-references | UC1, FR1, FR2, BR1, A6, DEC-07 (proposed) · GS10, GS11 |
+| Preconditions | The user holds a production role that records proposals (A6). |
+| Postconditions | A `Proposal` instance `p` was created. `p.subject` was set. Each detail given (intended audience, format, expected duration, preferred publication period) was set; each detail not given was marked not yet known. If the proposer is a partner organisation, `p` was associated with that `PartnerOrganisation` (created if not already recorded); otherwise `p.proposedBy` was set to the staff member or volunteer. `p` was associated with each proposed `Contributor`. No `ProposalDecision` was created, so `p` shows as having no recorded decision (BR1). |
+| Controlled failures | Subject missing: nothing is created and the subject is requested. |
+
+### CO2: addPlannedEpisode
+
+| Item | Content |
+|---|---|
+| Operation | `addPlannedEpisode(proposal, title, description)` |
+| Cross-references | UC1, FR1, FR2, A10 · GS12 |
+| Preconditions | `proposal` exists. |
+| Postconditions | An `Episode` instance `e` was created. `e.title` and, if given, `e.description` were set. `e` was associated with `proposal` (*Proposal plans Episode*). |
+| Controlled failures | Proposal not found: nothing is created. |
+
+### CO3: updateProposalDetails
+
+| Item | Content |
+|---|---|
+| Operation | `updateProposalDetails(proposal, details)` |
+| Cross-references | UC1 (6a), FR1 · GS11 |
+| Preconditions | `proposal` exists. |
+| Postconditions | Each detail given replaced its previous value or "not yet known". Recorded decisions were not changed. |
+| Controlled failures | Proposal not found: nothing changes. |
+| Note | Changing an accepted proposal does not trigger reconsideration, because what counts as a significant change is open (Q2, RD-18). |
+
+### CO4: recordDecision
+
+| Item | Content |
+|---|---|
+| Operation | `recordDecision(proposal, outcome, conditions, note)` |
+| Cross-references | UC2, FR3, BR1, BR2, A13 · GS1, GS2, GS13–GS16 |
+| Preconditions | `proposal` exists. It has no recorded decision, or its latest decision is returned for revision or held. The user acts as proposal editor (who may decide each programme type is open, Q5). |
+| Postconditions | A `ProposalDecision` instance `d` was created. `d.outcome` was set to accepted, rejected, returned for revision or held (BR2). `d.decisionDate` was set to the current date and `d.decidedBy` to the editor. `d.conditions` and `d.note` were set if given. `d` was associated with `proposal` (*Proposal receives ProposalDecision*). Earlier decisions were not changed. The proposal's displayed state follows its latest decision; it is no longer shown as having no recorded decision. |
+| Controlled failures | Latest decision is accepted or rejected: no decision is created (reopening depends on Q2). Outcome not one of the four in BR2: no decision is created. |
+
+### Design notes from the SSDs and contracts
+
+- **Proposal state is derived, not stored.** `Proposal` has no status attribute; "no recorded decision", "accepted", "held" and so on come from its latest `ProposalDecision`. This keeps one source of truth (BR1).
+- **Missing attribute: `ProposalDecision.note`.** UC2 records a reason for rejection, what needs revising, or when to look again (GS13, GS14, GS15), but the domain model only has `conditions`. Conditions apply to an acceptance, so they are not the right place for these. Proposed: add `note` to `ProposalDecision` (needs a decision-log entry and a domain model update, #8).
+- **Subject is the minimum to record a proposal.** Inferred from UC1 3a and GS11 (a proposal with only a subject). This is a design assumption for group agreement, not a scenario rule.
+- **Partner organisations** are created when first named, because no use case records them separately.
+- **Proposed contributors** link to the `Contributor` class maintained by Section B. Names must match Section B's records.

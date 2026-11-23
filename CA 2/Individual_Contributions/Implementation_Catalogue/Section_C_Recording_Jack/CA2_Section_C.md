@@ -12,7 +12,7 @@ This section covers recording sessions, source recordings, draft versions and pe
 Suggested order, with the recording/draft relationship review before detailed design:
 
 - [x] #13 Review recording-session and draft requirements
-- [ ] #17 Update relevant Gherkin scenarios
+- [x] #17 Update relevant Gherkin scenarios
 - [ ] #41 Review relationships between recordings and drafts
 - [ ] #23 Produce SSDs and operation contracts for UC5–UC7
 - [ ] #30 Create CRC cards for RecordingSession, SourceRecording, Draft and Permission
@@ -26,7 +26,7 @@ Suggested order, with the recording/draft relationship review before detailed de
 - A session can produce several source recordings, and working filenames may not show which files are usable (S5, G6).
 - Several drafts can exist for one episode, so their relationships to source recordings and their approval status need to be clear (FR7, UC6, A11, Q4).
 - Outstanding permission for music, archive clips or external material can block publication (S7, G7, BR5).
-- CA1 assumes the system stores information about audio files, not the audio itself (A1); large files may not be practical to upload from outside the studio (C3). Whether the system holds files or only references remains open under Q8.
+- CA1 assumes the system stores information about audio files, not the audio itself (A1); large files may not be practical to upload from outside the studio (C3). Q8 is resolved as storing file information and references only, not storing the audio itself (D8, RD-16).
 
 ### Scope of this section
 
@@ -116,7 +116,7 @@ Review these CA1 associations and multiplicities against the agreed group domain
 | RecordingSession and SourceRecording | One session produces zero or more source recordings. | Agrees with the group model. | None. |
 | Episode and Draft | One Episode may have zero or more drafts; several drafts can exist. | Agrees: each Draft belongs to one Episode. | Q4: how draft versions relate is still open. |
 | Draft and SourceRecording | A draft draws on one or more source recordings; a source recording may be used by zero or more drafts. | Agrees with the group model. | Q4: how draft versions relate is still open. |
-| Draft and Permission | A draft may need zero or more permissions; a permission may relate to one or more drafts. | Agrees with the group model. | FR8 doesn’t say whether one permission can cover multiple drafts. |
+| Draft and Permission | A draft may need zero or more permissions; a permission may relate to one or more drafts. | Agrees with the group model: one Permission record may cover one or more drafts. | The interpretation of a shared Permission status across linked drafts remains undecided under Q4. No separate interpretation is recorded in this section. |
 
 ## Task #23 — Produce SSDs and operation contracts (UC5–UC7)
 
@@ -251,7 +251,7 @@ These are group integration items, not additional Section C design sections:
 - [ ] #47 Compile and review the final CA2 design dossier
 - [ ] #48 Prepare the group design walkthrough
 
-Q4 and Q8 remain open CA1 questions; carry them into group discussion if the design needs a decision.
+Q4 remains open, particularly how draft versions and shared permissions are related. Q8 is resolved: the system records file information and references, not the audio itself (D8, RD-16).
 
 ## Summary
 

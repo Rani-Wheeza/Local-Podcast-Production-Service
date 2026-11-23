@@ -12,6 +12,8 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 | DEC-02 | _02/11/26_ | GitHub Projects used as the group board | Proposed |
 | DEC-03 | _04/11/26_ | Scope changes from lecturer instructions | Agreed (lecturer instruction) |
 | DEC-04 | _09/11/26_ | Reconciliation decisions recorded separately | Proposed |
+| DEC-06 | _17/11/26_ | Gherkin scenario numbers allocated by section | Agreed |
+| DEC-07 | _18/11/26_ | Add the proposer to FR1 | Proposed |
 
 ---
 
@@ -67,6 +69,30 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Rejected alternatives:** Waiting for lecturer clarification before designing UC8. Rejected because it would block the design work, and the assumptions are easy to reverse.
 - **Consequences:** BR5 and the glossary are reworded in the analysis baseline. Q14 and Q15 stay in the clarification-question register marked as resolved by this decision. Revisit if the lecturer or an expansion brief says otherwise.
 - **Evidence:** Reconciliation record, RD-05, RD-06 and Section 7 · issue #6
+
+
+## DEC-06: Gherkin scenario numbers allocated by section
+
+- **Date:** _17/11/26_
+- **Context:** Each section writes its Gherkin scenarios in its own feature file. If sections number scenarios independently, the numbers clash when the files are consolidated (#20).
+- **Decision:** CA1 scenarios GS1–GS5 keep their numbers. Each section uses its own block:
+  - Section A (Proposal management): GS10–GS19
+  - Section B (Contributors and consent): GS20–GS29
+  - Section D (Review and publication): GS30–GS39
+  - Section C (Recording and drafts): GS40–GS49
+- **Reasoning:** Fixed blocks let each section work independently without checking anyone else's numbers. Section D had already started at GS30, so the blocks were arranged around it.
+- **Rejected alternatives:** Numbering scenarios one after another across all files. Rejected because sections work in parallel and would clash.
+- **Consequences:** Recorded in baseline Section 7. A section needing more than ten scenarios asks the group for a further block.
+- **Evidence:** Analysis baseline Section 7 (#7) · feature files in `Requirements_and_Gherkin/Feature_Files/`
+
+## DEC-07: Add the proposer to FR1 (proposed)
+
+- **Date:** _18/11/26_
+- **Context:** The scenario says programmes may be proposed by staff, volunteers or partner organisations, and partners want progress on their proposals. The domain model records the proposer (`proposedBy`, *PartnerOrganisation proposes Proposal*), but FR1 does not ask for it.
+- **Decision (proposed):** Reword FR1 to include who proposed the programme (staff member, volunteer or partner organisation).
+- **Reasoning:** Gives the existing model attribute and association a requirement behind them, and supports partner progress information.
+- **Consequences:** If agreed, update FR1 in the baseline (#7). GS10 keeps its proposer step. If rejected, remove that step from GS10.
+- **Evidence:** Section A review (#11) · reviewed by Tsubasa
 
 ---
 

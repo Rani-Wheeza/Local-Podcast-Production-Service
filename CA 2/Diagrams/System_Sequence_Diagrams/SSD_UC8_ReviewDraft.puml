@@ -1,0 +1,30 @@
+@startuml SSD_UC8_ReviewDraft
+title SSD - UC8 Review a draft: editor records a review outcome
+
+hide footbox
+
+actor "Authorised Editor" as AE
+participant "Production Record System" as S
+
+AE -> S : selectDraft(draft)
+activate S
+alt archive-clip permission outstanding
+  S --> AE : draftBlockedByOutstandingPermission
+else nothing outstanding
+  S --> AE : permissionGranted(draft)
+end
+deactivate S
+
+AE -> S : recordReview(draft, channel, outcome, comment)
+activate S
+alt outcome = approved
+  S --> AE : draftApproved
+else outcome = returned for changes
+  S --> AE : draftReturnedAndBlocked
+else outcome = postponed
+  S --> AE : draftPostponed
+else outcome = withdrawn
+  S --> AE : draftWithdrawn
+end
+deactivate S
+@enduml

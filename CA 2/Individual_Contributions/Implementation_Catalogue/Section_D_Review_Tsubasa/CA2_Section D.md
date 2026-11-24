@@ -65,7 +65,7 @@ FR10 and FR11 remain Should. The dossier gives that priority because the process
 | ID | Decision | Reason |
 |---|---|---|
 | UC8 |	Keep | The use case records approval, returned for changes, postponed and withdrawn. A draft returned for changes and not reviewed again is shown as blocked (BR5, DEC-05). The scenarios are GS3, GS4 and GS30 to GS33.|
-| UC9 | Keep	| The use case records the publication date, the channel and the reason for a change. No rule says the system rejects a publication date. The scenarios are GS34 and GS5.|
+| UC9 | Keep | The use case records the publication date, the channel and the reason for a change. No rule says the system rejects a publication date. The scenarios are GS34 and GS5.|
 | UC10 | Keep | The use case records a correction linked to the original publication, with its type, the person and the date. What happens next stays open (Q6). The scenarios are GS35 and GS36.|
 
 ### Business rules
@@ -103,6 +103,39 @@ The review does not answer the open questions. The table shows their effects on 
 | Q6 | How are corrections, replacements and withdrawal requests handled? | Carry forward. | GS35 and GS36 record the correction and its type. They do not state what happens next. GS33 records the review outcome "withdrawn". It does not state how a withdrawal request is handled. | ED08, ED25, ED31, ED39 |
 | Q7 | What may volunteers, contributors and partners see? | Carry forward. | No scenario tests who can see a review comment. A visibility test needs the agreed permissions. | ED25, ED33 |
 | Q13 | Can the proposal editor and the authorised editor be the same person? | Carry forward. | The scenarios use the authorised editor for draft review. They do not decide whether that person may also be the proposal editor. | ED12, ED14, ED25 |
+
+## Usecase
+
+### UC8 - Review a draft. The authorised editor records the outcome
+
+| Field | Content |
+|---|---|
+| Primary actor | Authorised editor |
+| Goal | Record the outcome and comments against the draft, so the release decision is the editor's. A draft with nothing outstanding is not approved automatically. |
+| Preconditions | A draft has been recorded (UC6). Outstanding consent or permission need not be cleared before an outcome is recorded.|
+| Trigger | The authorised editor reviews the draft and records an outcome. |
+| Related | FR9, FR8, S6, G8, BR3, BR4, BR5, DEC-05|
+
+**Main success flow (Authorised editor approves a reviewed draft with nothing outstanding)**
+
+| Actor                                                       | System                                                                                                                                  |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Selects the draft to review                              |                                                                                                                                         |
+|                                                             | 2. Shows that every contributor consent for the episode is confirmed and that the archive-clip permission is granted                    |
+| 3. Records the outcome "approved" for a publication channel |                                                                                                                                         |
+|                                                             | 4. Records the approval for that channel with the editor's name and the date, and shows the draft as approved and ready to be scheduled |
+
+**Principal extensions**
+
+| Point                     | Condition                                                                                         | Outcome                                                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 2a Outstanding permission | An archive-clip permission is still outstanding when the editor reviews the draft for publication | Not released. Shown as blocked by the outstanding archive-clip permission.                                               |
+| 2b No outcome recorded    | No review outcome has been recorded, and the production coordinator views the draft               | Shown as awaiting review. Not shown as approved or ready to be scheduled.                                                |
+| 3a Returned for changes   | The editor records "returned for changes" with a comment                                          | Shown as returned for changes, and as blocked by an outstanding editorial decision. The comment, name and date are kept. |
+| 3b Postponed              | The editor records "postponed" with a comment                                                     | Shown as postponed. Not shown as blocked. The comment, name and date are kept.                                           |
+| 3c Withdrawn              | The editor records "withdrawn" with a comment                                                     | Shown as withdrawn. Not shown as blocked. The comment, name and date are kept.                                           |
+
+**Postconditions:** The approval is kept for that channel with the editor's name and the date. The draft is shown as approved and ready to be scheduled.
 
 ## Updated Gherkin Scenarios
 
@@ -176,6 +209,12 @@ The group must resolve the dependencies below before final integration. Until th
 | Common test data | Shared episode titles, channel names and dates | A change to the test data must preserve the behaviour that each scenario tests. |
 
 ## SSD（System Sequence Diagram）
+| Use case | Diagram | System operations |
+|---|---|---|
+| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_ReviewDraft.puml` | selectDraft(draft); recordReview(draft, channel, outcome, comment) |
+| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml` | viewDraft(draft) |
+| UC9 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPubate.puml` | |
+| UC10 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | |
 
 ## Operation Contract
 

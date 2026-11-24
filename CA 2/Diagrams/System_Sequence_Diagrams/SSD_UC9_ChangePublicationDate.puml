@@ -1,0 +1,13 @@
+@startuml SSD_UC9_ChangePublicationDate
+title SSD - UC9 Change a publication date
+
+hide footbox
+
+actor "Production Coordinator" as PC
+participant "Production Record System" as S
+
+PC -> S : changePublicationDate(draft, channel, newDate, reason)
+activate S
+S --> PC : publicationDateChanged(newDate, earlierDate, channel)
+deactivate S
+@enduml

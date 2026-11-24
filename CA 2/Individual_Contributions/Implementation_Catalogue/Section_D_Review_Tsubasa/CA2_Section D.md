@@ -209,14 +209,46 @@ The group must resolve the dependencies below before final integration. Until th
 | Common test data | Shared episode titles, channel names and dates | A change to the test data must preserve the behaviour that each scenario tests. |
 
 ## SSD（System Sequence Diagram）
-| Use case | Diagram | System operations |
-|---|---|---|
-| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_ReviewDraft.puml` | selectDraft(draft); recordReview(draft, channel, outcome, comment) |
-| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml` | viewDraft(draft) |
-| UC9 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPubate.puml` | |
-| UC10 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | |
+
+| Use case | Diagram                                                                      | System operations                                                  |
+| -------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| UC8      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_ReviewDraft.puml`            | selectDraft(draft); recordReview(draft, channel, outcome, comment) |
+| UC8      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml`         | viewDraft(draft)                                                   |
+| UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPublication.puml`      | recordPublicationDate(draft, channel, date)                        |
+| UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_ChangePublicationDate.puml`  | changePublicationDate(draft, channel, newDate, reason)             |
+| UC10     | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | recordCorrection(publication, type, correctionDetails)             |
 
 ## Operation Contract
+
+### recordPublicationDate
+
+| Contract field | Content |
+|---|---|
+| Operation | `recordPublicationDate(draft, channel, date)` |
+| Cross-references | UC9, FR10, GS34 |
+| Preconditions | The draft is approved for the channel and ready to be scheduled. |
+| Postconditions | The draft's episode is shown as scheduled for that date on that channel. |
+| Rule | FR10 records a date and a channel. No rule says the system rejects a publication date. |
+
+### changePublicationDate
+
+| Contract field | Content |
+|---|---|
+| Operation | `changePublicationDate(draft, channel, newDate, reason)` |
+| Cross-references | UC9, FR10, GS5 |
+| Preconditions | The draft's episode is already scheduled on the channel. |
+| Postconditions | The episode is shown as scheduled for the new date on that channel. The earlier date and the reason are kept. |
+| Rule | FR10 records the reason for a change. No rule says the system rejects a publication date. |
+
+### recordCorrection
+
+| Contract field | Content |
+|---|---|
+| Operation | `recordCorrection(publication, type, details)` |
+| Cross-references | UC10, FR11, BR8, GS35, GS36 |
+| Preconditions | The publication exists. `publication` is its identifier. |
+| Postconditions | A correction was created and linked to that publication. `type` is metadata correction or new audio version, and the correction is not shown as the other type. For a metadata correction, `details` is the metadata that was corrected. For a new audio version, `details` is that version. The system records the editor's name and the date. |
+| Rule | FR11 records the link, the type, the person and the date. Q6 stays open, so the operation does not reject a correction. |
 
 ## CRC Cards
 

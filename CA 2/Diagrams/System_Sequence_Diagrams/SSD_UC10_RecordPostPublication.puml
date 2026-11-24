@@ -1,0 +1,18 @@
+@startuml SSD_UC10_RecordPostPublication
+title SSD - UC10 Record a post-publication correction
+
+hide footbox
+
+actor "Authorised Editor" as AE
+participant "Production Record System" as S
+
+AE -> S : recordCorrection(publication, type, correctionDetails)
+activate S
+alt type = metadata correction
+  S --> AE : metadataCorrectionRecorded(publication)
+else type = new audio version
+  S --> AE : newAudioVersionRecorded(publication)
+end
+deactivate S
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml SSD_UC7_GrantedPermission
+title SSD - UC7 Record granted permission
+hide footbox
+
+actor ":Technical Editor" as TE
+participant ":Production Record System" as S
+
+TE -> S : recordPermission(drafts, materialDescription,\nmaterialSource, permittedUse, granted)
+S --> TE : granted Permission recorded against selected drafts
+
+note right of S
+  Permission covers third-party material;
+  it is separate from contributor consent.
+  One Permission may relate to one or more
+  drafts (FR8, Section C relationship review).
+end note
+@enduml

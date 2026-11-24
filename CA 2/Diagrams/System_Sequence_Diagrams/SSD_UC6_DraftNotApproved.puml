@@ -1,0 +1,16 @@
+@startuml SSD_UC6_DraftNotApproved
+title SSD - UC6 Show a draft that is not approved
+hide footbox
+
+actor ":Technical Volunteer" as TV
+participant ":Production Record System" as S
+
+TV -> S : recordDraftStatus(draft, notApproved)
+S --> TV : draft shown as not approved with its own source links
+
+note right of S
+  This records the current status only.
+  It does not infer status from draft order,
+  source links or publication (A11, Q4).
+end note
+@enduml

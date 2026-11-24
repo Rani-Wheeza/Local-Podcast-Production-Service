@@ -13,8 +13,8 @@ Suggested order, with the recording/draft relationship review before detailed de
 
 - [x] #13 Review recording-session and draft requirements
 - [x] #17 Update relevant Gherkin scenarios
-- [ ] #41 Review relationships between recordings and drafts
-- [ ] #23 Produce SSDs and operation contracts for UC5–UC7
+- [x] #41 Review relationships between recordings and drafts
+- [x] #23 Produce SSDs and operation contracts for UC5–UC7
 - [ ] #30 Create CRC cards for RecordingSession, SourceRecording, Draft and Permission
 - [ ] #34 Apply relevant GRASP principles
 
@@ -118,11 +118,11 @@ Review these CA1 associations and multiplicities against the agreed group domain
 | Draft and SourceRecording | A draft draws on one or more source recordings; a source recording may be used by zero or more drafts. | Agrees with the group model. | Q4: how draft versions relate is still open. |
 | Draft and Permission | A draft may need zero or more permissions; a permission may relate to one or more drafts. | Agrees with the group model: one Permission record may cover one or more drafts. | The interpretation of a shared Permission status across linked drafts remains undecided under Q4. No separate interpretation is recorded in this section. |
 
-## Task #23 — Produce SSDs and operation contracts (UC5–UC7)
+## Task #23 — Produce SSDs (UC5–UC7)
 
 ### System Sequence Diagrams
 
-Use the agreed two-column actor/system format. Add a main success flow and named alternatives that are supported by the requirements or agreed decisions.
+The tables below show the actor's requests and the system's responses. Each table is followed by its rendered SSD and the PlantUML source used to create it. The `.puml` source files and `.png` images are also in [System_Sequence_Diagrams](../../../Diagrams/System_Sequence_Diagrams).
 
 #### UC5: Record a recording session and equipment needs
 
@@ -130,19 +130,63 @@ Use case: Record a recording session and equipment needs, including any missing 
 Primary actor: Production coordinator, with session organiser.  
 Goal: Plan a session and its equipment, including room, kit and technical support (G4, G5).
 
-Main success scenario: [Name the flow.]
+Main success scenario: Record a session and show a reported missing item (GS40).
 
 | Actor | System |
 |---|---|
-|  |  |
+| The production coordinator selects the episode and provides the session date, location, required equipment and any item reported missing. |  |
+|  | The system records the session against the episode and shows the missing item with the equipment needs. |
 
-Alternative scenarios:
+![SSD UC5: Record a session](../../../Diagrams/System_Sequence_Diagrams/SSD_UC5_RecordSession.png)
 
-#### [Scenario name]
+```plantuml
+@startuml SSD_UC5_RecordSession
+title SSD - UC5 Record a recording session
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : recordRecordingSession(episode, date, locationType,\nlocationDescription, equipmentNeeded, reportedMissingItem)
+S --> PC : session recorded; missing item shown with equipment needs
+
+note right of S
+  The reported missing item is shown with
+  the equipment needs (FR6, GS40).
+  Recording a missing item does not prevent
+  the planning record from being saved (GS41).
+end note
+@enduml
+```
+
+Alternative scenario: No item is reported missing.
 
 | Actor | System |
 |---|---|
-|  |  |
+| The production coordinator records the session date, location and required equipment without reporting a missing item. |  |
+|  | The system records the session and shows its equipment needs without marking an item missing. |
+
+![SSD UC5 alternative: No missing equipment reported](../../../Diagrams/System_Sequence_Diagrams/SSD_UC5_MissingEquipment.png)
+
+```plantuml
+@startuml SSD_UC5_MissingEquipment
+title SSD - UC5 Record a session with no missing equipment
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : recordRecordingSession(episode, date, locationType,\nlocationDescription, equipmentNeeded)
+S --> PC : session recorded with equipment needs
+
+note right of S
+  No item was reported missing in this flow.
+  When one is reported, it is visible on the
+  session; the system does not block the
+  planning record (US5, GS40, GS41).
+end note
+@enduml
+```
 
 #### UC6: Record source recordings and draft versions
 
@@ -150,19 +194,77 @@ Use case: Record source recordings and draft versions; an approved draft is not 
 Primary actor: Technical volunteer.  
 Goal: Record a session's files and mark which are usable (G6).
 
-Main success scenario: [Name the flow.]
+Main success scenario: Record several source files, link them to drafts, and show each draft's status (GS42–GS44).
 
 | Actor | System |
 |---|---|
-|  |  |
+| The technical volunteer records each source file from the session, including its working name and usability note. |  |
+|  | The system records each SourceRecording against the session. |
+| The technical volunteer records each draft for the episode and selects the source recordings it uses. |  |
+|  | The system records each Draft and its source links. |
+| The technical volunteer records the current status supplied by the authorised review process for each draft. |  |
+|  | The system shows each draft with its linked sources and current status. |
 
-Alternative scenarios:
+![SSD UC6: Record sources and drafts](../../../Diagrams/System_Sequence_Diagrams/SSD_UC6_RecordSourcesAndDrafts.png)
 
-#### [Scenario name]
+```plantuml
+@startuml SSD_UC6_RecordSourcesAndDrafts
+title SSD - UC6 Record source recordings and drafts
+hide footbox
+
+actor ":Technical Volunteer" as TV
+participant ":Production Record System" as S
+
+loop for each source recording from the session
+  TV -> S : recordSourceRecording(session, workingName, usabilityNote)
+  S --> TV : source recording recorded against session
+end
+
+loop for each draft for the episode (two drafts in GS44)
+  TV -> S : recordDraft(episode, versionDescription, sourceRecordings)
+  S --> TV : draft recorded with its selected source links
+
+  TV -> S : recordDraftStatus(draft, currentStatus)
+  S --> TV : draft shown with its recorded status and source links
+end
+
+note right of S
+  Current status is recorded, not decided,
+  by this UC. UC8 owns the authorised
+  review decision. Approved does not mean
+  published (A11, UC6, GS44).
+  Draft-version relationships remain open (Q4).
+end note
+@enduml
+```
+
+Alternative scenario: A draft has not been approved; its status remains visible and the system does not infer approval from another draft or from its sources.
 
 | Actor | System |
 |---|---|
-|  |  |
+| The technical volunteer records the current status "not approved" for a draft. |  |
+|  | The system shows that draft as not approved and preserves its own source links. |
+
+![SSD UC6 alternative: Draft not approved](../../../Diagrams/System_Sequence_Diagrams/SSD_UC6_DraftNotApproved.png)
+
+```plantuml
+@startuml SSD_UC6_DraftNotApproved
+title SSD - UC6 Show a draft that is not approved
+hide footbox
+
+actor ":Technical Volunteer" as TV
+participant ":Production Record System" as S
+
+TV -> S : recordDraftStatus(draft, notApproved)
+S --> TV : draft shown as not approved with its own source links
+
+note right of S
+  This records the current status only.
+  It does not infer status from draft order,
+  source links or publication (A11, Q4).
+end note
+@enduml
+```
 
 #### UC7: Record permissions for material used
 
@@ -170,44 +272,65 @@ Use case: Record permissions for material used (FR8).
 Primary actor: Technical editor.  
 Goal: Record permissions for music, archive clips and external material (G7).
 
-Main success scenario: [Name the flow.]
+Main success scenario: Record granted permission for material used by a draft.
 
 | Actor | System |
 |---|---|
-|  |  |
+| The technical editor records the material description, source, permitted use, status and the draft or drafts that use it. |  |
+|  | The system records the Permission against the selected draft or drafts and shows its granted status. |
 
-Alternative scenarios:
+![SSD UC7: Record granted permission](../../../Diagrams/System_Sequence_Diagrams/SSD_UC7_GrantedPermission.png)
 
-#### [Scenario name]
+```plantuml
+@startuml SSD_UC7_GrantedPermission
+title SSD - UC7 Record granted permission
+hide footbox
+
+actor ":Technical Editor" as TE
+participant ":Production Record System" as S
+
+TE -> S : recordPermission(drafts, materialDescription,\nmaterialSource, permittedUse, granted)
+S --> TE : granted Permission recorded against selected drafts
+
+note right of S
+  Permission covers third-party material;
+  it is separate from contributor consent.
+  One Permission may relate to one or more
+  drafts (FR8, Section C relationship review).
+end note
+@enduml
+```
+
+Alternative scenario: Record an outstanding permission and show it on the affected draft (GS45–GS46).
 
 | Actor | System |
 |---|---|
-|  |  |
+| The technical editor records the material and permitted use with status "outstanding", then views the draft's permissions. |  |
+|  | The system records the Permission and identifies it as outstanding; the draft's other permission statuses remain visible. |
 
-### Operation Contracts
+![SSD UC7 alternative: Show outstanding permission](../../../Diagrams/System_Sequence_Diagrams/SSD_UC7_OutstandingPermission.png)
 
-[For each system operation in the SSDs, record its preconditions and postconditions. Keep the operations consistent with the agreed domain model.]
+```plantuml
+@startuml SSD_UC7_OutstandingPermission
+title SSD - UC7 Show an outstanding permission
+hide footbox
 
-#### UC5 operations
+actor ":Technical Editor" as TE
+participant ":Production Record System" as S
 
-##### [Operation name]
+TE -> S : recordPermission(drafts, materialDescription,\nmaterialSource, permittedUse, outstanding)
+S --> TE : outstanding Permission recorded against selected drafts
 
-- **Preconditions:**
-- **Postconditions:**
+TE -> S : viewDraftPermissions(draft)
+S --> TE : draft permissions shown; outstanding item identified
 
-#### UC6 operations
-
-##### [Operation name]
-
-- **Preconditions:**
-- **Postconditions:**
-
-#### UC7 operations
-
-##### [Operation name]
-
-- **Preconditions:**
-- **Postconditions:**
+note right of S
+  An outstanding permission is visible.
+  This UC records status; UC8 handles
+  the review and release decision (BR5).
+end note
+@enduml
+```
 
 ## Task #30 — Create CRC cards
 

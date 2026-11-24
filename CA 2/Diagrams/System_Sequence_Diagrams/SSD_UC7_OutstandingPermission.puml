@@ -1,0 +1,19 @@
+@startuml SSD_UC7_OutstandingPermission
+title SSD - UC7 Show an outstanding permission
+hide footbox
+
+actor ":Technical Editor" as TE
+participant ":Production Record System" as S
+
+TE -> S : recordPermission(drafts, materialDescription,\nmaterialSource, permittedUse, outstanding)
+S --> TE : outstanding Permission recorded against selected drafts
+
+TE -> S : viewDraftPermissions(draft)
+S --> TE : draft permissions shown; outstanding item identified
+
+note right of S
+  An outstanding permission is visible.
+  This UC records status; UC8 handles
+  the review and release decision (BR5).
+end note
+@enduml

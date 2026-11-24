@@ -1,0 +1,28 @@
+@startuml SSD_UC6_RecordSourcesAndDrafts
+title SSD - UC6 Record source recordings and drafts
+hide footbox
+
+actor ":Technical Volunteer" as TV
+participant ":Production Record System" as S
+
+loop for each source recording from the session
+  TV -> S : recordSourceRecording(session, workingName, usabilityNote)
+  S --> TV : source recording recorded against session
+end
+
+loop for each draft for the episode (two drafts in GS44)
+  TV -> S : recordDraft(episode, versionDescription, sourceRecordings)
+  S --> TV : draft recorded with its selected source links
+
+  TV -> S : recordDraftStatus(draft, currentStatus)
+  S --> TV : draft shown with its recorded status and source links
+end
+
+note right of S
+  Current status is recorded, not decided,
+  by this UC. UC8 owns the authorised
+  review decision. Approved does not mean
+  published (A11, UC6, GS44).
+  Draft-version relationships remain open (Q4).
+end note
+@enduml

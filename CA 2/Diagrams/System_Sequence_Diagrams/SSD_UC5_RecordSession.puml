@@ -1,0 +1,17 @@
+@startuml SSD_UC5_RecordSession
+title SSD - UC5 Record a recording session
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : recordRecordingSession(episode, date, locationType,\nlocationDescription, equipmentNeeded, reportedMissingItem)
+S --> PC : session recorded; missing item shown with equipment needs
+
+note right of S
+  The reported missing item is shown with
+  the equipment needs (FR6, GS40).
+  Recording a missing item does not prevent
+  the planning record from being saved (GS41).
+end note
+@enduml

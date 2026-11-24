@@ -1,0 +1,17 @@
+@startuml SSD_UC5_MissingEquipment
+title SSD - UC5 Record a session with no missing equipment
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : recordRecordingSession(episode, date, locationType,\nlocationDescription, equipmentNeeded)
+S --> PC : session recorded with equipment needs
+
+note right of S
+  No item was reported missing in this flow.
+  When one is reported, it is visible on the
+  session; the system does not block the
+  planning record (US5, GS40, GS41).
+end note
+@enduml

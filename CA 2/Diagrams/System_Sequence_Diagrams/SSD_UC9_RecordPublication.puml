@@ -1,0 +1,13 @@
+@startuml SSD_UC9_RecordPublication
+title SSD - UC9 Record a publication date
+
+hide footbox
+
+actor "Production Coordinator" as PC
+participant "Production Record System" as S
+
+PC -> S : recordPublicationDate(draft, channel, date)
+activate S
+S --> PC : publicationScheduled(date, channel)
+deactivate S
+@enduml

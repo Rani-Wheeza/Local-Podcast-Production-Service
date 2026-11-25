@@ -139,7 +139,7 @@ The review uses these baseline files. The links identify the original requiremen
 
 ### New scenario coverage
 
-The file `ca2-contributors-consent.feature` contains the complete Gherkin scenarios. It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
+The file `contributors-consent.feature` contains the complete Gherkin scenarios. It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
 
 The file also uses story tags and applicable rule or constraint tags. These tags connect each scenario to its source requirements.
 

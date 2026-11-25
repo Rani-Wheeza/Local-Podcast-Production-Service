@@ -1,0 +1,22 @@
+@startuml SSD_UC11_ViewProductionOverview
+title SSD - UC11 View the production overview
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : viewProductionOverview()
+S --> PC : overview, one heading per category (FR12):\n- proposals awaiting a decision\n- proposals held for future consideration\n- upcoming recording sessions and missing equipment\n- missing consent\n- outstanding permissions\n- drafts awaiting review\n- blocked drafts, each with what blocks it\n- scheduled publications
+
+opt see one blocked draft in detail
+  PC -> S : viewDraftBlockers(draft)
+  S --> PC : each outstanding permission, missing consent\nor unresolved review outcome for that draft (BR5)
+end
+
+note right of S
+  Query only: nothing is created or changed.
+  Blocked is derived, never stored (RD-04, DEC-05).
+  Held is listed apart from awaiting a decision (A13).
+  Scenarios: GS2, GS4
+end note
+@enduml

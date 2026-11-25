@@ -28,6 +28,7 @@ class ProposalDecision {
   outcome
   decisionDate
   conditions
+  note
   decidedBy
 }
 

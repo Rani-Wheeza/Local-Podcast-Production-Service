@@ -15,8 +15,7 @@ Task Order:
 - [x] #17 Update relevant Gherkin scenarios
 - [x] #41 Review relationships between recordings and drafts
 - [x] #23 Produce SSDs and operation contracts for UC5–UC7
-- [ ] #30 Create CRC cards for RecordingSession, SourceRecording, Draft and Permission
-- [ ] #34 Apply relevant GRASP principles
+- [x] #30 Create CRC cards for RecordingSession, SourceRecording, Draft and Permission
 
 ## Task #13 — Review recording-session and draft requirements
 
@@ -379,24 +378,6 @@ end note
 - **Collaborators:** 
   - Draft
 
-## Task #34 — Apply relevant GRASP principles
-
-| Principle | Responsibility or assignment | Reason |
-|---|---|---|
-|  |  |  |
-
-## Shared group follow-up
-
-These are group integration items, not additional Section C design sections:
-
-- [ ] #8 Review and finalise the group domain model
-- [ ] #20 Consolidate and review all Gherkin scenarios
-- [ ] #43 Integrate CRC cards and GRASP decisions; agree controllers
-- [ ] #47 Compile and review the final CA2 design dossier
-- [ ] #48 Prepare the group design walkthrough
-
-Q4 remains open, particularly how draft versions and shared permissions are related. Q8 is resolved: the system records file information and references, not the audio itself (D8, RD-16).
-
 ## Summary
 
-[Summarise the Section C decisions and any dependencies for group integration.]
+Section C covers UC5–UC7 and records recording sessions, source recordings, drafts and permissions. Missing equipment remains visible, drafts link to their source recordings, and outstanding permissions remain associated with the relevant draft. Publication review remains outside this section.

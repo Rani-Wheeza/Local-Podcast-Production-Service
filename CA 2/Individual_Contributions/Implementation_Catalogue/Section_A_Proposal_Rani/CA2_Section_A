@@ -242,3 +242,106 @@ GS1 and GS2 keep their CA1 numbers. New scenarios use GS10–GS19.
 - **Subject is the minimum to record a proposal.** Inferred from UC1 3a and GS11 (a proposal with only a subject). This is a design assumption for group agreement, not a scenario rule.
 - **Partner organisations** are created when first named, because no use case records them separately.
 - **Proposed contributors** link to the `Contributor` class maintained by Section B. Names must match Section B's records.
+
+## CRC cards (#28)
+
+The CRC cards assign the work in the Section A operation contracts (CO1–CO4) to classes. Domain classes come from the refined domain model (#8). Three design classes are added: a use-case controller and two repositories. They are justified in the GRASP section.
+
+### Proposal
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its subject and details, marking each detail not yet given as not yet known (FR1) | – |
+| Know who proposed it: a staff member or volunteer (`proposedBy`) or a partner organisation (DEC-07) | PartnerOrganisation |
+| Know its proposed contributors | Contributor (Section B) |
+| Update a detail that was not yet known (CO3) | – |
+| Create and hold its planned episodes (CO2, FR2) | Episode |
+| Create and hold its decisions, keeping earlier ones (CO4) | ProposalDecision |
+| Check whether a new decision may be recorded: none yet, or latest is returned or held (CO4 failure) | ProposalDecision |
+| Answer its current state from its latest decision: awaiting a decision, held, accepted, rejected (BR1, A13) | ProposalDecision |
+
+### Episode
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its title and description | – |
+| Know the proposal that plans it | Proposal |
+| Be the shared anchor for later work: contributions, sessions and drafts link to it | Contribution (B), RecordingSession (C), Draft (C) |
+
+### ProposalDecision
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its outcome, decision date, editor, conditions and note (FR3, DEC-08) | DecisionOutcome |
+| Know whether its outcome leaves the proposal open for another decision (returned or held) | DecisionOutcome |
+
+### DecisionOutcome (enumeration)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Define the only four outcomes: accepted, rejected, returned for revision, held for future consideration (BR2) | – |
+
+### PartnerOrganisation
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its name | – |
+| Know the proposals it has made, for progress information | Proposal |
+
+### ProposalController (design class)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Receive the Section A system operations: `recordProposal`, `addPlannedEpisode`, `updateProposalDetails`, `selectProposal`, `recordDecision` | – |
+| Create a new Proposal from the data in `recordProposal` | Proposal |
+| Find proposals and partners, and save new ones | ProposalRepository, PartnerOrganisationRepository |
+| Pass the editor and today's date into `recordDecision` | Clock |
+| Delegate every rule to the domain objects; make no decisions itself | Proposal |
+
+### ProposalRepository and PartnerOrganisationRepository (design classes)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Store and find proposals by identifier | Proposal |
+| Find a partner by name, or store a new one when first named (CO1) | PartnerOrganisation |
+
+### Clock (interface)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Provide the current date for `decisionDate` | – |
+
+## GRASP justification (#32)
+
+| Principle | Assignment | Reason |
+|---|---|---|
+| **Controller** | `ProposalController` receives all five Section A system operations. | A use-case controller for UC1 and UC2. It keeps the user interface out of the domain, and it covers one section only, so it does not become a single controller for the whole system. Each section has its own controller. |
+| **Creator** | `Proposal` creates `Episode` and `ProposalDecision`. | Proposal contains its episodes (*plans*, 1..\*) and records its decisions (*receives*). Both are created only in the context of one proposal. |
+| **Creator** | `ProposalController` creates `Proposal`. | No domain object contains proposals, and the controller holds the initialising data passed in `recordProposal`. |
+| **Information Expert** | `Proposal` decides whether a new decision may be recorded and what its current state is. | Proposal holds its decision history, which is the information these answers need. |
+| **Information Expert** | `ProposalDecision` knows whether its outcome leaves the proposal open. | The outcome is its own data. |
+| **High Cohesion** | The controller only receives, finds, delegates and saves. Rules stay in `Proposal` and `ProposalDecision`. | Each class has one focused purpose; the controller does not accumulate business rules. |
+| **Low Coupling** | The controller depends on `Proposal` and the repository interfaces, not on `Episode` or `ProposalDecision` directly. | Changes inside a proposal do not ripple out to the controller. |
+| **Pure Fabrication** | `ProposalRepository` and `PartnerOrganisationRepository`. | Storing and finding objects is not a responsibility of any domain concept. Giving it to `Proposal` would mix persistence into domain logic. |
+| **Protected Variations** | `Clock` interface for the current date; `DecisionOutcome` enumeration for outcomes. | The date source can be replaced by a fixed clock in tests. The enumeration keeps invalid outcomes out (BR2) and isolates the list if the collective adds one. |
+
+### Rejected alternatives
+
+| Alternative | Why rejected |
+|---|---|
+| A stored `status` attribute on `Proposal` | The state would duplicate what the latest decision already says, and the two could disagree. Deriving it keeps one source of truth (BR1, A13). |
+| The State pattern for proposal states | Decisions are a recorded history, not a lifecycle of behaviour changes. A derived state is simpler and enough. |
+| One controller for the whole system | It would collect every system operation and become a God controller, which the brief warns against. |
+| `ProposalController` checking the decision rule | It would move Proposal's knowledge into the controller and lower cohesion. |
+
+### Operation-to-responsibility map
+
+This map feeds the Section A object-interaction diagram (#36).
+
+| System operation | Controller | Expert / creator | Objects created or changed |
+|---|---|---|---|
+| `recordProposal(proposer, subject, details)` | ProposalController | ProposalController (creates); PartnerOrganisationRepository (find or store partner) | new Proposal; new PartnerOrganisation if first named |
+| `addPlannedEpisode(proposal, title, description)` | ProposalController | Proposal (creates) | new Episode |
+| `updateProposalDetails(proposal, details)` | ProposalController | Proposal | Proposal details changed |
+| `selectProposal(proposal)` | ProposalController | Proposal | none (query) |
+| `recordDecision(proposal, outcome, conditions, note)` | ProposalController | Proposal (checks rule, creates) | new ProposalDecision |

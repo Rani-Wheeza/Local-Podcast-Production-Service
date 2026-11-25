@@ -11,11 +11,11 @@ loop for each source recording from the session
 end
 
 loop for each draft for the episode (two drafts in GS44)
-  TV -> S : recordDraft(episode, versionDescription, sourceRecordings)
-  S --> TV : draft recorded with its selected source links
+  TV -> S : recordDraft(episode, versionNumber, versionDescription, sourceRecordings)
+  S --> TV : draft recorded with version number and selected source links
 
-  TV -> S : recordDraftStatus(draft, currentStatus)
-  S --> TV : draft shown with its recorded status and source links
+  TV -> S : recordDraftStatus(draft, status)
+  S --> TV : draft shown with status and source links
 end
 
 note right of S
@@ -23,6 +23,8 @@ note right of S
   by this UC. UC8 owns the authorised
   review decision. Approved does not mean
   published (A11, UC6, GS44).
+  Status is an agreed RD-04 value.
+  versionNumber is sequential for the episode (RD-12).
   Draft-version relationships remain open (Q4).
 end note
 @enduml

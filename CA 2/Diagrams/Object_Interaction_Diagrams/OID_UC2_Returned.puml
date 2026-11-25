@@ -1,0 +1,39 @@
+@startuml OID_UC2_Returned
+title Interaction diagram - UC2 recordDecision: returned for revision
+hide footbox
+
+' Section A, UC2 alternatives (Arno). This diagram agrees with CO4, the Section A CRC cards (#28) and GRASP (#32).
+' Language of notes and messages: ASD-STE100 Simplified Technical English.
+' Scenario: GS14 A proposal returned for revision is later accepted
+actor ":Proposal Editor" as PE
+participant ":ProposalController" as PCtl
+participant ":ProposalRepository" as Repo
+participant ":Clock" as Clk
+participant "p : Proposal" as P
+participant "latest : ProposalDecision" as L
+participant "d : ProposalDecision" as D
+
+PE -> PCtl : recordDecision(proposal, returned for revision, conditions, note)
+activate PCtl
+PCtl -> Repo : p = find(proposal)
+PCtl -> Clk : today = currentDate()
+PCtl -> P : result = recordDecision(returned for revision, editor, today, conditions, note)
+activate P
+P -> P : allowed = canRecordDecision()
+opt p has an earlier decision
+  P -> L : open = leavesProposalOpen()
+  note right of L : The answer is true if the latest\noutcome is "returned" or "held".
+end
+P -> D ** : create(returned for revision, editor, today, conditions, note)
+note right of D
+  decisionDate = today. decidedBy = editor.
+  The earlier decisions do not change (CO4).
+end note
+P --> PCtl : recorded
+deactivate P
+PCtl -> Repo : save(p)
+PCtl -> P : state = currentState()
+P --> PCtl : returned for revision
+PCtl --> PE : The system shows the proposal as returned for revision.\nThe proposal can get a new decision later (GS14).
+deactivate PCtl
+@enduml

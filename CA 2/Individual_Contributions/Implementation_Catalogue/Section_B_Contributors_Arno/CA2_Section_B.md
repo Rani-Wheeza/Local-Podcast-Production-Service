@@ -31,13 +31,6 @@ This review covers the CA1 requirements that affect Section B. For each item, th
 
 ### Review method
 
-The review uses four tests:
-
-- **Consistency:** The requirement agrees with the domain model, glossary and user stories.
-- **Clarity:** The required behaviour is clear. The requirement does not depend on a specific class design.
-- **Verifiability:** The verification method tests all information and behaviour that the requirement specifies.
-- **Traceability:** References connect the requirement to the applicable rules, risks and scenarios.
-
 An unresolved question is not a reason to assume a new rule. The Outstanding Questions section will record the question for a group decision.
 
 A requirement does not need a change only because it has no Gherkin scenario. This review keeps FR4 and FR5 unchanged. The Updated Gherkin Scenarios section gives their new test coverage.

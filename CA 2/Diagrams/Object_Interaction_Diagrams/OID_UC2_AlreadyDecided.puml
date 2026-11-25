@@ -1,0 +1,33 @@
+@startuml OID_UC2_AlreadyDecided
+title Interaction diagram - UC2 recordDecision: proposal already accepted or rejected
+hide footbox
+
+' Section A, UC2 alternatives (Arno). This diagram agrees with CO4, the Section A CRC cards (#28) and GRASP (#32).
+' Language of notes and messages: ASD-STE100 Simplified Technical English.
+' Scenario: CO4 controlled failure. The latest decision is "accepted" or "rejected". Q2 controls a new decision.
+actor ":Proposal Editor" as PE
+participant ":ProposalController" as PCtl
+participant ":ProposalRepository" as Repo
+participant ":Clock" as Clk
+participant "p : Proposal" as P
+participant "latest : ProposalDecision" as L
+
+PE -> PCtl : recordDecision(proposal, outcome, conditions, note)
+activate PCtl
+PCtl -> Repo : p = find(proposal)
+PCtl -> Clk : today = currentDate()
+PCtl -> P : result = recordDecision(outcome, editor, today, conditions, note)
+activate P
+P -> P : allowed = canRecordDecision()
+P -> L : open = leavesProposalOpen()
+L --> P : false
+note right of L : The latest outcome is\n"accepted" or "rejected".
+P --> PCtl : refused (already decided)
+deactivate P
+note over PCtl, P
+  Proposal does not create a ProposalDecision.
+  The controller does not save. The earlier decisions do not change (CO4).
+end note
+PCtl --> PE : The system does not record the decision.\nThe proposal is already accepted or rejected. Q2 controls a new decision.
+deactivate PCtl
+@enduml

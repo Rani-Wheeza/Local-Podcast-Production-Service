@@ -35,7 +35,9 @@ The revised analysis baseline (`Group_Documents/Analysis_Baseline/`) applies the
 | L2 | _04/11/26_ | CA3 will not run. | CA3 slice specifications are not produced. Sliceability no longer drives the design; the implementation catalogue is ordered by value, dependency and risk instead (RD-19). |
 | L3 | _09/11/26_ | Four artefacts removed: architecture and integration contract, CA3 slice specifications, technology decision record, project and contribution evidence. | Removed from the backlog and repository plan. |
 | L4 | _04/11/26_ | CA2 weighting increased from 15% to 30% of the module. | No change to scope; noted for planning. |
-| L5 | _11/11/26_ | Expansion brief (extra rules, actors, constraints or use cases). | _None received as of this draft. If one is issued, add each item here and a matching decision in Section 5._ |
+| L5 | _11/11/26_ | Expansion brief (extra rules, actors, constraints or use cases). | 
+| L6 | _09/11/26_ | Detailed design is limited to one or two use cases: start with one in full detail, add a second only if time allows. | The group selects UC2 (Record a proposal decision) for detailed design, with UC8 (Review a draft) as the second if time allows (DEC-09). SSDs and contracts already produced for other use cases remain as analysis evidence. |
+_None received as of this draft. If one is issued, add each item here and a matching decision in Section 5._ |
 
 ## 4. How the CA1 analyses differ
 

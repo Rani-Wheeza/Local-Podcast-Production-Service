@@ -14,7 +14,8 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 | DEC-04 | _09/11/26_ | Reconciliation decisions recorded separately | Proposed |
 | DEC-06 | _17/11/26_ | Gherkin scenario numbers allocated by section | Agreed |
 | DEC-07 | _18/11/26_ | Add the proposer to FR1 | Proposed |
-| DEC-08 | _date_ | Add a note to ProposalDecision | Proposed |
+| DEC-08 | _24/11/26_ | Add a note to ProposalDecision | Proposed |
+| DEC-09 | _25/11/26_ | UC2 selected for detailed design; UC8 second if time allows | Agreed |
 
 ---
 
@@ -98,12 +99,30 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 
 ## DEC-08: Add a note to ProposalDecision (proposed)
 
-- **Date:** _date_
+- **Date:** _24/11/26_
 - **Context:** UC2 records a reason for rejection, what needs revising, or when to look again (GS13, GS14, GS15). `ProposalDecision` only has `conditions`, which apply to an acceptance.
 - **Decision (proposed):** Add a `note` attribute to `ProposalDecision`.
 - **Reasoning:** Keeps conditions and explanatory notes separate, so the operation contract for `recordDecision` matches the model.
 - **Consequences:** Domain model (#8) and baseline Section 9.1 updated. CO4 already uses it.
 - **Evidence:** Section A operation contracts (#21)
+
+
+## DEC-09: UC2 selected for detailed design; UC8 second if time allows
+
+- **Date:** _25/11/26_
+- **Context:** The lecturer limited detailed design to one or two use cases: one in full detail first, a second only if time allows (reconciliation record L6).
+- **Decision:** UC2 (Record a proposal decision) is taken through detailed design: object-interaction diagrams and the design class diagram. UC8 (Review a draft) is the second use case if time allows.
+- **Reasoning:**
+  - UC2 addresses the scenario's clearest problem: an encouraging discussion mistaken for approval (BR1).
+  - It has rich behaviour: four outcomes (BR2) plus controlled failures, giving the interaction diagrams real alternatives.
+  - It is the most complete: detailed use case, SSD, contracts (CO4), CRC cards, GRASP and seven Gherkin scenarios already exist.
+  - Its scope (four to five classes) allows full depth.
+  - Proposed independently by two members (Rani and Tsubasa).
+- **Rejected alternatives:**
+  - UC8 first: it addresses the blocked-draft problem (BR5) and links Sections B, C and D, but it spans more classes and rules, so it is kept as the second choice.
+  - Other use cases: less behaviour (UC1, UC9) or still open questions (UC10, Q6).
+- **Consequences:** Per-section interaction-diagram cards are replaced by shared UC2 cards. The implementation catalogue (#9) records the priorities. SSDs and contracts already produced for other use cases remain as analysis evidence.
+- **Evidence:** Reconciliation record L6 · Section A CRC and GRASP (#28, #32) · implementation catalogue (#9)
 
 ---
 

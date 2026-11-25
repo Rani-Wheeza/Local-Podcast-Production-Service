@@ -375,7 +375,7 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 | **Class**           | **Attributes**                                                                                             | **From**          |
 |---------------------|------------------------------------------------------------------------------------------------------------|-------------------|
 | Proposal            | subject, intendedAudience, format, expectedDuration, preferredPublicationPeriod, programmeType, proposedBy | FR1               |
-| ProposalDecision    | outcome, decisionDate, conditions, decidedBy                                                               | FR3               |
+| ProposalDecision    | outcome, decisionDate, conditions, note, decidedBy                                                               | FR3               |
 | PartnerOrganisation | name                                                                                                       | Proposals section |
 | Episode             | title, description                                                                                         | FR2               |
 | Contributor         | name, contactPreference, availability                                                                      | FR4               |

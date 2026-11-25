@@ -5,7 +5,7 @@ CA1 source: Rani Wheeza's analysis dossier (T00244793)
 
 Evidence references ED01 to ED41 identify items in [Evidence_Document_Source_Material.md](Evidence_Document_Source_Material.md). This section reviews the CA1 analysis for review, publication and correction. It also identifies information that the CA1 analysis does not state.
 
-The scenarios are in [Section_D_Review.feature](../../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature). CRC cards, GRASP notes and diagrams are not in this folder.
+The scenarios are in [Section_D_Review.feature](../../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature). The CRC cards and GRASP notes are in this catalogue. The system sequence diagrams are in the diagrams folder.
 
 ## Problem statement
 
@@ -36,7 +36,7 @@ S6, S8 and S9 are the scope items for these use cases (ED10).
 | Recording contributor consent | Section B | UC4 records consent. The Section D scenarios read whether consent is confirmed. They do not record it (ED26). |
 | Recording permissions for material | Section C | UC7 and FR8. Section C says record permissions for material used. |
 | The production overview | Shared | UC11 and FR12 list several overview categories (ED19, ED26). GS4 shows one blocked draft. This section adds no overview scenario. |
-| Recording contributor concerns before or after publication | Deferred (RD-17) | The scenario says concerns may be raised and a consistent record is wanted, but gives no process, owner or visibility rule. Building it would invent policy (Q11). Remains deferred (RD-17)  |
+| Recording contributor concerns before or after publication | Deferred (RD-17) | The scenario says concerns may be raised and a consistent record is wanted, but gives no process, owner or visibility rule. Building it would invent policy (Q11). Remains deferred (RD-17) |
 
 ## Requirements Review
 
@@ -64,7 +64,7 @@ FR10 and FR11 remain Should. The dossier gives that priority because the process
 
 | ID | Decision | Reason |
 |---|---|---|
-| UC8 |	Keep | The use case records approval, returned for changes, postponed and withdrawn. A draft returned for changes and not reviewed again is shown as blocked (BR5, DEC-05). The scenarios are GS3, GS4 and GS30 to GS33.|
+| UC8 | Keep | The use case records approval, returned for changes, postponed and withdrawn. A draft returned for changes and not reviewed again is shown as blocked (BR5, DEC-05). The scenarios are GS3, GS4 and GS30 to GS33.|
 | UC9 | Keep | The use case records the publication date, the channel and the reason for a change. No rule says the system rejects a publication date. The scenarios are GS34 and GS5.|
 | UC10 | Keep | The use case records a correction linked to the original publication, with its type, the person and the date. What happens next stays open (Q6). The scenarios are GS35 and GS36.|
 
@@ -118,22 +118,22 @@ The review does not answer the open questions. The table shows their effects on 
 
 **Main success flow (Authorised editor approves a reviewed draft with nothing outstanding)**
 
-| Actor                                                       | System                                                                                                                                  |
-| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Selects the draft to review                              |                                                                                                                                         |
-|                                                             | 2. Shows that every contributor consent for the episode is confirmed and that the archive-clip permission is granted                    |
-| 3. Records the outcome "approved" for a publication channel |                                                                                                                                         |
-|                                                             | 4. Records the approval for that channel with the editor's name and the date, and shows the draft as approved and ready to be scheduled |
+| Actor | System |
+|---|---|
+| 1. Selects the draft to review | |
+| | 2. Shows that every contributor consent for the episode is confirmed and that the archive-clip permission is granted |
+| 3. Records the outcome "approved" for a publication channel | |
+| | 4. Records the approval for that channel with the editor's name and the date, and shows the draft as approved and ready to be scheduled |
 
 **Principal extensions**
 
-| Point                     | Condition                                                                                         | Outcome                                                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| 2a Outstanding permission | An archive-clip permission is still outstanding when the editor reviews the draft for publication | Not released. Shown as blocked by the outstanding archive-clip permission.                                               |
-| 2b No outcome recorded    | No review outcome has been recorded, and the production coordinator views the draft               | Shown as awaiting review. Not shown as approved or ready to be scheduled.                                                |
-| 3a Returned for changes   | The editor records "returned for changes" with a comment                                          | Shown as returned for changes, and as blocked by an outstanding editorial decision. The comment, name and date are kept. |
-| 3b Postponed              | The editor records "postponed" with a comment                                                     | Shown as postponed. Not shown as blocked. The comment, name and date are kept.                                           |
-| 3c Withdrawn              | The editor records "withdrawn" with a comment                                                     | Shown as withdrawn. Not shown as blocked. The comment, name and date are kept.                                           |
+| Point | Condition | Outcome |
+|---|---|---|
+| 2a Outstanding permission | An archive-clip permission is still outstanding when the editor reviews the draft for publication | Not released. Shown as blocked by the outstanding archive-clip permission. |
+| 2b No outcome recorded | No review outcome has been recorded, and the production coordinator views the draft | Shown as awaiting review. Not shown as approved or ready to be scheduled. |
+| 3a Returned for changes | The editor records "returned for changes" with a comment | Shown as returned for changes, and as blocked by an outstanding editorial decision. The comment, name and date are kept. |
+| 3b Postponed | The editor records "postponed" with a comment | Shown as postponed. Not shown as blocked. The comment, name and date are kept. |
+| 3c Withdrawn | The editor records "withdrawn" with a comment | Shown as withdrawn. Not shown as blocked. The comment, name and date are kept. |
 
 **Postconditions:** The approval is kept for that channel with the editor's name and the date. The draft is shown as approved and ready to be scheduled.
 
@@ -166,18 +166,18 @@ The review uses these baseline files:
 
 New scenarios start at GS30. The group must confirm the numbers before the feature files are merged.
 
-| Scenario                                                                  | Type        | Test coverage                                                                                                                                                                                             | Requirement    | Use case | Rule or constraint                              | Evidence               |
-| ------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | ----------------------------------------------- | ---------------------- |
-| GS3: Authorised editor approves a reviewed draft with nothing outstanding | Success     | The authorised editor's approval, name and date are recorded for the named channel. The draft is shown as ready to be scheduled.                                                                          | FR9            | UC8      | BR3                                             | ED15, ED27, ED30, ED40 |
-| GS4: Technically complete draft blocked by an outstanding permission      | Failure     | The draft is not released. It is shown as blocked by the outstanding archive-clip permission.                                                                                                             | FR8, FR9, FR12 | UC8      | BR5                                             | ED18, ED19, ED23, ED28 |
-| GS30: A draft with nothing outstanding is not approved automatically      | Boundary    | With consent confirmed, permission granted and no review outcome, the draft is shown as awaiting review. It is not shown as approved or ready to be scheduled.                                            | FR9            | UC8      | BR3                                             | ED27, ED28, ED37, ED40 |
-| GS31: Authorised editor returns a draft for changes                       | Alternative | The outcome "returned for changes", the comment, the editor's name and the date are kept. The draft is shown as blocked by an outstanding editorial decision, not approved and not ready to be scheduled. | FR9            | UC8      | BR4, BR5                                        | ED15, ED23, ED37       |
-| GS32: Authorised editor postpones a draft                                 | Alternative | The outcome "postponed", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled.                                                                   | FR9            | UC8      | BR4                                             | ED15, ED23, ED37       |
-| GS33: Authorised editor records a draft as withdrawn                      | Alternative | The outcome "withdrawn", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled.                                                                   | FR9            | UC8      | BR4                                             | ED15, ED23, ED37       |
-| GS34: Publication date and channel are recorded                           | Success     | An approved draft that is ready to be scheduled is shown as scheduled for 14 November on the "podcast feed" channel.                                                                                      | FR10           | UC9      | CA1 states no separate rejection rule for FR10. | ED16, ED27, ED38       |
-| GS5: Publication date moved because another programme is urgent           | Alternative | The date changes from 14 November to 28 November on the same channel. The earlier date and the reason "another programme has become urgent" are kept.                                                     | FR10           | UC9      | CA1 states no separate rejection rule for FR10. | ED04, ED16, ED30, ED38 |
-| GS35: A metadata correction stays linked to the original publication      | Success     | The correction is linked to the original publication, shown as a metadata correction, and not shown as a new audio version. It shows the editor's name and the date.                                      | FR11           | UC10     | BR8                                             | ED17, ED23, ED39       |
-| GS36: A new audio version stays linked to the original publication        | Success     | The new audio version is linked to the original publication, shown as a new audio version, and not shown as a metadata correction. It shows the editor's name and the date.                               | FR11           | UC10     | BR8                                             | ED17, ED23, ED39       |
+| Scenario | Type | Test coverage | Requirement | Use case | Rule or constraint | Evidence |
+|---|---|---|---|---|---|---|
+| GS3: Authorised editor approves a reviewed draft with nothing outstanding | Success | The authorised editor's approval, name and date are recorded for the named channel. The draft is shown as ready to be scheduled. | FR9 | UC8 | BR3 | ED15, ED27, ED30, ED40 |
+| GS4: Technically complete draft blocked by an outstanding permission | Failure | The draft is not released. It is shown as blocked by the outstanding archive-clip permission. | FR8, FR9, FR12 | UC8 | BR5 | ED18, ED19, ED23, ED28 |
+| GS30: A draft with nothing outstanding is not approved automatically | Boundary | With consent confirmed, permission granted and no review outcome, the draft is shown as awaiting review. It is not shown as approved or ready to be scheduled. | FR9 | UC8 | BR3 | ED27, ED28, ED37, ED40 |
+| GS31: Authorised editor returns a draft for changes | Alternative | The outcome "returned for changes", the comment, the editor's name and the date are kept. The draft is shown as blocked by an outstanding editorial decision, not approved and not ready to be scheduled. | FR9 | UC8 | BR4, BR5 | ED15, ED23, ED37 |
+| GS32: Authorised editor postpones a draft | Alternative | The outcome "postponed", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled. | FR9 | UC8 | BR4 | ED15, ED23, ED37 |
+| GS33: Authorised editor records a draft as withdrawn | Alternative | The outcome "withdrawn", the comment, the editor's name and the date are kept. The draft is not approved and not ready to be scheduled. | FR9 | UC8 | BR4 | ED15, ED23, ED37 |
+| GS34: Publication date and channel are recorded | Success | An approved draft that is ready to be scheduled is shown as scheduled for 14 November on the "podcast feed" channel. | FR10 | UC9 | CA1 states no separate rejection rule for FR10. | ED16, ED27, ED38 |
+| GS5: Publication date moved because another programme is urgent | Alternative | The date changes from 14 November to 28 November on the same channel. The earlier date and the reason "another programme has become urgent" are kept. | FR10 | UC9 | CA1 states no separate rejection rule for FR10. | ED04, ED16, ED30, ED38 |
+| GS35: A metadata correction stays linked to the original publication | Success | The correction is linked to the original publication, shown as a metadata correction, and not shown as a new audio version. It shows the editor's name and the date. | FR11 | UC10 | BR8 | ED17, ED23, ED39 |
+| GS36: A new audio version stays linked to the original publication | Success | The new audio version is linked to the original publication, shown as a new audio version, and not shown as a metadata correction. It shows the editor's name and the date. | FR11 | UC10 | BR8 | ED17, ED23, ED39 |
 
 ### Review decisions and limits
 
@@ -208,48 +208,148 @@ The group must resolve the dependencies below before final integration. Until th
 | Scenario numbers | GS30 to GS36 in this feature | The group must confirm that the numbers do not collide before merge. |
 | Common test data | Shared episode titles, channel names and dates | A change to the test data must preserve the behaviour that each scenario tests. |
 
-## SSD（System Sequence Diagram）
+## SSD (System Sequence Diagram)
 
-| Use case | Diagram                                                                      | System operations                                                  |
-| -------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| UC8      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_ReviewDraft.puml`            | selectDraft(draft); recordReview(draft, channel, outcome, comment) |
-| UC8      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml`         | viewDraft(draft)                                                   |
-| UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPublication.puml`      | recordPublicationDate(draft, channel, date)                        |
-| UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_ChangePublicationDate.puml`  | changePublicationDate(draft, channel, newDate, reason)             |
-| UC10     | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | recordCorrection(publication, type, correctionDetails)             |
+| Use case | Diagram | System operations |
+|---|---|---|
+| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_ReviewDraft.puml` | selectDraft(draft); recordReview(draft, channel, outcome, comment) |
+| UC8 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml` | viewDraft(draft) |
+| UC9 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPublication.puml` | recordPublicationDate(draft, channel, date) |
+| UC9 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_ChangePublicationDate.puml` | changePublicationDate(draft, channel, newDate, reason) |
+| UC10 | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | recordCorrection(publication, type, correctionDetails) |
 
 ## Operation Contract
 
-### recordPublicationDate
+`selectDraft` and `viewDraft` return information only. They have no operation contract.
+
+### OC01: recordReview
+
+| Contract field | Content |
+|---|---|
+| Operation | `recordReview(draft, channel, outcome, comment)` |
+| Cross-references | UC8, FR9, BR4, BR5, DEC-05, GS3, GS4, GS31, GS32, GS33 |
+| Preconditions | A `Draft` exists. |
+| Postconditions | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = outcome<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>`Draft.status` = outcome<br>Returned for changes: derived blocked by an outstanding editorial decision (DEC-05, GS31)<br>Approved, and nothing outstanding: derived ready to be scheduled (GS3)<br>Approved, with an outstanding permission or consent: derived blocked (GS4) |
+
+### OC02: recordPublicationDate
 
 | Contract field | Content |
 |---|---|
 | Operation | `recordPublicationDate(draft, channel, date)` |
 | Cross-references | UC9, FR10, GS34 |
-| Preconditions | The draft is approved for the channel and ready to be scheduled. |
-| Postconditions | The draft's episode is shown as scheduled for that date on that channel. |
-| Rule | FR10 records a date and a channel. No rule says the system rejects a publication date. |
+| Preconditions | `Draft.status` = approved<br>Derived ready to be scheduled |
+| Postconditions | `Publication` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`Publication.scheduledDate` = date<br>`Publication.status` = scheduled |
 
-### changePublicationDate
+### OC03: changePublicationDate
 
 | Contract field | Content |
 |---|---|
 | Operation | `changePublicationDate(draft, channel, newDate, reason)` |
 | Cross-references | UC9, FR10, GS5 |
-| Preconditions | The draft's episode is already scheduled on the channel. |
-| Postconditions | The episode is shown as scheduled for the new date on that channel. The earlier date and the reason are kept. |
-| Rule | FR10 records the reason for a change. No rule says the system rejects a publication date. |
+| Preconditions | A `Publication` for that draft and channel exists<br>`Publication.status` = scheduled |
+| Postconditions | `PublicationDateChange` created<br>Association with `Publication`<br>`PublicationDateChange.earlierDate` = previous `Publication.scheduledDate`<br>`PublicationDateChange.newDate` = newDate<br>`PublicationDateChange.reason` = reason<br>`PublicationDateChange.changeDate` = current date<br>`Publication.scheduledDate` = newDate |
 
-### recordCorrection
+### OC04: recordCorrection
 
 | Contract field | Content |
 |---|---|
 | Operation | `recordCorrection(publication, type, details)` |
 | Cross-references | UC10, FR11, BR8, GS35, GS36 |
-| Preconditions | The publication exists. `publication` is its identifier. |
-| Postconditions | A correction was created and linked to that publication. `type` is metadata correction or new audio version, and the correction is not shown as the other type. For a metadata correction, `details` is the metadata that was corrected. For a new audio version, `details` is that version. The system records the editor's name and the date. |
-| Rule | FR11 records the link, the type, the person and the date. Q6 stays open, so the operation does not reject a correction. |
+| Preconditions | A `Publication` exists<br>`Publication.status` = published |
+| Postconditions | `Correction` created<br>Association with `Publication`<br>`Correction.type` = type<br>`Correction.details` = details<br>`Correction.recordedBy` = editor<br>`Correction.correctionDate` = current date |
 
 ## CRC Cards
 
+The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section C's class; only the responsibilities these operations need are listed here. Design classes are one use-case controller, a clock and two enumerations.
+
+### Draft (Section C)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its version, description and review status (RD-04) | – |
+| Create a `DraftReview` for one channel (OC01, FR9) | DraftReview, PublicationChannel |
+| Set its status to the review outcome (OC01) | – |
+| Know whether it is blocked (derived, RD-04, BR5) | DraftReview, Permission (C), Consent (B) |
+| Know whether it is ready to be scheduled (derived, RD-04) | DraftReview, Permission (C), Consent (B) |
+| Know whether an editorial decision is outstanding (DEC-05) | DraftReview |
+| Know whether it has been reviewed (GS30) | – |
+| Create and hold a publication for one channel (OC02, FR10) | Publication, PublicationChannel |
+
+### DraftReview
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its outcome, review date, editor and comments (FR9) | ReviewOutcome |
+| Know the one draft it reviews (RD-07) | Draft |
+| Know the one channel it is for (RD-07, A9) | PublicationChannel |
+
+### ReviewOutcome (enumeration)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Define the only four outcomes: approved, returned for changes, postponed, withdrawn (BR4) | – |
+
+### Publication
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its scheduled date (FR10) | – |
+| Know whether it is scheduled or published (OC02, OC04) | – |
+| Set its scheduled date (OC02, OC03) | – |
+| Set its status to scheduled (OC02) | – |
+| Know the draft it releases | Draft |
+| Know the channel that carries it | PublicationChannel |
+| Create and hold a date-change record (OC03, GS5) | PublicationDateChange |
+| Create and hold a correction (OC04, FR11) | Correction |
+
+### PublicationDateChange
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its earlier date, new date, reason and change date (OC03, GS5) | Publication |
+
+### PublicationChannel
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its name | – |
+
+### Correction
+
+| Responsibilities | Collaborators |
+|---|---|
+| Know its type (BR8) | CorrectionType |
+| Know its details (OC04) | – |
+| Know the editor who recorded it (OC04, FR11) | – |
+| Know its correction date (FR11) | – |
+| Know the publication it amends | Publication |
+
+### CorrectionType (enumeration)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Define the two types: metadata correction, new audio version (BR8) | – |
+
+### ReviewPublicationController (design class)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Receive `selectDraft`, `viewDraft`, `recordReview`, `recordPublicationDate`, `changePublicationDate` and `recordCorrection` | – |
+| Pass the editor and today's date into `recordReview` and `recordCorrection`, and today's date into `changePublicationDate` | Clock |
+| Delegate every rule to the domain objects | Draft, Publication |
+
+### Clock (interface)
+
+| Responsibilities | Collaborators |
+|---|---|
+| Provide the current date for `reviewDate`, `correctionDate` and `changeDate` | – |
+
 ## GRASP Justification
+
+| Responsibility | Assigned class | GRASP principle | Alternative considered | Reason rejected |
+|---|---|---|---|---|
+| Create the review for one channel and set the draft status | Draft | Creator | The controller creates the review | The review exists only for that draft. The controller would take on domain work. |
+| Create the publication for one channel | Draft | Creator | The channel, or the controller, creates it | The draft is what is released. The channel is recorded on the publication. |
+| Keep the earlier date, the new date, the reason and the change date | PublicationDateChange | Information Expert | `Publication.reasonForDateChange` holds the reason | A later change would overwrite the earlier date and the reason. |
+| Know its name only | PublicationChannel | Low Coupling | The channel also knows its reviews and publications | No operation starts at the channel and follows those links. |
+| Receive the six operations and delegate them | ReviewPublicationController | Controller | One controller per use case, or a repository that saves the result | The three use cases share the draft and the publication. The operations already receive the objects, so a repository would be database access. |

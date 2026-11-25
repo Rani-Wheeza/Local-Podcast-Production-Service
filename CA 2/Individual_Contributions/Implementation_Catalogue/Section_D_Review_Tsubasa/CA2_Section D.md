@@ -220,36 +220,44 @@ The group must resolve the dependencies below before final integration. Until th
 
 ## Operation Contract
 
-### recordPublicationDate
+### OC01: recordReview
 
-| Contract field | Content |
-|---|---|
-| Operation | `recordPublicationDate(draft, channel, date)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordReview(draft, channel, outcome, comment)` |
+| Cross-references | UC8, FR9, BR3, BR4, BR5, DEC-05, GS3, GS4, GS31, GS32, GS33 |
+| Preconditions    | A `Draft` exists. |
+| Postconditions   | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = approved, returned for changes, postponed or withdrawn<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>Approved: `Draft.status` = approved<br>Returned for changes: `Draft.status` = returned for changes<br>Postponed: `Draft.status` = postponed<br>Withdrawn: `Draft.status` = withdrawn |
+
+### OC02: recordPublicationDate
+
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordPublicationDate(draft, channel, date)` |
 | Cross-references | UC9, FR10, GS34 |
-| Preconditions | The draft is approved for the channel and ready to be scheduled. |
-| Postconditions | The draft's episode is shown as scheduled for that date on that channel. |
-| Rule | FR10 records a date and a channel. No rule says the system rejects a publication date. |
+| Preconditions    | `Draft.status` = approved<br>A `DraftReview` for that channel has `DraftReview.outcome` = approved |
+| Postconditions   | `Publication` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`Publication.scheduledDate` = date<br>`Publication.status` = scheduled |
 
-### changePublicationDate
+### OC03: changePublicationDate
 
-| Contract field | Content |
-|---|---|
-| Operation | `changePublicationDate(draft, channel, newDate, reason)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `changePublicationDate(draft, channel, newDate, reason)` |
 | Cross-references | UC9, FR10, GS5 |
-| Preconditions | The draft's episode is already scheduled on the channel. |
-| Postconditions | The episode is shown as scheduled for the new date on that channel. The earlier date and the reason are kept. |
-| Rule | FR10 records the reason for a change. No rule says the system rejects a publication date. |
+| Preconditions    | A `Publication` for that draft and channel exists<br>`Publication.status` = scheduled |
+| Postconditions   | `PublicationDateChange` created<br>Association with `Publication`<br>`PublicationDateChange.earlierDate` = previous `Publication.scheduledDate`<br>`PublicationDateChange.newDate` = newDate<br>`PublicationDateChange.reason` = reason<br>`PublicationDateChange.changeDate` = current date<br>`Publication.scheduledDate` = newDate |
 
-### recordCorrection
+### OC04: recordCorrection
 
-| Contract field | Content |
-|---|---|
-| Operation | `recordCorrection(publication, type, details)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordCorrection(publication, type, details)` |
 | Cross-references | UC10, FR11, BR8, GS35, GS36 |
-| Preconditions | The publication exists. `publication` is its identifier. |
-| Postconditions | A correction was created and linked to that publication. `type` is metadata correction or new audio version, and the correction is not shown as the other type. For a metadata correction, `details` is the metadata that was corrected. For a new audio version, `details` is that version. The system records the editor's name and the date. |
-| Rule | FR11 records the link, the type, the person and the date. Q6 stays open, so the operation does not reject a correction. |
+| Preconditions    | A `Publication` exists<br>`Publication.status` = published |
+| Postconditions   | `Correction` created<br>Association with `Publication`<br>Metadata correction: `Correction.type` = metadata correction<br>New audio version: `Correction.type` = new audio version<br>`Correction.correctionDate` = current date<br>`Correction.recordedBy` = editor |
 
 ## CRC Cards
+
+
 
 ## GRASP Justification

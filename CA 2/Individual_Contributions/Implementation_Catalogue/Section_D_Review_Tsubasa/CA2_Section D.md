@@ -220,40 +220,38 @@ The group must resolve the dependencies below before final integration. Until th
 
 ## Operation Contract
 
-`selectDraft` and `viewDraft` return information only. They have no operation contract.
-
 ### OC01: recordReview
 
-| Contract field | Content |
-|---|---|
-| Operation | `recordReview(draft, channel, outcome, comment)` |
-| Cross-references | UC8, FR9, BR4, BR5, DEC-05, GS3, GS4, GS31, GS32, GS33 |
-| Preconditions | A `Draft` exists. |
-| Postconditions | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = outcome<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>`Draft.status` = outcome<br>Returned for changes: derived blocked by an outstanding editorial decision (DEC-05, GS31)<br>Approved, and nothing outstanding: derived ready to be scheduled (GS3)<br>Approved, with an outstanding permission or consent: derived blocked (GS4) |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordReview(draft, channel, outcome, comment)` |
+| Cross-references | UC8, FR9, BR3, BR4, BR5, DEC-05, GS3, GS4, GS31, GS32, GS33 |
+| Preconditions    | A `Draft` exists. |
+| Postconditions   | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = approved, returned for changes, postponed or withdrawn<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>Approved: `Draft.status` = approved<br>Returned for changes: `Draft.status` = returned for changes<br>Postponed: `Draft.status` = postponed<br>Withdrawn: `Draft.status` = withdrawn |
 
 ### OC02: recordPublicationDate
 
-| Contract field | Content |
-|---|---|
-| Operation | `recordPublicationDate(draft, channel, date)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordPublicationDate(draft, channel, date)` |
 | Cross-references | UC9, FR10, GS34 |
 | Preconditions | `Draft.status` = approved<br>Derived ready to be scheduled |
 | Postconditions | `Publication` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`Publication.scheduledDate` = date<br>`Publication.status` = scheduled |
 
 ### OC03: changePublicationDate
 
-| Contract field | Content |
-|---|---|
-| Operation | `changePublicationDate(draft, channel, newDate, reason)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `changePublicationDate(draft, channel, newDate, reason)` |
 | Cross-references | UC9, FR10, GS5 |
 | Preconditions | A `Publication` for that draft and channel exists<br>`Publication.status` = scheduled |
 | Postconditions | `PublicationDateChange` created<br>Association with `Publication`<br>`PublicationDateChange.earlierDate` = previous `Publication.scheduledDate`<br>`PublicationDateChange.newDate` = newDate<br>`PublicationDateChange.reason` = reason<br>`PublicationDateChange.changeDate` = current date<br>`Publication.scheduledDate` = newDate |
 
 ### OC04: recordCorrection
 
-| Contract field | Content |
-|---|---|
-| Operation | `recordCorrection(publication, type, details)` |
+| Contract field   | Content |
+| ---------------- | ------- |
+| Operation        | `recordCorrection(publication, type, details)` |
 | Cross-references | UC10, FR11, BR8, GS35, GS36 |
 | Preconditions | A `Publication` exists<br>`Publication.status` = published |
 | Postconditions | `Correction` created<br>Association with `Publication`<br>`Correction.type` = type<br>`Correction.details` = details<br>`Correction.recordedBy` = editor<br>`Correction.correctionDate` = current date |

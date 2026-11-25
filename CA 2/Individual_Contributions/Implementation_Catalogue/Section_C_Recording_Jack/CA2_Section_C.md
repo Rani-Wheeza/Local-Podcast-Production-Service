@@ -7,9 +7,9 @@ Source files: [CA1 analysis dossier](../../../../CA%201/Report/CA1_Analysis_Doss
 
 This section covers recording sessions, source recordings, draft versions and permissions. It reviews and designs UC5, UC6 and UC7.
 
-## Your Section C tasks
+## Section C tasks
 
-Suggested order, with the recording/draft relationship review before detailed design:
+Task Order:
 
 - [x] #13 Review recording-session and draft requirements
 - [x] #17 Update relevant Gherkin scenarios
@@ -336,27 +336,48 @@ end note
 
 ### RecordingSession
 
-- **CA1 attributes:** date, locationType, locationDescription, equipmentNeeded (FR6).
 - **Responsibilities:**
-- **Collaborators / related classes to check:** Episode, SourceRecording.
+  - Know and Keep the session date and location.
+  - Record the required equipment.
+  - Record and show any reported missing equipment item.
+  - Associate the session with one episode.
+  - Keep links to the source recordings produced by the session.
+- **Collaborators:** 
+  - Episode
+  - SourceRecording
+  - EquipmentItem
 
 ### SourceRecording
 
-- **CA1 attributes:** workingName, usabilityNote (FR7).
 - **Responsibilities:**
-- **Collaborators / related classes to check:** RecordingSession, Draft.
+  - Know and keep the working filename and usability note.
+  - Associate the recording with the recording session that produced it.
+  - Keep links to the drafts that use the source recording
+- **Collaborators:** 
+  - RecordingSession 
+  - Draft
 
 ### Draft
 
-- **CA1 attributes:** versionDescription, status (FR7).
 - **Responsibilities:**
-- **Collaborators / related classes to check:** Episode, SourceRecording, Permission.
+  - Know and keep the draft desription and current status.
+  - Associate the draft with its episode
+  - Keep links to the source recordings used to make the draft
+- **Collaborators:** 
+  - Episode
+  - SourceRecording
+  - Permission
 
 ### Permission
 
-- **CA1 attributes:** materialDescription, materialSource, permittedUse, status (FR8).
 - **Responsibilities:**
-- **Collaborators / related classes to check:** Draft.
+  - Know and keep the material description and source.
+  - Record the permitted use.
+  - Record the permission status as granted or outstanding.
+  - Associate the permission with one or however many drafts that use the material.
+  - Make an outstanding permission visible to the draft and rewiew workflow.
+- **Collaborators:** 
+  - Draft
 
 ## Task #34 — Apply relevant GRASP principles
 

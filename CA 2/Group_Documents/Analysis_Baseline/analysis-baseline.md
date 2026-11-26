@@ -334,9 +334,9 @@ The CA1 scenarios GS1 to GS5 are kept with their identifiers. Each section adds 
 
 Scenario number blocks were agreed by the group so the feature files can be merged without clashes. A section that needs more than ten scenarios asks the group for a further block.
 
-Gaps carried from CA1: FR1, FR2, FR4, FR5, FR6 and FR7 had no scenario. FR1 and FR2 belong to Section A, FR4 and FR5 to Section B, and FR6 and FR7 to Section C. FR5 (consent) is first (RD-09). FR11 is now covered by GS35 and GS36 in Section D.
+The CA1 gaps are now covered in the section feature files. FR1 and FR2 use GS10–GS12. FR4 and FR5 use GS20–GS24. FR6 and FR7 use GS40–GS44. FR11 uses GS35 and GS36. GS1–GS5 keep their CA1 numbers inside the section file that owns that behaviour. The Section D wording of GS5 names the "podcast feed" channel and quotes the reason. The CA1 feature file keeps the original GS5, which does not name the channel.
 
-Scenarios must use the terms in Section 8, especially Blocked, awaiting review and ready to be scheduled.
+Scenarios must use the terms in Section 8, especially Blocked, awaiting review and ready to be scheduled. GS4 and GS24 both say the draft is not released for publication and is shown as blocked by the outstanding item.
 
 # 8. Glossary
 
@@ -442,23 +442,23 @@ Several multiplicities come from reasoning, not scenario evidence, for example z
 
 # 10. Traceability
 
-The Gherkin column shows the CA1 scenarios. Section feature files add further scenarios (Section 7); update this column when they are merged.
+The Gherkin column lists the scenarios in the section feature files (Section 7), including the CA1 scenarios those files keep.
 
 
 | **Req** | **Pri.** | **Scope** | **Goal** | **Use case** | **Gherkin** | **Domain concepts**                                                                         | **Rules**     |
 |---------|----------|-----------|----------|--------------|-------------|---------------------------------------------------------------------------------------------|---------------|
-| FR1     | Must     | S1        | G13      | UC1          | none        | Proposal, Episode, PartnerOrganisation, Contributor                                         | none          |
-| FR2     | Must     | S1        | G13      | UC1          | none        | Proposal, Episode                                                                           | A10           |
-| FR3     | Must     | S1        | G1       | UC2          | GS1, GS2    | Proposal, ProposalDecision                                                                  | BR1, BR2      |
-| FR4     | Must     | S2        | G14      | UC3          | none        | Contributor, Contribution, Episode                                                          | none          |
-| FR5     | Must     | S3        | G10      | UC4          | none        | Consent, Contribution                                                                       | C5            |
-| FR6     | Should   | S4        | G4, G5   | UC5          | none        | RecordingSession, Episode                                                                   | none          |
-| FR7     | Must     | S5        | G6       | UC6          | none        | SourceRecording, Draft, RecordingSession, Episode                                           | A11           |
-| FR8     | Must     | S7        | G7       | UC7, UC8     | GS4         | Permission, Draft                                                                           | BR5           |
-| FR9     | Must     | S6        | G8       | UC8          | GS3, GS4    | DraftReview, Draft                                                                          | BR3, BR4      |
-| FR10    | Should   | S8        | G12      | UC9          | GS5         | Publication, PublicationChannel, Draft                                                      | none          |
-| FR11    | Should   | S9        | G9       | UC10         | none        | Correction, Publication, Draft                                                              | BR8           |
-| FR12    | Must     | S10       | G3       | UC11         | GS2, GS4    | Proposal, ProposalDecision, Consent, Permission, DraftReview, RecordingSession, Publication | BR1, BR5, A13 |
+| FR1     | Must     | S1        | G13      | UC1          | GS10, GS11              | Proposal, Episode, PartnerOrganisation, Contributor                                         | none          |
+| FR2     | Must     | S1        | G13      | UC1          | GS12                    | Proposal, Episode                                                                           | A10           |
+| FR3     | Must     | S1        | G1       | UC2          | GS1, GS2, GS13–GS16     | Proposal, ProposalDecision                                                                  | BR1, BR2      |
+| FR4     | Must     | S2        | G14      | UC3          | GS20, GS21              | Contributor, Contribution, Episode                                                          | none          |
+| FR5     | Must     | S3        | G10      | UC4          | GS22, GS23, GS24        | Consent, Contribution                                                                       | C5            |
+| FR6     | Should   | S4        | G4, G5   | UC5          | GS40, GS41              | RecordingSession, Episode                                                                   | none          |
+| FR7     | Must     | S5        | G6       | UC6          | GS42, GS43, GS44        | SourceRecording, Draft, RecordingSession, Episode                                           | A11           |
+| FR8     | Must     | S7        | G7       | UC7, UC8     | GS4, GS45, GS46         | Permission, Draft                                                                           | BR5           |
+| FR9     | Must     | S6        | G8       | UC8          | GS3, GS4, GS24, GS30–GS33 | DraftReview, Draft                                                                        | BR3, BR4      |
+| FR10    | Should   | S8        | G12      | UC9          | GS5, GS34               | Publication, PublicationChannel, Draft                                                      | none          |
+| FR11    | Should   | S9        | G9       | UC10         | GS35, GS36              | Correction, Publication, Draft                                                              | BR8           |
+| FR12    | Must     | S10       | G3       | UC11         | GS2, GS4, GS24          | Proposal, ProposalDecision, Consent, Permission, DraftReview, RecordingSession, Publication | BR1, BR5, A13 |
 
 | **NFR** | **Quality**    | **Linked to**     | **Rules** |
 |---------|----------------|-------------------|-----------|

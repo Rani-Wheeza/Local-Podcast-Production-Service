@@ -18,6 +18,7 @@ This is the agreed analysis that all CA2 design work builds on. It is the Scenar
 | Draft states: Blocked and Ready to be scheduled are derived, not stored; returned, postponed and withdrawn listed              | 6.4, 8 | RD-04                |
 | DraftReview linked to PublicationChannel                                                                                       | 9      | RD-07                |
 | `Draft.versionNumber` added                                                                                                    | 9      | RD-12                |
+| `Publication.status` added: scheduled or published                                                                             | 9      | OC02, OC04           |
 | Gherkin organised by section feature file                                                                                      | 7      | RD-09                |
 | Contributor concerns remain deferred                                                                                           | 2.3    | RD-17                |
 
@@ -364,7 +365,7 @@ Scenarios must use the terms in Section 8, especially Blocked, awaiting review a
 
 # 9. Domain model
 
-The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 changes in RD-04, RD-07 and RD-12. It has no methods, controllers, repositories, interface controls, keys or navigability. The arrow after each association name shows reading direction only.
+The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 changes in RD-04, RD-07 and RD-12, and `Publication.status` from OC02 and OC04. It has no methods, controllers, repositories, interface controls, keys or navigability. The arrow after each association name shows reading direction only.
 
 ![Refined domain model](../../Diagrams/Domain_Model/domain-model.png)
 
@@ -386,7 +387,7 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 | Draft               | versionNumber, versionDescription, status (awaiting review, returned for changes, postponed, withdrawn, approved) | FR7, RD-04, RD-12 |
 | Permission          | materialDescription, materialSource, permittedUse, status                                                         | FR8               |
 | DraftReview         | outcome, reviewDate, reviewedBy, comments                                                                         | FR9               |
-| Publication         | scheduledDate, actualDate, reasonForDateChange                                                                    | FR10              |
+| Publication         | scheduledDate, actualDate, reasonForDateChange, status (scheduled, published)                                    | FR10, OC02, OC04  |
 | PublicationChannel  | name                                                                                                              | FR10              |
 | Correction          | type, reason, correctionDate                                                                                      | FR11              |
 
@@ -428,6 +429,8 @@ Several multiplicities come from reasoning, not scenario evidence, for example z
 - **Draft has a sequential versionNumber (RD-12).** It identifies each draft without deciding how versions relate (Q4).
 
 - **Draft carries approved status (A11).** How versions relate is unresolved (Q4), so a richer version structure is not justified.
+
+- **Publication carries status (scheduled, published).** OC02 sets it to scheduled when a date is recorded. OC04 allows a correction only when it is published. The attribute is stored so those contracts have a field to test.
 
 - **Publication links to Draft, not directly to Episode.** The episode is reached through the draft.
 

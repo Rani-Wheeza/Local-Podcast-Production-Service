@@ -3,16 +3,21 @@ title SSD - UC10 Record a post-publication correction
 
 hide footbox
 
-actor "Authorised Editor" as AE
-participant "Production Record System" as S
+actor ":Authorised Editor" as AE
+participant ":Production Record System" as S
 
-AE -> S : recordCorrection(publication, type, correctionDetails)
+AE -> S : recordCorrection(publication, type, reason)
 activate S
 alt type = metadata correction
-  S --> AE : metadataCorrectionRecorded(publication)
+  S --> AE : metadata correction linked to the publication (GS35)
 else type = new audio version
-  S --> AE : newAudioVersionRecorded(publication)
+  S --> AE : new audio version linked to the publication\nand to a replacement Draft (GS36, A14)
 end
 deactivate S
 
+note right of S
+  Q6 stays open.
+  The replacement Draft is not published here.
+  If it is published later, UC8 reviews it first (A14).
+end note
 @enduml

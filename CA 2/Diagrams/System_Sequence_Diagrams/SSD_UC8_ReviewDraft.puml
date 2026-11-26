@@ -3,28 +3,30 @@ title SSD - UC8 Review a draft: editor records a review outcome
 
 hide footbox
 
-actor "Authorised Editor" as AE
-participant "Production Record System" as S
+actor ":Authorised Editor" as AE
+participant ":Production Record System" as S
 
 AE -> S : selectDraft(draft)
 activate S
-alt archive-clip permission outstanding
-  S --> AE : draftBlockedByOutstandingPermission
+alt outstanding permission, missing consent,\nor returned for changes and not reviewed again (BR5, DEC-05)
+  S --> AE : the blockers, the same list as UC11 (CO11.2)
 else nothing outstanding
-  S --> AE : permissionGranted(draft)
+  S --> AE : nothing outstanding
 end
 deactivate S
 
 AE -> S : recordReview(draft, channel, outcome, comment)
 activate S
-alt outcome = approved
-  S --> AE : draftApproved
+alt outcome = approved, and nothing outstanding
+  S --> AE : approved and ready to be scheduled (GS3)
+else outcome = approved, and still blocked
+  S --> AE : approved but still blocked, not released (GS4)
 else outcome = returned for changes
-  S --> AE : draftReturnedAndBlocked
+  S --> AE : returned for changes and shown as blocked (DEC-05)
 else outcome = postponed
-  S --> AE : draftPostponed
+  S --> AE : postponed, not released
 else outcome = withdrawn
-  S --> AE : draftWithdrawn
+  S --> AE : withdrawn, not released
 end
 deactivate S
 @enduml

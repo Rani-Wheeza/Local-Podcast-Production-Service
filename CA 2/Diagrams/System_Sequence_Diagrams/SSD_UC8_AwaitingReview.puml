@@ -3,8 +3,8 @@ title SSD - UC8 Review a draft: coordinator views a draft with no review outcome
 
 hide footbox
 
-actor "Production Coordinator" as PC
-participant "Production Record System" as S
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
 
 PC -> S : viewDraft(draft)
 activate S

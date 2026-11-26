@@ -216,7 +216,9 @@ The group must resolve the dependencies below before final integration. Until th
 | UC8      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC8_AwaitingReview.puml`         | viewDraft(draft)                                                   |
 | UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_RecordPublication.puml`      | recordPublicationDate(draft, channel, date)                        |
 | UC9      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC9_ChangePublicationDate.puml`  | changePublicationDate(draft, channel, newDate, reason)             |
-| UC10     | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | recordCorrection(publication, type, correctionDetails)             |
+| UC10     | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC10_RecordPostPublication.puml` | recordCorrection(publication, type, reason)                        |
+
+`selectDraft` returns the blockers from the same three rules as UC11 (CO11.2): an outstanding permission, missing consent, or a draft returned for changes and not reviewed again. When none of those apply, it returns nothing outstanding. Approval can still be recorded while a blocker remains. The return is then "approved but still blocked, not released" (GS4). With nothing outstanding, the return is "approved and ready to be scheduled" (GS3).
 
 ## Operation Contract
 
@@ -227,7 +229,7 @@ The group must resolve the dependencies below before final integration. Until th
 | Operation        | `recordReview(draft, channel, outcome, comment)`                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Cross-references | UC8, FR9, BR3, BR4, BR5, DEC-05, GS3, GS4, GS31, GS32, GS33                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Preconditions    | A `Draft` exists.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Postconditions   | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = approved, returned for changes, postponed or withdrawn<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>Approved: `Draft.status` = approved<br>Returned for changes: `Draft.status` = returned for changes<br>Postponed: `Draft.status` = postponed<br>Withdrawn: `Draft.status` = withdrawn |
+| Postconditions   | `DraftReview` created<br>Association with `Draft`<br>Association with `PublicationChannel`<br>`DraftReview.outcome` = approved, returned for changes, postponed or withdrawn<br>`DraftReview.reviewDate` = current date<br>`DraftReview.reviewedBy` = editor<br>`DraftReview.comments` = comment<br>Approved: `Draft.status` = approved<br>Approved, and nothing outstanding: derived ready to be scheduled (GS3)<br>Approved, and a blocker remains: shown as blocked and not released (GS4)<br>Returned for changes: `Draft.status` = returned for changes, and shown as blocked (DEC-05)<br>Postponed: `Draft.status` = postponed<br>Withdrawn: `Draft.status` = withdrawn |
 
 ### OC02: recordPublicationDate
 
@@ -251,10 +253,10 @@ The group must resolve the dependencies below before final integration. Until th
 
 | Contract field   | Content                                                                                                                                                                                                |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Operation        | `recordCorrection(publication, type, details)`                                                                                                                                                         |
-| Cross-references | UC10, FR11, BR8, GS35, GS36                                                                                                                                                                            |
+| Operation        | `recordCorrection(publication, type, reason)`                                                                                                                                                                                                                          |
+| Cross-references | UC10, FR11, BR8, A14, GS35, GS36                                                                                                                                                                                                                                       |
 | Preconditions    | A `Publication` exists<br>`Publication.status` = published                                                                                                                                             |
-| Postconditions   | `Correction` created<br>Association with `Publication`<br>`Correction.type` = type<br>`Correction.details` = details<br>`Correction.recordedBy` = editor<br>`Correction.correctionDate` = current date |
+| Postconditions   | `Correction` created<br>Association with `Publication`<br>`Correction.type` = type<br>`Correction.reason` = reason<br>`Correction.recordedBy` = editor<br>`Correction.correctionDate` = current date<br>New audio version: association *Correction introduces replacement Draft* (A14)<br>The replacement Draft is not published here. Q6 stays open. If it is published later, UC8 reviews it first |
 
 ## CRC Cards
 
@@ -266,9 +268,9 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 |------------------------------------------------------------|------------------------------------------|
 | Know its version, description and review status (RD-04)    | –                                        |
 | Create a `DraftReview` for one channel (OC01, FR9)         | DraftReview, PublicationChannel          |
-| Set its status to the review outcome (OC01)                | –                                        |
-| Know whether it is blocked (derived, RD-04, BR5)           | DraftReview, Permission (C), Consent (B) |
-| Know whether it is ready to be scheduled (derived, RD-04)  | DraftReview, Permission (C), Consent (B) |
+| Set its status to the review outcome (OC01)                | DraftReview, Permission, Episode         |
+| Know whether it is blocked (derived, RD-04, BR5)           | DraftReview, Permission, Episode         |
+| Know whether it is ready to be scheduled (derived, RD-04)  | DraftReview, Permission, Episode         |
 | Know whether an editorial decision is outstanding (DEC-05) | DraftReview                              |
 | Know whether it has been reviewed (GS30)                   | –                                        |
 | Create and hold a publication for one channel (OC02, FR10) | Publication, PublicationChannel          |
@@ -317,7 +319,8 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 | Responsibilities                             | Collaborators  |
 |----------------------------------------------|----------------|
 | Know its type (BR8)                          | CorrectionType |
-| Know its details (OC04)                      | –              |
+| Know its reason (OC04)                       | –              |
+| Introduce a replacement Draft for a new audio version (A14, OC04) | Draft          |
 | Know the editor who recorded it (OC04, FR11) | –              |
 | Know its correction date (FR11)              | –              |
 | Know the publication it amends               | Publication    |
@@ -334,7 +337,7 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 |-----------------------------------------------------------------------------------------------------------------------------|--------------------|
 | Receive `selectDraft`, `viewDraft`, `recordReview`, `recordPublicationDate`, `changePublicationDate` and `recordCorrection` | –                  |
 | Pass the editor and today's date into `recordReview` and `recordCorrection`, and today's date into `changePublicationDate`  | Clock              |
-| Delegate every rule to the domain objects                                                                                   | Draft, Publication |
+| Delegate every rule to the domain objects                                                                                   | Draft, Publication, Episode, Permission |
 
 ### Clock (interface)
 

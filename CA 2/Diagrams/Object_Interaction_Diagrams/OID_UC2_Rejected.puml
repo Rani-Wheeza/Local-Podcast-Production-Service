@@ -17,13 +17,20 @@ PE -> PCtl : recordDecision(proposal, rejected, conditions, note)
 activate PCtl
 PCtl -> Repo : p = find(proposal)
 PCtl -> Clk : today = currentDate()
+note right of PCtl
+  editor = the signed-in Proposal Editor (the actor).
+  Section A must give the source of editor (R3).
+end note
 PCtl -> P : result = recordDecision(rejected, editor, today, conditions, note)
 activate P
 P -> P : allowed = canRecordDecision()
+activate P
 opt p has an earlier decision
   P -> L : open = leavesProposalOpen()
   note right of L : The answer is true if the latest\noutcome is "returned" or "held".
 end
+deactivate P
+note over P : allowed = true. OID_UC2_AlreadyDecided\nshows allowed = false.
 P -> D ** : create(rejected, editor, today, conditions, note)
 note right of D
   decisionDate = today. decidedBy = editor.

@@ -268,9 +268,9 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 |------------------------------------------------------------|------------------------------------------|
 | Know its version, description and review status (RD-04)    | –                                        |
 | Create a `DraftReview` for one channel (OC01, FR9)         | DraftReview, PublicationChannel          |
-| Set its status to the review outcome (OC01)                | –                                        |
-| Know whether it is blocked (derived, RD-04, BR5)           | DraftReview, Permission (C), Consent (B) |
-| Know whether it is ready to be scheduled (derived, RD-04)  | DraftReview, Permission (C), Consent (B) |
+| Set its status to the review outcome (OC01)                | DraftReview, Permission, Episode         |
+| Know whether it is blocked (derived, RD-04, BR5)           | DraftReview, Permission, Episode         |
+| Know whether it is ready to be scheduled (derived, RD-04)  | DraftReview, Permission, Episode         |
 | Know whether an editorial decision is outstanding (DEC-05) | DraftReview                              |
 | Know whether it has been reviewed (GS30)                   | –                                        |
 | Create and hold a publication for one channel (OC02, FR10) | Publication, PublicationChannel          |
@@ -337,7 +337,7 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 |-----------------------------------------------------------------------------------------------------------------------------|--------------------|
 | Receive `selectDraft`, `viewDraft`, `recordReview`, `recordPublicationDate`, `changePublicationDate` and `recordCorrection` | –                  |
 | Pass the editor and today's date into `recordReview` and `recordCorrection`, and today's date into `changePublicationDate`  | Clock              |
-| Delegate every rule to the domain objects                                                                                   | Draft, Publication |
+| Delegate every rule to the domain objects                                                                                   | Draft, Publication, Episode, Permission |
 
 ### Clock (interface)
 

@@ -90,6 +90,7 @@ class Publication {
   scheduledDate
   actualDate
   reasonForDateChange
+  status
 }
 
 class PublicationChannel {

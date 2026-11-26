@@ -101,7 +101,7 @@ CA1 user stories and acceptance criteria to preserve:
 | GS41: Missing equipment remains visible without stopping the session | Boundary | Missing equipment is shown on the session even though staff continue with the planning record. | FR6 / US5 | UC5 | No rule is assumed that prevents the session from being recorded or proceeding. |
 | GS42: Record several source recordings for one session | Success | Several files are linked to the same recording session and keep their working filenames. | FR7 / US6 | UC6 | One session may produce several source recordings. |
 | GS43: Link sources to a draft | Success | An existing draft identifies the source recordings used to create it. | FR7 / US6 | UC6 | A draft links to its sources rather than relying on filenames to identify them. |
-| GS44: Identify the approved draft | Alternative | One existing draft is marked as approved while another draft remains awaiting review. | FR7 / US6 | UC6 | A11: approved is a status of a draft, not a separate draft record. RD-04 lists the agreed draft-status values. |
+| GS44: Identify the approved draft | Alternative | One draft is approved through UC8 while another remains awaiting review. | FR7 / US6 | UC6, UC8 | A11: approved is a status of a draft, not a separate draft record. RD-04 lists the agreed draft-status values. |
 | GS45: Record granted and outstanding permissions | Success | A granted permission and an outstanding permission are retained against the same draft. | FR8 / US7 | UC7 | Permission status is associated with the draft that uses the material. |
 | GS46: Display an outstanding permission | Boundary | Viewing a draft makes its outstanding permission visible. | FR8 / US7 | UC7 | BR5: an outstanding permission can block publication, but the review decision remains with UC8. |
 
@@ -193,16 +193,15 @@ Use case: Record source recordings and draft versions; an approved draft is not 
 Primary actor: Technical volunteer.  
 Goal: Record a session's files and mark which are usable (G6).
 
-Main success scenario: Record several source files, link them to drafts, and show each draft's status (GS42–GS44).
+Main success scenario: Record several source files and drafts; each new draft starts as awaiting review. UC8 records later review outcomes (GS42–GS44).
 
 | Actor | System |
 |---|---|
 | The technical volunteer records each source file from the session, including its working name and usability note. |  |
 |  | The system records each SourceRecording against the session. |
-| The technical volunteer records each draft for the episode and selects the source recordings it uses. |  |
-|  | The system records each Draft and its source links. |
-| The technical volunteer records the current status supplied by the authorised review process for each draft. |  |
-|  | The system shows each draft with its linked sources and current status. |
+| The technical volunteer records each draft description for the episode and selects the source recordings it uses. |  |
+|  | The system assigns the next sequential version number for the episode, creates the Draft as awaiting review, and records its source links. |
+|  | The system returns each draft with its version number, source links and awaiting-review status. |
 
 ![SSD UC6: Record sources and drafts](../../../Diagrams/System_Sequence_Diagrams/SSD_UC6_RecordSourcesAndDrafts.png)
 
@@ -220,50 +219,17 @@ loop for each source recording from the session
 end
 
 loop for each draft for the episode (two drafts in GS44)
-  TV -> S : recordDraft(episode, versionNumber, versionDescription, sourceRecordings)
-  S --> TV : draft recorded with version number and selected source links
-
-  TV -> S : recordDraftStatus(draft, status)
-  S --> TV : draft shown with status and source links
+  TV -> S : recordDraft(episode, versionDescription, sourceRecordings)
+  S --> TV : draft recorded with the next version number,\nawaiting-review status and selected source links
 end
 
 note right of S
-  Current status is recorded, not decided,
-  by this UC. UC8 owns the authorised
-  review decision. Approved does not mean
-  published (A11, UC6, GS44).
-  Status is one of awaiting review, approved,
-  returned for changes, postponed or withdrawn (RD-04).
-  versionNumber is sequential for the episode (RD-12).
+  versionNumber is assigned by the system as the
+  next sequential number for the episode (RD-12).
+  A new Draft starts as awaiting review. Only UC8
+  changes its review status through recordReview
+  (BR3, RD-04). Approved does not mean published (A11).
   Draft-version relationships remain open (Q4).
-end note
-@enduml
-```
-
-Alternative scenario: A draft remains awaiting review; its status is visible and the system does not infer approval from another draft or from its sources.
-
-| Actor | System |
-|---|---|
-| The technical volunteer records the status "awaiting review" for a draft. |  |
-|  | The system shows that draft as awaiting review and preserves its own source links. |
-
-```plantuml
-@startuml SSD_UC6_DraftAwaitingReview
-title SSD - UC6 Show a draft awaiting review
-hide footbox
-
-actor ":Technical Volunteer" as TV
-participant ":Production Record System" as S
-
-TV -> S : recordDraftStatus(draft, awaitingReview)
-S --> TV : draft shown as awaiting review with its own source links
-
-note right of S
-  This records the current status only.
-  It does not infer status from draft order,
-  source links or publication (A11, Q4).
-  awaiting review is an agreed RD-04 status;
-  there is no separate "not approved" status.
 end note
 @enduml
 ```
@@ -360,23 +326,13 @@ end note
 
 | Item | Content |
 |---|---|
-| Operation | `recordDraft(episode, versionNumber, versionDescription, sourceRecordings)` |
+| Operation | `recordDraft(episode, versionDescription, sourceRecordings)` |
 | Cross-references | UC6, FR7, US6, GS43, GS44, RD-12 |
-| Preconditions | The episode exists. `sourceRecordings` identifies at least one existing source recording. `versionNumber` is sequential for the episode. |
-| Postconditions | `Draft` created; associated with the episode; `versionNumber` and `versionDescription` recorded; each selected source recording associated with the draft. The operation returns the recorded `Draft`, including its version number. A newly recorded draft starts as `awaiting review`, unless a separately supplied current status is recorded. |
+| Preconditions | The episode exists. `sourceRecordings` identifies at least one existing source recording. |
+| Postconditions | `Draft` created and associated with the episode; the system assigns the next sequential `versionNumber` for that episode (RD-12); `versionDescription` and source associations recorded; `Draft.status` set to `awaiting review`. The operation returns the recorded `Draft`, including its version number. |
 | Controlled failures | Episode or a selected source recording not found: no draft or associations are created. |
 
-### OC08: recordDraftStatus
-
-| Item | Content |
-|---|---|
-| Operation | `recordDraftStatus(draft, status)` |
-| Cross-references | UC6, FR7, US6, GS44, RD-04 |
-| Preconditions | The draft exists. `status` is one of `awaiting review`, `approved`, `returned for changes`, `postponed` or `withdrawn`. |
-| Postconditions | `Draft.status` = the supplied status. No `DraftReview` or publication decision is created; UC8 owns that workflow. |
-| Controlled failures | Draft not found or status is not an agreed RD-04 value: the draft is unchanged. |
-
-### OC09: recordPermission
+### OC08: recordPermission
 
 | Item | Content |
 |---|---|
@@ -386,7 +342,7 @@ end note
 | Postconditions | `Permission` created; material description, source, permitted use and status recorded; associated with each selected draft. |
 | Controlled failures | A selected draft not found: no permission or partial draft associations are created. |
 
-### OC10: viewDraftPermissions
+### OC09: viewDraftPermissions
 
 | Item | Content |
 |---|---|
@@ -424,7 +380,8 @@ end note
 ### Draft
 
 - **Responsibilities:**
-  - Know and keep the sequential version number, draft description and current status.
+  - Know and keep the system-assigned sequential version number, draft description and current review status.
+  - Start as awaiting review; accept later review status changes only through UC8's `recordReview`.
   - Use only the agreed RD-04 status values: awaiting review, approved, returned for changes, postponed or withdrawn.
   - Associate the draft with its episode
   - Keep links to the source recordings used to make the draft
@@ -457,10 +414,10 @@ end note
 ### RecordingDraftController (design class)
 
 - **Responsibilities:**
-  - Receive `recordRecordingSession`, `recordSourceRecording`, `recordDraft`, `recordDraftStatus`, `recordPermission` and `viewDraftPermissions`.
+  - Receive `recordRecordingSession`, `recordSourceRecording`, `recordDraft`, `recordPermission` and `viewDraftPermissions`.
   - Find episodes, recording sessions, drafts and source recordings through repositories.
   - Create or update the domain objects and save the result.
-  - Delegate recording and permission status handling to the relevant domain objects.
+  - Delegate recording and permission status handling to the relevant domain objects. New drafts start awaiting review; UC8 records later review outcomes.
   - Return the session, source recording, draft or permission data requested by the use cases.
 - **Collaborators:**
   - Episode

@@ -371,7 +371,7 @@ end note
   - Record the required equipment.
   - Record and show any reported missing equipment item.
   - Associate the session with one episode.
-  - Keep links to the source recordings produced by the session.
+  - Create each `SourceRecording` produced by the session, and keep links to them.
 - **Collaborators:** 
   - Episode
   - SourceRecording
@@ -395,6 +395,7 @@ end note
   - Use only the agreed RD-04 status values: awaiting review, approved, returned for changes, postponed or withdrawn.
   - Associate the draft with its episode
   - Keep links to the source recordings used to make the draft
+  - Determine whether any associated permissions are outstanding and list them for the review and overview workflows (BR5, GS4, CO11.1).
   - Return the draft and its version number when a draft is recorded (RD-12).
 - **Collaborators:** 
   - Episode
@@ -426,7 +427,8 @@ end note
 - **Responsibilities:**
   - Receive `recordRecordingSession`, `recordSourceRecording`, `recordDraft`, `recordPermission` and `viewDraftPermissions`.
   - Find episodes, recording sessions, drafts and source recordings through repositories.
-  - Create or update the domain objects and save the result.
+  - Ask `Episode` to create a `RecordingSession` or `Draft`, and `RecordingSession` to create a `SourceRecording`.
+  - Save the resulting domain objects through the relevant repositories.
   - Delegate recording and permission status handling to the relevant domain objects. New drafts start awaiting review; UC8 records later review outcomes.
   - Return the session, source recording, draft or permission data requested by the use cases.
 - **Collaborators:**

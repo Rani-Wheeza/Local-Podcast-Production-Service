@@ -58,7 +58,7 @@ Every member contributes to the selected use case.
 | Design class diagram for UC2                                                                         | #44                                    | Jack           |
 | Consistency check: DCD, interaction diagrams and contracts                                           | #45                                    | Tsubasa        |
 | Integrate CRC cards and agree the controller pattern                                                 | #43                                    | Arno           |
-| UC8 detailed design, if time allows                                                                  | new card                               | Tsubasa (lead) |
+| UC8 detailed design, if time allows (Wasnt Time to do UC8)                                                                   | new card                      | Tsubasa (lead) |
 
 
 ## 7. Risks and dependencies

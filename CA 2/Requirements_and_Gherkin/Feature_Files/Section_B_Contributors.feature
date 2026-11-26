@@ -2,7 +2,7 @@ Feature: Recording contributors and consent for an episode
   Staff need contributor roles and agreed credit to remain clear per episode, consent evidence to be traceable, and outstanding consent to be visible to the review workflow.
 
   CA2 Section B draft. FR4 and FR5 remain unchanged.
-  Evidence references refer to Evidence_Document_Source_Material.md.
+  Evidence references refer to Individual_Contributions/Implementation_Catalogue/Section_B_Contributors_Arno/Evidence_Document_Source_Material.md.
   "Agreed credit" corresponds to FR4's "agreed attribution".
 
   Rule: Contributor roles and agreed credit are retained for each contribution (FR4)

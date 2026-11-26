@@ -16,12 +16,19 @@ PE -> PCtl : recordDecision(proposal, outcome, conditions, note)
 activate PCtl
 PCtl -> Repo : p = find(proposal)
 PCtl -> Clk : today = currentDate()
+note right of PCtl
+  editor = the signed-in Proposal Editor (the actor).
+  Section A must give the source of editor (R3).
+end note
 PCtl -> P : result = recordDecision(outcome, editor, today, conditions, note)
 activate P
 P -> P : allowed = canRecordDecision()
+activate P
 P -> L : open = leavesProposalOpen()
 L --> P : false
 note right of L : The latest outcome is\n"accepted" or "rejected".
+deactivate P
+note over P : allowed = false
 P --> PCtl : refused (already decided)
 deactivate P
 note over PCtl, P

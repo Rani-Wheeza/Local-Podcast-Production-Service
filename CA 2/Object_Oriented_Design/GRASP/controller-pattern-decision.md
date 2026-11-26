@@ -22,19 +22,19 @@ The design has **one use-case controller for each section**. The design also has
 
 - **Controller:** UC11 is a separate use case. Thus, it has its own use-case controller. All other use cases use the same method.
 - **High Cohesion:** The controller has one purpose. It reads the status from all sections. It does not create, change or save data. CO11.1 and CO11.2 have no postconditions.
-- **Low Coupling:** The controller asks the domain objects for their data. For example, it uses `episode.hasOutstandingConsent()` (Section B). It also asks the draft for its outstanding permissions (Section C). It does not use other controllers.
+- **Low Coupling:** The controller asks the domain objects for their data. For example, it uses `episode.outstandingConsents()` (Section B). It also asks the draft for its outstanding permissions (Section C). It does not use other controllers.
 - **Information Expert:** For each overview category, the class that keeps the data gives the answer. The controller only collects the answers.
 
 ## 3. Source of each overview category
 
-| Category (CO11.1)                                   | Class that gives the answer                                          | Section |
-|-----------------------------------------------------|----------------------------------------------------------------------|---------|
-| Proposals that wait for a decision; held proposals  | `Proposal.currentState()`                                            | A       |
-| Recording sessions in the future; missing equipment | `RecordingSession`                                                   | C       |
-| Missing consent                                     | `Episode.hasOutstandingConsent()`. Episode asks each `Contribution`. | B       |
-| Outstanding permissions                             | The `Permission` status, through `Draft`                             | C       |
-| Drafts that wait for review; blocked drafts         | The `Draft` status and blockers                                      | C, D    |
-| Scheduled publications                              | `Publication`                                                        | D       |
+| Category (CO11.1)                                   | Class that gives the answer                                                                                    | Section |
+|-----------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------|
+| Proposals that wait for a decision; held proposals  | `Proposal.currentState()`                                                                                      | A       |
+| Recording sessions in the future; missing equipment | `RecordingSession`                                                                                             | C       |
+| Missing consent                                     | `Episode.outstandingConsents()` gives each contribution that has no consent. Episode asks each `Contribution`. | B       |
+| Outstanding permissions                             | The `Permission` status, through `Draft`                                                                       | C       |
+| Drafts that wait for review; blocked drafts         | The `Draft` status and blockers                                                                                | C, D    |
+| Scheduled publications                              | `Publication`                                                                                                  | D       |
 
 ## 4. Rejected alternatives
 

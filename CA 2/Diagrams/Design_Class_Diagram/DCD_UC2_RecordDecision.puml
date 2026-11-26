@@ -8,6 +8,7 @@ skinparam nodesep 60
 skinparam ranksep 75
 
 class ProposalController <<controller>> {
+  +selectProposal(proposal)
   +recordDecision(proposal, outcome, conditions, note)
 }
 
@@ -55,7 +56,7 @@ ProposalController ..> Proposal : delegates
 ProposalController ..> ProposalRepository : uses
 ProposalController ..> Clock : uses
 ProposalRepository ..> Proposal : stores
-Proposal "1" -- "0..*" ProposalDecision : receives
+Proposal "1" --> "0..*" ProposalDecision : receives
 ProposalDecision ..> DecisionOutcome : outcome
 
 note right of Proposal

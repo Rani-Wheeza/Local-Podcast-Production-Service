@@ -1,7 +1,7 @@
 # Integrated CRC Cards (CA2)
 
 **Board item:** #43 Integrate CRC cards and agree the controller pattern
-**Owner:** Arno · **Reviewer:** TODO
+**Owner:** Arno · **Reviewer:** 
 **Status:** Proposed. The owners must agree the changes in section 3.
 
 <!-- Language: ASD-STE100 Simplified Technical English. Class names, operation names, requirement IDs and GRASP terms are technical names. They do not change. -->

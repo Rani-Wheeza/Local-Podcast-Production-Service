@@ -10,26 +10,26 @@ This is the agreed analysis that all CA2 design work builds on. It is the Scenar
 
 ### 1.1 Changes from the CA1 analysis
 
-| Change | Where | Decision |
-|---|---|---|
+| Change                                                                                                                         | Where  | Decision             |
+|--------------------------------------------------------------------------------------------------------------------------------|--------|----------------------|
 | BR5 reworded: contributor confirmation = consent; outstanding editorial decision = returned for changes and not reviewed again | 5.1, 8 | RD-05, RD-06, DEC-05 |
-| Assumption A14 added: a published replacement draft is reviewed through UC8 | 5.3 | RD-08 |
-| Q14 and Q15 added, resolved by group decision | 5.5 | DEC-05 |
-| Draft states: Blocked and Ready to be scheduled are derived, not stored; returned, postponed and withdrawn listed | 6.4, 8 | RD-04 |
-| DraftReview linked to PublicationChannel | 9 | RD-07 |
-| `Draft.versionNumber` added | 9 | RD-12 |
-| Gherkin organised by section feature file | 7 | RD-09 |
-| Contributor concerns remain deferred | 2.3 | RD-17 |
+| Assumption A14 added: a published replacement draft is reviewed through UC8                                                    | 5.3    | RD-08                |
+| Q14 and Q15 added, resolved by group decision                                                                                  | 5.5    | DEC-05               |
+| Draft states: Blocked and Ready to be scheduled are derived, not stored; returned, postponed and withdrawn listed              | 6.4, 8 | RD-04                |
+| DraftReview linked to PublicationChannel                                                                                       | 9      | RD-07                |
+| `Draft.versionNumber` added                                                                                                    | 9      | RD-12                |
+| Gherkin organised by section feature file                                                                                      | 7      | RD-09                |
+| Contributor concerns remain deferred                                                                                           | 2.3    | RD-17                |
 
 ### 1.2 Section ownership
 
-| Section | Owner | Use cases | Requirements | Domain classes |
-|---|---|---|---|---|
-| A – Proposal management | Rani | UC1, UC2 | FR1, FR2, FR3 | Proposal, Episode, ProposalDecision, PartnerOrganisation |
-| B – Contributors and consent | Arno | UC3, UC4 | FR4, FR5 | Contributor, Contribution, Consent |
-| C – Recording and drafts | Jack | UC5, UC6, UC7 | FR6, FR7, FR8 | RecordingSession, SourceRecording, Draft, Permission |
-| D – Review and publication | Tsubasa | UC8, UC9, UC10 | FR9, FR10, FR11 | DraftReview, Publication, PublicationChannel, Correction |
-| Shared | Group | UC11 | FR12, NFR1–NFR4 | All |
+| Section                      | Owner   | Use cases      | Requirements    | Domain classes                                           |
+|------------------------------|---------|----------------|-----------------|----------------------------------------------------------|
+| A – Proposal management      | Rani    | UC1, UC2       | FR1, FR2, FR3   | Proposal, Episode, ProposalDecision, PartnerOrganisation |
+| B – Contributors and consent | Arno    | UC3, UC4       | FR4, FR5        | Contributor, Contribution, Consent                       |
+| C – Recording and drafts     | Jack    | UC5, UC6, UC7  | FR6, FR7, FR8   | RecordingSession, SourceRecording, Draft, Permission     |
+| D – Review and publication   | Tsubasa | UC8, UC9, UC10 | FR9, FR10, FR11 | DraftReview, Publication, PublicationChannel, Correction |
+| Shared                       | Group   | UC11           | FR12, NFR1–NFR4 | All                                                      |
 
 Detailed use-case specifications for each section are added by the section owners in the two-column actor/system format (RD-10, RD-11). UC2 is already detailed in Section 6.5.
 
@@ -57,14 +57,14 @@ The Production Record System gives Kerry Community Media Collective a single, re
 
 ## 2.3 Out of scope
 
-| **Out of scope**                                                      | **Basis**                                                                                                                                                                   |
-|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Audio editing                                                         | Stated in the scenario                                                                                                                                                      |
-| Public streaming                                                      | Stated in the scenario                                                                                                                                                      |
-| Advertising                                                           | Stated in the scenario                                                                                                                                                      |
-| Financial accounting                                                  | Stated in the scenario                                                                                                                                                      |
-| Storing the audio files themselves                                    | Assumption A1: large files are not always practical to upload from outside the studio, so the system holds information about files, not the audio                           |
-| Deciding who may approve what, or what counts as a significant change | Assumption A4: the system records decisions and does not decide policy (Q2, Q5)                                                                                             |
+| **Out of scope**                                                      | **Basis**                                                                                                                                                                                             |
+|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Audio editing                                                         | Stated in the scenario                                                                                                                                                                                |
+| Public streaming                                                      | Stated in the scenario                                                                                                                                                                                |
+| Advertising                                                           | Stated in the scenario                                                                                                                                                                                |
+| Financial accounting                                                  | Stated in the scenario                                                                                                                                                                                |
+| Storing the audio files themselves                                    | Assumption A1: large files are not always practical to upload from outside the studio, so the system holds information about files, not the audio                                                     |
+| Deciding who may approve what, or what counts as a significant change | Assumption A4: the system records decisions and does not decide policy (Q2, Q5)                                                                                                                       |
 | Recording contributor concerns and their decisions                    | Deferred. The scenario says concerns may be raised and a consistent record is wanted, but gives no process, owner or visibility rule. Building it would invent policy (Q11). Remains deferred (RD-17) |
 
 ## 2.4 Dependencies, constraints and assumptions
@@ -177,16 +177,16 @@ Recording who made a decision and when is a functional capability and sits in FR
 
 ## 5.1 Business rules
 
-| **ID** | **Rule**                                                                                                                   | **Evidence**                                                                                | **Strength** |
-|--------|----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|--------------|
-| BR1    | A proposal is not approved until a decision has been recorded                                                              | Partners treat encouraging discussion as approval "even when no decision has been recorded" | Implied      |
-| BR2    | A proposal decision is accepted, rejected, returned for revision or held for future consideration                          | Programme proposals section                                                                 | Stated       |
-| BR3    | An authorised editor reviews a draft, its title, description, credits, permissions and intended channel before publication | Review section                                                                              | Stated       |
-| BR4    | A draft review outcome is approved, returned for changes, postponed or withdrawn                                           | Review section                                                                              | Stated       |
+| **ID** | **Rule**                                                                                                                                                                                                                                         | **Evidence**                                                                                | **Strength** |
+|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|--------------|
+| BR1    | A proposal is not approved until a decision has been recorded                                                                                                                                                                                    | Partners treat encouraging discussion as approval "even when no decision has been recorded" | Implied      |
+| BR2    | A proposal decision is accepted, rejected, returned for revision or held for future consideration                                                                                                                                                | Programme proposals section                                                                 | Stated       |
+| BR3    | An authorised editor reviews a draft, its title, description, credits, permissions and intended channel before publication                                                                                                                       | Review section                                                                              | Stated       |
+| BR4    | A draft review outcome is approved, returned for changes, postponed or withdrawn                                                                                                                                                                 | Review section                                                                              | Stated       |
 | BR5    | A draft with an outstanding permission, outstanding consent ("contributor confirmation", Q14) or outstanding editorial decision (a draft returned for changes and not yet reviewed again, Q15) is blocked from publication. Revised RD-05, RD-06 | Production section; coordinator statement                                                   | Stated       |
-| BR6    | Access to information reflects production roles                                                                            | Context section                                                                             | Stated       |
-| BR7    | Partners do not automatically see internal editorial notes                                                                 | Context section                                                                             | Stated       |
-| BR8    | A metadata correction can be distinguished from a new audio version                                                        | Staff "need to distinguish" them; how they differ is not defined                            | Implied      |
+| BR6    | Access to information reflects production roles                                                                                                                                                                                                  | Context section                                                                             | Stated       |
+| BR7    | Partners do not automatically see internal editorial notes                                                                                                                                                                                       | Context section                                                                             | Stated       |
+| BR8    | A metadata correction can be distinguished from a new audio version                                                                                                                                                                              | Staff "need to distinguish" them; how they differ is not defined                            | Implied      |
 
 ## 5.2 Constraints (stated in the scenario)
 
@@ -200,22 +200,22 @@ Recording who made a decision and when is a functional capability and sits in FR
 
 ## 5.3 Assumptions (temporary, not confirmed)
 
-| **ID** | **Assumption**                                                                                           | **Affects**       |
-|--------|----------------------------------------------------------------------------------------------------------|-------------------|
-| A1     | The system holds information about audio files, not the audio itself                                     | Scope, FR7        |
-| A2     | Paper consent forms remain in use; the system records that consent exists and where the evidence is held | FR5               |
-| A3     | Partners receive progress information; whether they log in is unknown                                    | NFR1, actors      |
-| A4     | Approval authority and the meaning of significant change are recorded as data, not built in as policy    | UC2, UC8          |
-| A5     | Staff enter information on behalf of partners and contributors, who are offstage stakeholders            | Actors            |
-| A6     | The production coordinator records proposals, contributors and consent                                   | UC1, UC3, UC4     |
-| A7     | Each episode in a series has its own review and publication record                                       | FR2, FR9          |
-| A8     | Only an authorised editor records a release decision                                                     | UC8               |
-| A9     | Approval to publish applies per channel                                                                  | UC8, FR10         |
-| A10    | A series is a proposal with several planned episodes                                                     | Domain model      |
-| A11    | An approved draft is a status of a draft, not a separate item                                            | FR7, domain model |
-| A12    | Each recording session relates to one episode                                                            | Domain model      |
-| A13    | The overview lists held proposals separately from proposals with no decision                             | FR12              |
-| A14    | If a replacement is modelled as a Draft and then published, BR3 applies and it is reviewed through UC8 before publication. Revisit when Q6 is answered (RD-08) | UC8, UC10, Q6 |
+| **ID** | **Assumption**                                                                                                                                                 | **Affects**       |
+|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| A1     | The system holds information about audio files, not the audio itself                                                                                           | Scope, FR7        |
+| A2     | Paper consent forms remain in use; the system records that consent exists and where the evidence is held                                                       | FR5               |
+| A3     | Partners receive progress information; whether they log in is unknown                                                                                          | NFR1, actors      |
+| A4     | Approval authority and the meaning of significant change are recorded as data, not built in as policy                                                          | UC2, UC8          |
+| A5     | Staff enter information on behalf of partners and contributors, who are offstage stakeholders                                                                  | Actors            |
+| A6     | The production coordinator records proposals, contributors and consent                                                                                         | UC1, UC3, UC4     |
+| A7     | Each episode in a series has its own review and publication record                                                                                             | FR2, FR9          |
+| A8     | Only an authorised editor records a release decision                                                                                                           | UC8               |
+| A9     | Approval to publish applies per channel                                                                                                                        | UC8, FR10         |
+| A10    | A series is a proposal with several planned episodes                                                                                                           | Domain model      |
+| A11    | An approved draft is a status of a draft, not a separate item                                                                                                  | FR7, domain model |
+| A12    | Each recording session relates to one episode                                                                                                                  | Domain model      |
+| A13    | The overview lists held proposals separately from proposals with no decision                                                                                   | FR12              |
+| A14    | If a replacement is modelled as a Draft and then published, BR3 applies and it is reviewed through UC8 before publication. Revisit when Q6 is answered (RD-08) | UC8, UC10, Q6     |
 
 ## 5.4 Risks (inferred, none confirmed)
 
@@ -231,23 +231,23 @@ Recording who made a decision and when is a functional capability and sits in FR
 
 Q1 to Q7 arise from the scenario's own gaps. Q8 to Q13 were raised by the CA1 analysis. Q14 and Q15 were raised during CA2 reconciliation.
 
-| **ID** | **Question**                                                                                              | **Decision it affects**                          |
-|--------|-----------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| Q1     | What information is required before a proposal can receive a decision?                                    | When a proposal is ready for UC2                 |
-| Q2     | What counts as a significant change after approval?                                                       | Whether a proposal is reconsidered (deferred G2) |
-| Q3     | When is new consent required for reuse, substantial editing or an additional channel?                     | FR5, R2                                          |
-| Q4     | How are source recordings, drafts and approved versions identified and related?                           | FR7                                              |
-| Q5     | Who may approve each programme type and publication channel?                                              | BR3, A8                                          |
-| Q6     | How are corrections, replacements and withdrawal requests handled?                                        | FR11                                             |
-| Q7     | What may volunteers, contributors and partners see?                                                       | BR6, BR7, NFR1                                   |
-| Q8     | Does the system hold audio files or only references to them?                                              | A1, scope                                        |
-| Q9     | Do partners and contributors use the system directly?                                                     | A3, A5, actors                                   |
-| Q10    | Who records consent and proposals?                                                                        | A6                                               |
-| Q11    | How should contributor concerns be recorded and who may see them?                                         | Deferred requirement and use case                |
-| Q12    | What response time, record volume and training time would the collective accept?                          | NFR2 to NFR4 targets                             |
-| Q13    | Can the proposal editor and authorised editor roles be held by the same person, or must they be separate? | Actor roles, UC2, UC8, A8                        |
-| Q14    | Is "contributor confirmation" in BR5 the same as consent? **Resolved by group decision DEC-05:** treated as consent | BR5, Consent |
-| Q15    | Which editorial decisions block a draft? **Resolved by group decision DEC-05:** only a draft returned for changes and not yet reviewed again | BR5, UC8 |
+| **ID** | **Question**                                                                                                                                 | **Decision it affects**                          |
+|--------|----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| Q1     | What information is required before a proposal can receive a decision?                                                                       | When a proposal is ready for UC2                 |
+| Q2     | What counts as a significant change after approval?                                                                                          | Whether a proposal is reconsidered (deferred G2) |
+| Q3     | When is new consent required for reuse, substantial editing or an additional channel?                                                        | FR5, R2                                          |
+| Q4     | How are source recordings, drafts and approved versions identified and related?                                                              | FR7                                              |
+| Q5     | Who may approve each programme type and publication channel?                                                                                 | BR3, A8                                          |
+| Q6     | How are corrections, replacements and withdrawal requests handled?                                                                           | FR11                                             |
+| Q7     | What may volunteers, contributors and partners see?                                                                                          | BR6, BR7, NFR1                                   |
+| Q8     | Does the system hold audio files or only references to them?                                                                                 | A1, scope                                        |
+| Q9     | Do partners and contributors use the system directly?                                                                                        | A3, A5, actors                                   |
+| Q10    | Who records consent and proposals?                                                                                                           | A6                                               |
+| Q11    | How should contributor concerns be recorded and who may see them?                                                                            | Deferred requirement and use case                |
+| Q12    | What response time, record volume and training time would the collective accept?                                                             | NFR2 to NFR4 targets                             |
+| Q13    | Can the proposal editor and authorised editor roles be held by the same person, or must they be separate?                                    | Actor roles, UC2, UC8, A8                        |
+| Q14    | Is "contributor confirmation" in BR5 the same as consent? **Resolved by group decision DEC-05:** treated as consent                          | BR5, Consent                                     |
+| Q15    | Which editorial decisions block a draft? **Resolved by group decision DEC-05:** only a draft returned for changes and not yet reviewed again | BR5, UC8                                         |
 
 # 6. Use-case model
 
@@ -257,19 +257,19 @@ Inside the boundary is the Production Record System. Outside are the people who 
 
 ## 6.2 Use-case catalogue
 
-| **ID** | **Use case**                                                                                                                                                                                                                                                          | **Initiating actor**                           | **Goal** | **Requirements** |
-|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|----------|------------------|
-| UC1    | Record a programme or series proposal. Details not yet known are recorded as not yet known                                                                                                                                                                            | Production coordinator                         | G13      | FR1, FR2         |
-| UC2    | Record a proposal decision                                                                                                                                                                                                                                            | Proposal editor                                | G1       | FR3              |
-| UC3    | Maintain contributor and episode details                                                                                                                                                                                                                              | Production coordinator                         | G14      | FR4              |
-| UC4    | Record contributor consent and its evidence, including form and intended use                                                                                                                                                                                          | Production coordinator                         | G10      | FR5              |
-| UC5    | Record a recording session and equipment needs, including any missing item                                                                                                                                                                                            | Production coordinator, with session organiser | G4, G5   | FR6              |
-| UC6    | Record source recordings and draft versions. An approved draft is not assumed to be the version published                                                                                                                                                             | Technical volunteer                            | G6       | FR7              |
-| UC7    | Record permissions for material used                                                                                                                                                                                                                                  | Technical editor                               | G7       | FR8              |
+| **ID** | **Use case**                                                                                                                                                                                                                                                                                                                           | **Initiating actor**                           | **Goal** | **Requirements** |
+|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|----------|------------------|
+| UC1    | Record a programme or series proposal. Details not yet known are recorded as not yet known                                                                                                                                                                                                                                             | Production coordinator                         | G13      | FR1, FR2         |
+| UC2    | Record a proposal decision                                                                                                                                                                                                                                                                                                             | Proposal editor                                | G1       | FR3              |
+| UC3    | Maintain contributor and episode details                                                                                                                                                                                                                                                                                               | Production coordinator                         | G14      | FR4              |
+| UC4    | Record contributor consent and its evidence, including form and intended use                                                                                                                                                                                                                                                           | Production coordinator                         | G10      | FR5              |
+| UC5    | Record a recording session and equipment needs, including any missing item                                                                                                                                                                                                                                                             | Production coordinator, with session organiser | G4, G5   | FR6              |
+| UC6    | Record source recordings and draft versions. An approved draft is not assumed to be the version published                                                                                                                                                                                                                              | Technical volunteer                            | G6       | FR7              |
+| UC7    | Record permissions for material used                                                                                                                                                                                                                                                                                                   | Technical editor                               | G7       | FR8              |
 | UC8    | Review a draft. The authorised editor records the outcome. A draft with an outstanding permission, outstanding consent or outstanding editorial decision (returned for changes and not yet reviewed again) is shown as blocked (BR5, DEC-05). A draft with nothing outstanding is not automatically approved; the editor still decides | Authorised editor                              | G8       | FR9, FR8         |
-| UC9    | Record or change a publication date, keeping the earlier date and the reason                                                                                                                                                                                          | Production coordinator                         | G12      | FR10             |
-| UC10   | Record a post-publication correction or replacement, linked to the original publication and identified as a metadata correction or a new audio version                                                                                                                | Authorised editor                              | G9       | FR11             |
-| UC11   | View the production overview, including proposals with no decision, held proposals and what is blocking each draft                                                                                                                                                    | Production coordinator                         | G3       | FR12             |
+| UC9    | Record or change a publication date, keeping the earlier date and the reason                                                                                                                                                                                                                                                           | Production coordinator                         | G12      | FR10             |
+| UC10   | Record a post-publication correction or replacement, linked to the original publication and identified as a metadata correction or a new audio version                                                                                                                                                                                 | Authorised editor                              | G9       | FR11             |
+| UC11   | View the production overview, including proposals with no decision, held proposals and what is blocking each draft                                                                                                                                                                                                                     | Production coordinator                         | G3       | FR12             |
 
 Every functional requirement has a use case and every use case traces to a requirement and a goal.
 
@@ -291,15 +291,15 @@ Every functional requirement has a use case and every use case traces to a requi
 
 Draft states are kept apart, because confusing them is the scenario's central problem. `Draft.status` stores only the review state; **Blocked and Ready to be scheduled are derived**, never stored (RD-04).
 
-| **Term**              | **Meaning**                                                                                                   | **Stored or derived** |
-|-----------------------|---------------------------------------------------------------------------------------------------------------|-----------------------|
-| Awaiting review       | No review outcome is recorded, so the draft is not approved and cannot be published (BR3)                      | Stored (status)       |
-| Returned for changes  | The authorised editor returned the draft. Until it is reviewed again, this is an outstanding editorial decision (BR5, DEC-05) | Stored (status) |
-| Postponed             | A recorded review outcome. Not approved, so it cannot be published, but not blocked                           | Stored (status)       |
-| Withdrawn             | A recorded review outcome. Not approved and not published                                                     | Stored (status)       |
-| Approved              | An authorised editor has recorded approval for a channel (A9, RD-07)                                           | Stored (status)       |
-| Blocked               | An outstanding permission, consent or editorial decision prevents release (BR5)                                | Derived               |
-| Ready to be scheduled | Approved and nothing is outstanding                                                                            | Derived               |
+| **Term**              | **Meaning**                                                                                                                   | **Stored or derived** |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Awaiting review       | No review outcome is recorded, so the draft is not approved and cannot be published (BR3)                                     | Stored (status)       |
+| Returned for changes  | The authorised editor returned the draft. Until it is reviewed again, this is an outstanding editorial decision (BR5, DEC-05) | Stored (status)       |
+| Postponed             | A recorded review outcome. Not approved, so it cannot be published, but not blocked                                           | Stored (status)       |
+| Withdrawn             | A recorded review outcome. Not approved and not published                                                                     | Stored (status)       |
+| Approved              | An authorised editor has recorded approval for a channel (A9, RD-07)                                                          | Stored (status)       |
+| Blocked               | An outstanding permission, consent or editorial decision prevents release (BR5)                                               | Derived               |
+| Ready to be scheduled | Approved and nothing is outstanding                                                                                           | Derived               |
 
 The model does not assume the system prevents an editor recording approval while something is outstanding, because the scenario does not say so. It states only that such a draft is not released.
 
@@ -323,13 +323,13 @@ Chosen because it addresses the scenario's clearest problem: a friendly conversa
 
 The CA1 scenarios GS1 to GS5 are kept with their identifiers. Each section adds scenarios for its use cases in its own feature file, tagged `@FRx @UCx @BRx` and a case type (`@success`, `@alternative`, `@failure`, `@boundary`), plus its scenario number (for example `@GS10`).
 
-| Feature file | Section | Use cases | Scenario numbers |
-|---|---|---|---|
-| `CA 1/Features/production_record.feature` | CA1 baseline | UC2, UC8, UC9, UC11 | GS1–GS5 |
-| `Feature_Files/Section_A_Proposal.feature` | A – Proposal management | UC1, UC2 | GS10–GS19 |
-| `Feature_Files/Section_B_Contributors.feature` | B – Contributors and consent | UC3, UC4 | GS20–GS29 |
-| `Feature_Files/Section_D_Review.feature` | D – Review and publication | UC8, UC9, UC10 | GS30–GS39 |
-| `Feature_Files/Section_C_Recording.feature` | C – Recording and drafts | UC5, UC6, UC7 | GS40–GS49 |
+| Feature file                                   | Section                      | Use cases           | Scenario numbers |
+|------------------------------------------------|------------------------------|---------------------|------------------|
+| `CA 1/Features/production_record.feature`      | CA1 baseline                 | UC2, UC8, UC9, UC11 | GS1–GS5          |
+| `Feature_Files/Section_A_Proposal.feature`     | A – Proposal management      | UC1, UC2            | GS10–GS19        |
+| `Feature_Files/Section_B_Contributors.feature` | B – Contributors and consent | UC3, UC4            | GS20–GS29        |
+| `Feature_Files/Section_D_Review.feature`       | D – Review and publication   | UC8, UC9, UC10      | GS30–GS39        |
+| `Feature_Files/Section_C_Recording.feature`    | C – Recording and drafts     | UC5, UC6, UC7       | GS40–GS49        |
 
 Scenario number blocks were agreed by the group so the feature files can be merged without clashes. A section that needs more than ten scenarios asks the group for a further block.
 
@@ -340,27 +340,27 @@ Scenarios must use the terms in Section 8, especially Blocked, awaiting review a
 # 8. Glossary
 
 
-| **Term**             | **Definition**                                                                                                                                                           |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Proposal             | An idea for a programme with its subject, audience, format, duration, proposed contributors and preferred publication period. May begin as a short conversation or email |
-| Episode              | One planned or produced item within a proposal. A series is a proposal with several episodes                                                                             |
-| Proposal decision    | An editor's recorded outcome on a proposal: accepted, rejected, returned for revision or held. Discussion without a recorded decision is not a decision                  |
-| Partner organisation | An external organisation that may propose programmes and wants progress information                                                                                      |
-| Contributor          | A person who takes part in an episode, such as a presenter, interviewee, performer or technical volunteer                                                                |
-| Contribution         | A contributor's role in one episode, with any agreed credit                                                                                                              |
-| Consent              | A contributor's agreement to the intended use of their contribution, given on paper, by email or at the start of a recording                                             |
-| Permission           | Authorisation to use third-party material such as music, an archive clip or externally supplied material. Different from consent                                         |
-| Recording session    | An occasion on which contributors are recorded, in the studio, at an event or elsewhere. May be repeated or supplemented                                                 |
-| Source recording     | A raw audio file from a recording session. One session can produce several                                                                                               |
-| Draft                | An edited version of an episode prepared for review. Several can exist for one episode, each with a sequential version number (RD-12) |
-| Draft review         | An authorised editor's review of a draft for a publication channel, resulting in approved, returned for changes, postponed or withdrawn (RD-07) |
-| Publication          | The scheduled or actual release of an episode on a channel                                                                                                               |
-| Publication channel  | A public channel through which an episode is released                                                                                                                    |
-| Correction           | A change after publication, either a metadata correction or a new audio version. The scenario does not define how they differ                                            |
-| Blocked              | Derived, not stored. A draft that may be technically complete but cannot be published because a permission, consent or editorial decision is outstanding (BR5, RD-04) |
-| Contributor confirmation | Treated as the contributor's consent (Q14, DEC-05) |
-| Outstanding editorial decision | A draft returned for changes and not yet reviewed again (Q15, DEC-05) |
-| Significant change   | A change to an approved proposal that may require reconsideration. Staff do not agree what counts                                                                        |
+| **Term**                       | **Definition**                                                                                                                                                           |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Proposal                       | An idea for a programme with its subject, audience, format, duration, proposed contributors and preferred publication period. May begin as a short conversation or email |
+| Episode                        | One planned or produced item within a proposal. A series is a proposal with several episodes                                                                             |
+| Proposal decision              | An editor's recorded outcome on a proposal: accepted, rejected, returned for revision or held. Discussion without a recorded decision is not a decision                  |
+| Partner organisation           | An external organisation that may propose programmes and wants progress information                                                                                      |
+| Contributor                    | A person who takes part in an episode, such as a presenter, interviewee, performer or technical volunteer                                                                |
+| Contribution                   | A contributor's role in one episode, with any agreed credit                                                                                                              |
+| Consent                        | A contributor's agreement to the intended use of their contribution, given on paper, by email or at the start of a recording                                             |
+| Permission                     | Authorisation to use third-party material such as music, an archive clip or externally supplied material. Different from consent                                         |
+| Recording session              | An occasion on which contributors are recorded, in the studio, at an event or elsewhere. May be repeated or supplemented                                                 |
+| Source recording               | A raw audio file from a recording session. One session can produce several                                                                                               |
+| Draft                          | An edited version of an episode prepared for review. Several can exist for one episode, each with a sequential version number (RD-12)                                    |
+| Draft review                   | An authorised editor's review of a draft for a publication channel, resulting in approved, returned for changes, postponed or withdrawn (RD-07)                          |
+| Publication                    | The scheduled or actual release of an episode on a channel                                                                                                               |
+| Publication channel            | A public channel through which an episode is released                                                                                                                    |
+| Correction                     | A change after publication, either a metadata correction or a new audio version. The scenario does not define how they differ                                            |
+| Blocked                        | Derived, not stored. A draft that may be technically complete but cannot be published because a permission, consent or editorial decision is outstanding (BR5, RD-04)    |
+| Contributor confirmation       | Treated as the contributor's consent (Q14, DEC-05)                                                                                                                       |
+| Outstanding editorial decision | A draft returned for changes and not yet reviewed again (Q15, DEC-05)                                                                                                    |
+| Significant change             | A change to an approved proposal that may require reconsideration. Staff do not agree what counts                                                                        |
 
 # 9. Domain model
 
@@ -372,23 +372,23 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 
 ## 9.1 Classes and attributes
 
-| **Class**           | **Attributes**                                                                                             | **From**          |
-|---------------------|------------------------------------------------------------------------------------------------------------|-------------------|
-| Proposal            | subject, intendedAudience, format, expectedDuration, preferredPublicationPeriod, programmeType, proposedBy | FR1               |
-| ProposalDecision    | outcome, decisionDate, conditions, note, decidedBy                                                               | FR3               |
-| PartnerOrganisation | name                                                                                                       | Proposals section |
-| Episode             | title, description                                                                                         | FR2               |
-| Contributor         | name, contactPreference, availability                                                                      | FR4               |
-| Contribution        | role, agreedCredit                                                                                         | FR4               |
-| Consent             | form, intendedUse, dateGiven                                                                               | FR5               |
-| RecordingSession    | date, locationType, locationDescription, equipmentNeeded                                                   | FR6               |
-| SourceRecording     | workingName, usabilityNote                                                                                 | FR7               |
+| **Class**           | **Attributes**                                                                                                    | **From**          |
+|---------------------|-------------------------------------------------------------------------------------------------------------------|-------------------|
+| Proposal            | subject, intendedAudience, format, expectedDuration, preferredPublicationPeriod, programmeType, proposedBy        | FR1               |
+| ProposalDecision    | outcome, decisionDate, conditions, note, decidedBy                                                                | FR3               |
+| PartnerOrganisation | name                                                                                                              | Proposals section |
+| Episode             | title, description                                                                                                | FR2               |
+| Contributor         | name, contactPreference, availability                                                                             | FR4               |
+| Contribution        | role, agreedCredit                                                                                                | FR4               |
+| Consent             | form, intendedUse, dateGiven                                                                                      | FR5               |
+| RecordingSession    | date, locationType, locationDescription, equipmentNeeded                                                          | FR6               |
+| SourceRecording     | workingName, usabilityNote                                                                                        | FR7               |
 | Draft               | versionNumber, versionDescription, status (awaiting review, returned for changes, postponed, withdrawn, approved) | FR7, RD-04, RD-12 |
-| Permission          | materialDescription, materialSource, permittedUse, status                                                  | FR8               |
-| DraftReview         | outcome, reviewDate, reviewedBy, comments                                                                  | FR9               |
-| Publication         | scheduledDate, actualDate, reasonForDateChange                                                             | FR10              |
-| PublicationChannel  | name                                                                                                       | FR10              |
-| Correction          | type, reason, correctionDate                                                                               | FR11              |
+| Permission          | materialDescription, materialSource, permittedUse, status                                                         | FR8               |
+| DraftReview         | outcome, reviewDate, reviewedBy, comments                                                                         | FR9               |
+| Publication         | scheduledDate, actualDate, reasonForDateChange                                                                    | FR10              |
+| PublicationChannel  | name                                                                                                              | FR10              |
+| Correction          | type, reason, correctionDate                                                                                      | FR11              |
 
 ## 9.2 Associations and multiplicity
 
@@ -407,7 +407,7 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 | Draft draws on SourceRecording            | 0..\* to 1..\*   | A draft is built from at least one source                                                                                                            |
 | Permission is needed by Draft             | 0..\* to 1..\*   | A draft may need no permissions; a permission relates to at least one draft                                                                          |
 | Draft is reviewed in DraftReview          | 1 to 0..\*       | A returned draft is reviewed again                                                                                                                   |
-| DraftReview is for PublicationChannel     | 0..\* to 1      | Approval applies per channel (A9, BR3). Added in CA2 (RD-07) |
+| DraftReview is for PublicationChannel     | 0..\* to 1       | Approval applies per channel (A9, BR3). Added in CA2 (RD-07)                                                                                         |
 | Draft is released as Publication          | 1 to 0..\*       | An approved draft can go to more than one channel                                                                                                    |
 | PublicationChannel carries Publication    | 1 to 0..\*       | A channel carries many publications                                                                                                                  |
 | Publication is amended by Correction      | 1 to 0..\*       | A publication can be corrected more than once                                                                                                        |

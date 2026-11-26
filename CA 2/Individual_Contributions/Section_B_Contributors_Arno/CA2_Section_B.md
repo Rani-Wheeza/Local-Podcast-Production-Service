@@ -139,7 +139,7 @@ The review uses these baseline files. The links identify the original requiremen
 
 ### New scenario coverage
 
-The file [`Section_B_Contributors.feature`](../../../Requirements_and_Gherkin/Feature_Files/Section_B_Contributors.feature) contains the complete Gherkin scenarios. The scenario numbers GS20 to GS25 come from the Section B range GS20 to GS29 (DEC-06). It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
+The file [`Section_B_Contributors.feature`](../../Requirements_and_Gherkin/Feature_Files/Section_B_Contributors.feature) contains the complete Gherkin scenarios. The scenario numbers GS20 to GS25 come from the Section B range GS20 to GS29 (DEC-06). It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
 
 The file also uses story tags and applicable rule or constraint tags. These tags connect each scenario to its source requirements.
 

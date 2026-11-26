@@ -5,7 +5,7 @@ CA1 source: Rani Wheeza's analysis dossier (T00244793)
 
 Evidence references ED01 to ED41 identify items in [Evidence_Document_Source_Material.md](Evidence_Document_Source_Material.md). This section reviews the CA1 analysis for review, publication and correction. It also identifies information that the CA1 analysis does not state.
 
-The scenarios are in [Section_D_Review.feature](../../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature). The CRC cards and GRASP notes are in this catalogue. The system sequence diagrams are in the diagrams folder.
+The scenarios are in [Section_D_Review.feature](../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature). The CRC cards and GRASP notes are in this catalogue. The system sequence diagrams are in the diagrams folder.
 
 ## Problem statement
 

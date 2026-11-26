@@ -445,6 +445,31 @@ end note
 - **Collaborators:** 
   - Draft
 
+### EquipmentItem
+
+- **Responsibilities:**
+  - Know and keep the equipment item's name or description.
+  - Record whether the item was reported missing for a recording session.
+  - Associate the item with the recording session that requires it.
+- **Collaborators:**
+  - RecordingSession
+
+### RecordingDraftController (design class)
+
+- **Responsibilities:**
+  - Receive `recordRecordingSession`, `recordSourceRecording`, `recordDraft`, `recordDraftStatus`, `recordPermission` and `viewDraftPermissions`.
+  - Find episodes, recording sessions, drafts and source recordings through repositories.
+  - Create or update the domain objects and save the result.
+  - Delegate recording and permission status handling to the relevant domain objects.
+  - Return the session, source recording, draft or permission data requested by the use cases.
+- **Collaborators:**
+  - Episode
+  - RecordingSession
+  - SourceRecording
+  - Draft
+  - Permission
+  - EpisodeRepository
+
 ## Summary
 
 Section C covers UC5–UC7 and records recording sessions, source recordings, drafts and permissions. Missing equipment remains visible, drafts link to their source recordings, and outstanding permissions remain associated with the relevant draft. Publication review remains outside this section.

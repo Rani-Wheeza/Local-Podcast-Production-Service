@@ -45,7 +45,7 @@ This file collects the CRC cards from the four sections. Each card stays in the 
 | Clock                                             | Interface   | Shared               | A, D                            | One shared interface (see 3.4).                                       |
 | ProposalController                                | Controller  | A                    |                                 |                                                                       |
 | ContributorConsentController                      | Controller  | B                    |                                 |                                                                       |
-| RecordingDraftController                          | Controller  | C                    |                                 | Proposed name. A card is necessary.                                   |
+| RecordingDraftController                          | Controller  | C                    |                                 | Card agreed in Section C.                                             |
 | ReviewPublicationController                       | Controller  | D                    |                                 |                                                                       |
 | ProductionOverviewController                      | Controller  | Shared (UC11)        |                                 | Only reads data. The card is in section 4.                            |
 | ProposalRepository, PartnerOrganisationRepository | Repository  | A                    |                                 |                                                                       |
@@ -62,8 +62,8 @@ This file collects the CRC cards from the four sections. Each card stays in the 
 | 3.4 | Clock (A) / Clock (D)                       | Two sections define Clock.                                           | Use one shared `Clock` interface for all controllers.                                                                       | Rani, Tsubasa        |      |
 | 3.5 | Episode (A) / Contribution (B)              | Which class creates a Contribution?                                  | Episode creates Contribution. Rani adds two rows to the Episode card: "create contributions" and `hasOutstandingConsent()`. | Rani                 |      |
 | 3.6 | Episode (A, B, C)                           | Sections B and C must find episodes. Only Proposal has a repository. | Add a shared `EpisodeRepository`. Or, find episodes through Proposal.                                                       | Rani, Jack           |      |
-| 3.7 | Section C                                   | Section C has no controller card.                                    | Add a RecordingDraftController card (see controller-pattern-decision.md).                                                   | Jack                 |      |
-| 3.8 | Section C                                   | EquipmentItem is a collaborator, but it has no card.                 | Add a card. Or, make missing equipment an attribute of RecordingSession.                                                    | Jack                 |      |
+| 3.7 | Section C                                   | Section C has no controller card.                                    | Add a RecordingDraftController card (see controller-pattern-decision.md).                                                   | Jack                 | Done |
+| 3.8 | Section C                                   | EquipmentItem is a collaborator, but it has no card.                 | Add a card. Or, make missing equipment an attribute of RecordingSession.                                                    | Jack                 | Done |
 
 ## 4. New card: ProductionOverviewController (design class)
 

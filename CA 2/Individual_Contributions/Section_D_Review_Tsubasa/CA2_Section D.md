@@ -260,7 +260,7 @@ The group must resolve the dependencies below before final integration. Until th
 
 ## CRC Cards
 
-The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section C's class; only the responsibilities these operations need are listed here. Design classes are one use-case controller, a clock and two enumerations.
+The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section C's class; only the responsibilities these operations need are listed here. Design classes are one use-case controller, two repositories, a clock and two enumerations.
 
 ### Draft (Section C)
 
@@ -336,8 +336,16 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 | Responsibilities                                                                                                            | Collaborators      |
 |-----------------------------------------------------------------------------------------------------------------------------|--------------------|
 | Receive `selectDraft`, `viewDraft`, `recordReview`, `recordPublicationDate`, `changePublicationDate` and `recordCorrection` | –                  |
+| Find drafts and publications, and save the result (#43 3.11)                                                                | DraftRepository, PublicationRepository |
 | Pass the editor and today's date into `recordReview` and `recordCorrection`, and today's date into `changePublicationDate`  | Clock              |
 | Delegate every rule to the domain objects                                                                                   | Draft, Publication, Episode, Permission |
+
+### DraftRepository and PublicationRepository (design classes)
+
+| Responsibilities                                      | Collaborators |
+|-------------------------------------------------------|---------------|
+| Store and find a draft by identifier                  | Draft         |
+| Store and find a publication by identifier            | Publication   |
 
 ### Clock (interface)
 
@@ -353,4 +361,5 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 | Create the publication for one channel                              | Draft                       | Creator            | The channel, or the controller, creates it                         | The draft is what is released. The channel is recorded on the publication.                                                                     |
 | Keep the earlier date, the new date, the reason and the change date | PublicationDateChange       | Information Expert | `Publication.reasonForDateChange` holds the reason                 | A later change would overwrite the earlier date and the reason.                                                                                |
 | Know its name only                                                  | PublicationChannel          | Low Coupling       | The channel also knows its reviews and publications                | No operation starts at the channel and follows those links.                                                                                    |
-| Receive the six operations and delegate them                        | ReviewPublicationController | Controller         | One controller per use case, or a repository that saves the result | The three use cases share the draft and the publication. The operations already receive the objects, so a repository would be database access. |
+| Receive the six operations and delegate them                        | ReviewPublicationController | Controller         | One controller per use case                                        | The three use cases share the draft and the publication.                                                                                       |
+| Find drafts and publications, and save the result                   | DraftRepository, PublicationRepository | Pure Fabrication | The domain classes store and find themselves                       | Storing and finding is not a domain responsibility (#43 3.11).                                                                                 |

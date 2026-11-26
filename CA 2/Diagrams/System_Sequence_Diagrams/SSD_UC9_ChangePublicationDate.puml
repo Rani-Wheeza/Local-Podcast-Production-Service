@@ -3,8 +3,8 @@ title SSD - UC9 Change a publication date
 
 hide footbox
 
-actor "Production Coordinator" as PC
-participant "Production Record System" as S
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
 
 PC -> S : changePublicationDate(draft, channel, newDate, reason)
 activate S

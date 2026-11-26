@@ -1,0 +1,80 @@
+@startuml DCD_UC2_RecordDecision
+title Design Class Diagram - UC2 Record a Proposal Decision
+
+top to bottom direction
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 75
+
+class ProposalController <<controller>> {
+  +recordDecision(proposal, outcome, conditions, note)
+}
+
+class ProposalRepository <<repository>> {
+  +find(proposal): Proposal
+  +save(proposal)
+}
+
+interface Clock {
+  +currentDate(): Date
+}
+
+class Proposal {
+  subject
+  intendedAudience
+  format
+  expectedDuration
+  preferredPublicationPeriod
+  programmeType
+  proposedBy
+  --
+  +canRecordDecision(): boolean
+  +recordDecision(outcome, editor, today, conditions, note)
+  +currentState()
+}
+
+class ProposalDecision {
+  outcome: DecisionOutcome
+  decisionDate: Date
+  conditions
+  note
+  decidedBy
+  --
+  +leavesProposalOpen(): boolean
+}
+
+enum DecisionOutcome {
+  accepted
+  rejected
+  returnedForRevision
+  heldForFutureConsideration
+}
+
+ProposalController ..> Proposal : delegates
+ProposalController ..> ProposalRepository : uses
+ProposalController ..> Clock : uses
+ProposalRepository ..> Proposal : stores
+Proposal "1" -- "0..*" ProposalDecision : receives
+ProposalDecision ..> DecisionOutcome : outcome
+
+note right of Proposal
+  Current state is derived from the latest
+  ProposalDecision; Proposal has no status attribute.
+  A new decision is allowed when there is no decision,
+  or the latest outcome is returned or held.
+end note
+
+note bottom of ProposalController
+  Proposal.recordDecision returns "recorded" or
+  "refused" (already decided), as shown in the UC2
+  interaction diagrams. No boolean or DecisionResult
+  type is added. Save only when the result is "recorded".
+end note
+
+note right of DecisionOutcome
+  The editor's four decision choices (BR2).
+  This is separate from the "recorded" or "refused"
+  result of attempting to record a decision.
+end note
+@enduml

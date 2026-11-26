@@ -19,7 +19,7 @@
 | Integrated CRC card index and cross-section changes 3.1 to 3.8                                                        | #43      | `Object_Oriented_Design/CRC_Cards/integrated-crc-cards.md`          |
 | Controller pattern decision (proposed DEC-10)                                                                         | #43      | `Object_Oriented_Design/GRASP/controller-pattern-decision.md`       |
 
-All Section B paths start at `Individual_Contributions/Implementation_Catalogue/Section_B_Contributors_Arno/`.
+All Section B paths start at `Individual_Contributions/Section_B_Contributors_Arno/`.
 
 ## Not done yet
 

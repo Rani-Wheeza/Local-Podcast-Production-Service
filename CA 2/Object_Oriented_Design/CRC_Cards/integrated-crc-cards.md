@@ -12,7 +12,7 @@ This file collects the CRC cards from the four sections. Each card stays in the 
 
 | Section                      | Owner   | Source file                                                                                     | CRC status                                                   |
 |------------------------------|---------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| A – Proposal management      | Rani    | `Individual_Contributions/Implementation_Catalogue/Section_A_Proposal_Rani/CA2_Section_A` (#28) | Done                                                         |
+| A – Proposal management      | Rani    | `Individual_Contributions/Section_A_Proposal_Rani/CA2_Section_A` (#28) | Done                                                         |
 | B – Contributors and consent | Arno    | `.../Section_B_Contributors_Arno/CA2_Section_B.md`                                              | Done                                                         |
 | C – Recording and drafts     | Jack    | `.../Section_C_Recording_Jack/CA2_Section_C.md` (#30)                                           | Done. No controller card. The GRASP section is not complete. |
 | D – Review and publication   | Tsubasa | `.../Section_D_Review_Tsubasa/CA2_Section D.md`                                                 | Done                                                         |

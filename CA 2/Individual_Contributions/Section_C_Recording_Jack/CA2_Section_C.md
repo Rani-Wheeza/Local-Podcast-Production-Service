@@ -121,7 +121,7 @@ Review these CA1 associations and multiplicities against the agreed group domain
 
 ### System Sequence Diagrams
 
-The tables below show the actor's requests and the system's responses. Each table is followed by its rendered SSD and the PlantUML source used to create it. The `.puml` source files and `.png` images are also in [System_Sequence_Diagrams](../../../Diagrams/System_Sequence_Diagrams).
+The tables below show the actor's requests and the system's responses. Each table is followed by its PlantUML source and rendered SSD. The `.puml` source files and `.png` images are also in [System_Sequence_Diagrams](../../Diagrams/System_Sequence_Diagrams).
 
 #### UC5: Record a recording session and equipment needs
 
@@ -136,9 +136,9 @@ Main success scenario: Record a session and show a reported missing item (GS40).
 | The production coordinator selects the episode and provides the session date, location, required equipment and any item reported missing. |  |
 |  | The system records the session against the episode and shows the missing item with the equipment needs. |
 
-![SSD UC5: Record a session](../../../Diagrams/System_Sequence_Diagrams/SSD_UC5_RecordSession.png)
+PlantUML source:
 
-```plantuml
+```text
 @startuml SSD_UC5_RecordSession
 title SSD - UC5 Record a recording session
 hide footbox
@@ -158,6 +158,8 @@ end note
 @enduml
 ```
 
+![SSD UC5: Record a session](../../Diagrams/System_Sequence_Diagrams/SSD_UC5_RecordSession.png)
+
 Alternative scenario: No item is reported missing.
 
 | Actor | System |
@@ -165,9 +167,9 @@ Alternative scenario: No item is reported missing.
 | The production coordinator records the session date, location and required equipment without reporting a missing item. |  |
 |  | The system records the session and shows its equipment needs without marking an item missing. |
 
-![SSD UC5 alternative: No missing equipment reported](../../../Diagrams/System_Sequence_Diagrams/SSD_UC5_MissingEquipment.png)
+PlantUML source:
 
-```plantuml
+```text
 @startuml SSD_UC5_MissingEquipment
 title SSD - UC5 Record a session with no missing equipment
 hide footbox
@@ -187,6 +189,8 @@ end note
 @enduml
 ```
 
+![SSD UC5 alternative: No missing equipment reported](../../Diagrams/System_Sequence_Diagrams/SSD_UC5_MissingEquipment.png)
+
 #### UC6: Record source recordings and draft versions
 
 Use case: Record source recordings and draft versions; an approved draft is not assumed to be the version published (FR7).  
@@ -203,9 +207,9 @@ Main success scenario: Record several source files and drafts; each new draft st
 |  | The system assigns the next sequential version number for the episode, creates the Draft as awaiting review, and records its source links. |
 |  | The system returns each draft with its version number, source links and awaiting-review status. |
 
-![SSD UC6: Record sources and drafts](../../../Diagrams/System_Sequence_Diagrams/SSD_UC6_RecordSourcesAndDrafts.png)
+PlantUML source:
 
-```plantuml
+```text
 @startuml SSD_UC6_RecordSourcesAndDrafts
 title SSD - UC6 Record source recordings and drafts
 hide footbox
@@ -234,6 +238,8 @@ end note
 @enduml
 ```
 
+![SSD UC6: Record sources and drafts](../../Diagrams/System_Sequence_Diagrams/SSD_UC6_RecordSourcesAndDrafts.png)
+
 #### UC7: Record permissions for material used
 
 Use case: Record permissions for material used (FR8).  
@@ -247,9 +253,9 @@ Main success scenario: Record granted permission for material used by a draft.
 | The technical editor records the material description, source, permitted use, status and the draft or drafts that use it. |  |
 |  | The system records the Permission against the selected draft or drafts and shows its granted status. |
 
-![SSD UC7: Record granted permission](../../../Diagrams/System_Sequence_Diagrams/SSD_UC7_GrantedPermission.png)
+PlantUML source:
 
-```plantuml
+```text
 @startuml SSD_UC7_GrantedPermission
 title SSD - UC7 Record granted permission
 hide footbox
@@ -269,6 +275,8 @@ end note
 @enduml
 ```
 
+![SSD UC7: Record granted permission](../../Diagrams/System_Sequence_Diagrams/SSD_UC7_GrantedPermission.png)
+
 Alternative scenario: Record an outstanding permission and show it on the affected draft (GS45–GS46).
 
 | Actor | System |
@@ -276,9 +284,9 @@ Alternative scenario: Record an outstanding permission and show it on the affect
 | The technical editor records the material and permitted use with status "outstanding", then views the draft's permissions. |  |
 |  | The system records the Permission and identifies it as outstanding; the draft's other permission statuses remain visible. |
 
-![SSD UC7 alternative: Show outstanding permission](../../../Diagrams/System_Sequence_Diagrams/SSD_UC7_OutstandingPermission.png)
+PlantUML source:
 
-```plantuml
+```text
 @startuml SSD_UC7_OutstandingPermission
 title SSD - UC7 Show an outstanding permission
 hide footbox
@@ -299,6 +307,8 @@ note right of S
 end note
 @enduml
 ```
+
+![SSD UC7 alternative: Show outstanding permission](../../Diagrams/System_Sequence_Diagrams/SSD_UC7_OutstandingPermission.png)
 
 ## Operation contracts
 

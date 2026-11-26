@@ -269,7 +269,9 @@ The CRC cards assign the work in the Section A operation contracts (CO1–CO4) t
 | Create and keep its contributions, each with its own role and credit (Creator; FR4, GS20) | Contribution, Contributor (Section B) |
 | Tell whether consent is outstanding for any of its contributions: `hasOutstandingConsent()` (Information Expert; BR5, GS24) | Contribution (Section B) |
 | Give the contributions with no consent: `outstandingConsents()`, so the draft review and overview can name each contributor (BR5, GS24, CO11.2) | Contribution (Section B) |
-| Be the shared anchor for later work: sessions and drafts link to it | RecordingSession (C), Draft (C) |
+| Be the shared anchor that Sections B, C and D reach episodes through | Contribution (B), RecordingSession (C), Draft (C) |
+| Create and keep its recording sessions (Creator; FR6, UC5) | RecordingSession (Section C) |
+| Create and keep its drafts, assigning each the next version number (Creator; FR7, RD-12) | Draft (Section C) |
 
 ### ProposalDecision
 

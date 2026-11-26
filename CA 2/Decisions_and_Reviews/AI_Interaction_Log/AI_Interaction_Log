@@ -1,0 +1,104 @@
+# Tsubasa Hirose
+## AI Declartion
+- AI was used for English translation, review and critique, questions about structure, and locating relevant passages in the course references (Sessions 9–14, the Session 11 laboratory workbook and the CA2 brief). 
+- AI reviewed my SSDs (UC8–UC10), operation contracts (OC01–OC04), CRC cards and GRASP rationale against the course references, and pointed out inconsistencies between them.
+- For some items, AI also suggested corrected examples (PlantUML fragments, contract wording) and design options. One example is the choice of how to represent blocked drafts, per-channel outcomes, scheduled versus published publications, and the publication-date history. I chose among these options and recorded the choices as decisions. They were then reviewed by the group through pull requests.
+- AI was used for coding support with GitHub: preparing commits and pull requests, including git and `gh` commands, commit messages and pull-request descriptions. I checked each change before it was committed or pushed.
+- AI was used to draft the wording of GitHub Project issues and of issue and review comments. I edited the drafts so that they matched the agreed identifiers and decisions before posting them.
+- AI was not used to generate the use cases, SSDs, operation contracts, CRC cards or GRASP rationale from scratch. I wrote the drafts, and I decided whether to accept, change or reject each AI suggestion.
+
+### Example of an AI suggestion: UC9 system sequence diagram review
+This is one recorded example of AI use.
+ Note: The original query was written in Japanese, and the original answer was also produced in Japanese. The English query and response below are translations of that exchange for the repository record.
+ 
+### Query
+ 
+What do you think of this UML?
+Original Japanese query: 「このUMLどう思いますか」
+ 
+```plantuml
+@startuml
+title SSD - UC9 Record or change a publication date
+ 
+hide footbox
+ 
+actor "Production Coordinator" as PC
+participant "Production Record System" as S
+ 
+alt no publication date recorded yet (GS34)
+  PC -> S : recordPublicationDate(draft, channel, date)
+  activate S
+  S --> PC : scheduled(date, channel)
+  deactivate S
+else a date is already scheduled (GS5)
+  PC -> S : changePublicationDate(episode, channel, newDate, reason)
+  activate S
+  S --> PC : scheduled(newDate, channel), earlierDate, reason
+  deactivate S
+end
+ 
+note right of S
+  GS34 starts from a draft that is approved
+  and ready to be scheduled.
+  GS5 keeps the earlier date and the reason.
+  FR10 states no rejection of a publication date.
+end note
+@enduml
+```
+ 
+### Response
+ 
+The overall shape is good. There is one actor and one system as a black box, and the event names follow "verb + domain concept". The parameters are business inputs only, and `activate` and `hide footbox` follow the lecture.
+ 
+#### Review these
+ 
+**1. The use of `alt` differs from the lecture pattern**  
+In the lecture, `alt` branches the outcomes (responses) of one system event. Here, each branch has the actor send a different event (`recordPublicationDate` and `changePublicationDate`). These are two scenarios: recording a first date, and changing a scheduled date. Session 9, Step 1 says one SSD shows one scenario, so two SSDs fit the lecture better.
+ 
+**2. The return message is malformed**  
+`scheduled(newDate, channel), earlierDate, reason` does not read as one message. `reason` is an input that was passed in, so it does not need to be returned. For example, use `publicationDateChanged(newDate, earlierDate, channel)`.
+ 
+**3. Do not put GS34 or GS5 in the guard conditions**  
+Record the link to Gherkin in the traceability matrix. Keep only the condition text in the diagram.
+ 
+**4. The note belongs in the operation contract or Gherkin, not the diagram**  
+"Starts from an approved draft that is ready to be scheduled" is a precondition. "Keeps the earlier date and the reason" is a postcondition. "FR10: no rejection of a date" should be written into the contract as a rule.
+ 
+**5. The terminology is inconsistent**  
+The first event uses `draft` and the second uses `episode`. If they refer to the same thing, align them with the glossary.
+ 
+Also decide how a date recorded against an unapproved draft is handled. If it cannot be selected, nothing is needed in the diagram. If it is rejected, a refusal branch is needed.
+ 
+#### Example after splitting
+ 
+```plantuml
+@startuml SSD_UC9_RecordDate
+title SSD - UC9 Record or change a publication date: record a first date
+hide footbox
+ 
+actor "Production Coordinator" as PC
+participant "Production Record System" as S
+ 
+PC -> S : recordPublicationDate(draft, channel, date)
+activate S
+S --> PC : publicationDateScheduled(date, channel)
+deactivate S
+@enduml
+```
+ 
+```plantuml
+@startuml SSD_UC9_ChangeDate
+title SSD - UC9 Record or change a publication date: change a scheduled date
+hide footbox
+ 
+actor "Production Coordinator" as PC
+participant "Production Record System" as S
+ 
+PC -> S : changePublicationDate(draft, channel, newDate, reason)
+activate S
+S --> PC : publicationDateChanged(newDate, earlierDate, channel)
+deactivate S
+@enduml
+```
+ 
+The message names are suggestions; adjust them to the wording of UC9.

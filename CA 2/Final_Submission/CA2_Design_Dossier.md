@@ -475,7 +475,7 @@ The design has these limitations at commit `17ae664`:
 
 ### 12.1 Decisions
 
-The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) 13 decisions (DEC-01 to DEC-13). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
+The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) has 13 decisions (DEC-01 to DEC-13). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
 
 ### 12.2 Peer review
 

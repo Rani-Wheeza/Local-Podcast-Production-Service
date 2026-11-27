@@ -162,7 +162,7 @@ The review uses these baseline files:
 
 ### New scenario coverage
 
-[Section_D_Review.feature](../../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature) contains the Section D scenarios. It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
+[Section_D_Review.feature](../../Requirements_and_Gherkin/Feature_Files/Section_D_Review.feature) contains the Section D scenarios. It uses `Rule:` blocks and tags for requirements, use cases, scenario types and scenario numbers.
 
 New scenarios start at GS30. The group must confirm the numbers before the feature files are merged.
 

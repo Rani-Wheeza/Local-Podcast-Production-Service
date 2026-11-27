@@ -17,8 +17,9 @@ activate PCtl
 PCtl -> Repo : p = find(proposal)
 PCtl -> Clk : today = currentDate()
 note right of PCtl
-  editor = the signed-in Proposal Editor (the actor).
-  Section A must give the source of editor (R3).
+  editor = the signed-in Proposal Editor,
+  taken from the session by the controller.
+  It is not entered by the actor (UC2 SSD).
 end note
 PCtl -> P : result = recordDecision(outcome, editor, today, conditions, note)
 activate P

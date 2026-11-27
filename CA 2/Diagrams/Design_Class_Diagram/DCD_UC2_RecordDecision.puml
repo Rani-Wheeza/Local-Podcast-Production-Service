@@ -9,7 +9,7 @@ skinparam ranksep 75
 
 class ProposalController <<controller>> {
   +selectProposal(proposal)
-  +recordDecision(proposal, outcome, conditions, note)
+  +recordDecision(proposal, outcome: DecisionOutcome, conditions, note)
 }
 
 class ProposalRepository <<repository>> {
@@ -32,7 +32,7 @@ class Proposal {
   --
   +getDetails()
   +canRecordDecision(): boolean
-  +recordDecision(outcome, editor, today, conditions, note)
+  +recordDecision(outcome: DecisionOutcome, editor, today, conditions, note)
   +currentState()
 }
 
@@ -43,6 +43,7 @@ class ProposalDecision {
   note
   decidedBy
   --
+  +create(outcome: DecisionOutcome, editor, today, conditions, note)
   +leavesProposalOpen(): boolean
 }
 

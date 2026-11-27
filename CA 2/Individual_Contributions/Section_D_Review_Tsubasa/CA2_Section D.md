@@ -260,7 +260,7 @@ The group must resolve the dependencies below before final integration. Until th
 
 ## CRC Cards
 
-The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section C's class; only the responsibilities these operations need are listed here. Design classes are one use-case controller, a clock and two enumerations.
+The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section C's class; only the responsibilities these operations need are listed here. Design classes are one use-case controller, two repositories, a clock and two enumerations.
 
 ### Draft (Section C)
 
@@ -336,8 +336,16 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 | Responsibilities                                                                                                            | Collaborators      |
 |-----------------------------------------------------------------------------------------------------------------------------|--------------------|
 | Receive `selectDraft`, `viewDraft`, `recordReview`, `recordPublicationDate`, `changePublicationDate` and `recordCorrection` | –                  |
+| Find drafts and publications, and save the result (#43 3.11)                                                                | DraftRepository, PublicationRepository |
 | Pass the editor and today's date into `recordReview` and `recordCorrection`, and today's date into `changePublicationDate`  | Clock              |
 | Delegate every rule to the domain objects                                                                                   | Draft, Publication, Episode, Permission |
+
+### DraftRepository and PublicationRepository (design classes)
+
+| Responsibilities                                      | Collaborators |
+|-------------------------------------------------------|---------------|
+| Store and find a draft by identifier                  | Draft         |
+| Store and find a publication by identifier            | Publication   |
 
 ### Clock (interface)
 

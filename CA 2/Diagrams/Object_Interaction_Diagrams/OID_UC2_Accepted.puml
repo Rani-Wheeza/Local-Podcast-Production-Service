@@ -1,0 +1,61 @@
+@startuml OID_UC2_Accepted
+title Interaction diagram - UC2 recordDecision: accepted with conditions (main flow)
+hide footbox
+
+' Section A, UC2 main flow (Rani). This diagram agrees with CO4, the Section A CRC cards (#28),
+' GRASP (#32), the UC2 SSD (#21) and the alternative-flow diagrams (#37).
+' Scenario: GS1 Proposal accepted with a condition
+actor ":Proposal Editor" as PE
+participant ":ProposalController" as PCtl
+participant ":ProposalRepository" as Repo
+participant ":Clock" as Clk
+participant "p : Proposal" as P
+participant "latest : ProposalDecision" as L
+participant "d : ProposalDecision" as D
+
+== selectProposal (query, no contract) ==
+
+PE -> PCtl : selectProposal(proposal)
+activate PCtl
+PCtl -> Repo : p = find(proposal)
+PCtl -> P : details, earlier decisions and conditions
+P --> PCtl : proposal details
+PCtl --> PE : The system shows the proposal details,\nits earlier decisions and conditions.
+deactivate PCtl
+
+== recordDecision (CO4) ==
+
+PE -> PCtl : recordDecision(proposal, accepted, conditions, note)
+activate PCtl
+PCtl -> Repo : p = find(proposal)
+PCtl -> Clk : today = currentDate()
+note right of PCtl
+  editor = the signed-in Proposal Editor,
+  taken from the session by the controller.
+  It is not entered by the actor (UC2 SSD).
+end note
+PCtl -> P : result = recordDecision(accepted, editor, today, conditions, note)
+activate P
+P -> P : allowed = canRecordDecision()
+activate P
+opt p has an earlier decision
+  P -> L : open = leavesProposalOpen()
+  note right of L : The answer is true if the latest\noutcome is "returned" or "held".
+end
+deactivate P
+note over P : allowed = true. In GS1 the proposal has no\nearlier decision. OID_UC2_AlreadyDecided\nshows allowed = false.
+P -> D ** : create(accepted, editor, today, conditions, note)
+note right of D
+  decisionDate = today. decidedBy = editor.
+  conditions = "each episode is shortened
+  to 25 minutes" (GS1).
+  The earlier decisions do not change (CO4).
+end note
+P --> PCtl : recorded
+deactivate P
+PCtl -> Repo : save(p)
+PCtl -> P : state = currentState()
+P --> PCtl : accepted
+PCtl --> PE : The system shows the proposal as accepted\nwith its conditions, the editor name and the date (GS1).
+deactivate PCtl
+@enduml

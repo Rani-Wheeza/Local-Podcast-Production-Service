@@ -161,9 +161,20 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Evidence:** `Individual_Contributions/Section_B_Contributors_Arno/CA2_Section_B.md` (Proposed NFR1 extension, Access and Permission Responsibilities) · #40
 
 ---
+## DEC-13: Add evidenceLocation to Consent
+
+- **Date:** _27/11/26_
+- **Context:** FR5 and US4 require the place where the consent evidence is held. The CA1 Consent attributes (E29) did not include it (#29, R13).
+- **Decision:** Add `evidenceLocation` to Consent in the domain model, the CRC cards and the DCD.
+- **Reasoning:** FR5 already requires this information. The change corrects the design. It does not change FR5. It also reduces R3 (paper forms kept outside the record).
+- **Rejected alternatives:** Keep the evidence location in a free-text note. Rejected because FR5 and GS-scenarios need to check it as a separate detail.
+- **Consequences:** CB4 (`recordConsent`) takes the evidence location as an input. The US4 scenarios check all four details.
+- **Evidence:** `Diagrams/Domain_Model/domain_Model.puml` · `CA2_Section_B.md` (Consent design) · #29
+
+
+
 
 ## Template for new entries
-
 ```markdown
 ## DEC-NN: Title
 

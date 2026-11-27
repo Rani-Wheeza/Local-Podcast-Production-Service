@@ -97,7 +97,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 
 - **Date:** _18/11/26_
 - **Context:** The scenario says programmes may be proposed by staff, volunteers or partner organisations, and partners want progress on their proposals. The domain model records the proposer (`proposedBy`, *PartnerOrganisation proposes Proposal*), but FR1 does not ask for it.
-- **Decision (proposed):** Reword FR1 to include who proposed the programme (staff member, volunteer or partner organisation).
+- **Decision:** Reword FR1 to include who proposed the programme (staff member, volunteer or partner organisation).
 - **Reasoning:** Gives the existing model attribute and association a requirement behind them, and supports partner progress information.
 - **Consequences:** If agreed, update FR1 in the baseline (#7). GS10 keeps its proposer step. If rejected, remove that step from GS10.
 - **Evidence:** Section A review (#11) · reviewed by Tsubasa
@@ -107,10 +107,10 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 
 - **Date:** _24/11/26_
 - **Context:** UC2 records a reason for rejection, what needs revising, or when to look again (GS13, GS14, GS15). `ProposalDecision` only has `conditions`, which apply to an acceptance.
-- **Decision (proposed):** Add a `note` attribute to `ProposalDecision`.
+- **Decision:** Add a `note` attribute to `ProposalDecision`.
 - **Reasoning:** Keeps conditions and explanatory notes separate, so the operation contract for `recordDecision` matches the model.
 - **Consequences:** Domain model (#8) and baseline Section 9.1 updated. CO4 already uses it.
-- **Evidence:** Section A operation contracts (#21)
+- **Evidence:** Section A operation contracts (#21) · AI-supported: gap identified with AI help, agreed by the group (see AI log)
 
 
 ## DEC-09: UC2 selected for detailed design; UC8 second if time allows

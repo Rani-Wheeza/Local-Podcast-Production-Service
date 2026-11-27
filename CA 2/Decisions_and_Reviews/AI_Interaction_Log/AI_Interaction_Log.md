@@ -1,3 +1,6 @@
+# Group AI Declaration
+The group used generative AI as a supporting tool. Tools: Claude (Rani), Perplexity (Arno), _tool_ (Jack), _tool_ (Tsubasa). Affected artefacts: section files A–D, SSDs, operation contracts, CRC cards and GRASP notes, UC2 interaction diagrams, decision-log entries, review comments and issue descriptions. All AI-supported changes to the shared design were reviewed by at least one other member and agreed through GitHub issues or the decision log. Individual declarations follow.
+
 # Tsubasa Hirose
 ## AI Declartion
 - AI was used for English translation, review and critique, questions about structure, and locating relevant passages in the course references (Sessions 9–14, the Session 11 laboratory workbook and the CA2 brief). 

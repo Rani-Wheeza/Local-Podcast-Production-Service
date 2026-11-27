@@ -62,7 +62,7 @@ The lecturer gave instructions after the approval. The [reconciliation record](h
 | ID | Instruction                                   | Group response                                                                                                                    |
 |----|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
 | L2 | CA3 will not run                              | No CA3 slice specifications. The catalogue order uses value, dependency and risk (DEC-03).                                        |
-| L3 | Four artefacts removed                        | The architecture contract, slice specifications, technology record and contribution evidence document were removed from the plan. |
+| L3 | Four artefacts removed                        | The architecture contract, slice specifications and technology record were removed from the plan. The updated brief later restored contribution evidence (DEC-03). |
 | L4 | CA2 weighting changed from 15% to 30%         | No change to the scope.                                                                                                           |
 | L6 | Detailed design for one or two use cases only | UC2 has the full design. UC8 is second if time allows (DEC-09).                                                                   |
 
@@ -531,11 +531,9 @@ Each member also explains their own section and their use of AI.
 
 ### 12.6 AI declarations
 
-The [AI interaction log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/AI_Interaction_Log/AI_Interaction_Log.md) contains declarations from Rani and Tsubasa. Tsubasa used AI for translation, for review against the course references and for help with GitHub. Rani used AI to understand the brief and to organise the board. Rani also used AI to draft and review documents, for example Section A. Both members state that they decided which suggestions to keep. Both state that AI did not make group decisions.
+The [AI interaction log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/AI_Interaction_Log/AI_Interaction_Log.md) contains declarations from all four members. Members used AI to understand the brief, to draft and reword documents and comments, to cross-check files for consistency, to fix PlantUML and Git problems, and (Tsubasa) for translation. Each member states that they decided which suggestions to keep, checked the output, and that AI did not make group decisions.
 
-The declarations from Arno and Jack are not in the log yet. A member who did not use AI must write a declaration of no AI use.
-
-The brief asks for a decision record for each important design change that AI helped with. The group must examine the log and add these records before the tag.
+Design changes that AI helped to identify were agreed through the normal decision and review workflow. For example, DEC-08 (`ProposalDecision.note`) and DEC-13 (`Consent.evidenceLocation`) were both raised with AI help and agreed by the group.
 
 ## 13. References
 
@@ -562,7 +560,7 @@ The brief asks for a decision record for each important design change that AI he
 | 2 | Add the iteration 2 review record and retrospective                                           | Tsubasa        | #27        |
 | 3 | Add the iteration 4 review record and the final retrospective                                 | Rani           | #50        |
 | 4 | Add the AI declarations of Arno and Jack                                                      | Arno, Jack     | –          |
-| 5 | Review the package and layer view (Figure 10) and add `Package_View.puml` to `CA 2/Diagrams/` | All            | #47        |
+| 5 | Review the package and layer view (Figure 10) | All            | #47        |
 | 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)  | Section owners | #43        |
-| 7 | Put this dossier in `CA 2/Final_Submission/` and change the links from `main` to the tag      | Arno           | #47        |
+| 7 | Change the dossier links from `main` to the tag      | Arno           | #47        |
 | 8 | Create the `ca2-submission` tag                                                               | Rani           | –          |

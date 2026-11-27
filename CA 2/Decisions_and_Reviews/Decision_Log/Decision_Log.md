@@ -88,7 +88,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Consequences:** Recorded in baseline Section 7. A section needing more than ten scenarios asks the group for a further block.
 - **Evidence:** Analysis baseline Section 7 (#7) · feature files in `Requirements_and_Gherkin/Feature_Files/`
 
-## DEC-07: Add the proposer to FR1 
+## DEC-07: Add the proposer to FR1
 
 - **Date:** _18/11/26_
 - **Context:** The scenario says programmes may be proposed by staff, volunteers or partner organisations, and partners want progress on their proposals. The domain model records the proposer (`proposedBy`, *PartnerOrganisation proposes Proposal*), but FR1 does not ask for it.
@@ -98,7 +98,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Evidence:** Section A review (#11) · reviewed by Tsubasa
 
 
-## DEC-08: Add a note to ProposalDecision 
+## DEC-08: Add a note to ProposalDecision
 
 - **Date:** _24/11/26_
 - **Context:** UC2 records a reason for rejection, what needs revising, or when to look again (GS13, GS14, GS15). `ProposalDecision` only has `conditions`, which apply to an acceptance.
@@ -146,6 +146,19 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Rejected alternatives:** A new consent for each draft or each channel. Rejected because the scenario gives no rule for this, so it would invent policy.
 - **Consequences:** `Episode.hasOutstandingConsent()` and `Contribution` check for one consent only. If Q3 gives renewal conditions, add consent attributes or a renewal rule and scenarios GS26 to GS29.
 - **Evidence:** `Individual_Contributions/Section_B_Contributors_Arno/CA2_Section_B.md` · baseline A15 · #29
+
+---
+
+## DEC-12: Extend NFR1 to private correspondence and sensitive contributor information (proposed)
+
+- **Date:** _27/11/26_
+- **Status:** Proposed. This entry waits for agreement from all members.
+- **Context:** NFR1 only covers internal editorial notes in a provided partner or volunteer view. E5 and R5 also identify private correspondence and sensitive contributor information. Rani reviewed the Section B access matrix and asked for a decision-log entry because the extension changes a requirement (#40, R16).
+- **Decision:** Extend NFR1: "If the system provides a partner or volunteer view, the view must not display internal editorial notes. Access to private correspondence and sensitive contributor information must follow the agreed permissions for that production role." The verification also compares access to other information with the agreed role permissions.
+- **Reasoning:** The extension keeps the existing restriction and its condition (Q9). It adds no new permission. It only requires access to follow the permissions that Q7 gives.
+- **Rejected alternatives:** Keep NFR1 unchanged. Rejected because E5 and R5 would have no requirement. Add fixed rules for each role. Rejected because Q7 is not answered, so this would invent policy.
+- **Consequences:** The "Open" cells in the Section B access matrix stay open until Q7. GS25 continues to test internal editorial notes. Add tests for the other information after Q7. The matrix uses "Not by default" for BR7 and E5 (#40).
+- **Evidence:** `Individual_Contributions/Section_B_Contributors_Arno/CA2_Section_B.md` (Proposed NFR1 extension, Access and Permission Responsibilities) · #40
 
 ---
 

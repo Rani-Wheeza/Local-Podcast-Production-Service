@@ -19,12 +19,12 @@ Web sources show the date they were last accessed. Keep only the sources the gro
 - Sommerville, I. (2016) *Software Engineering*. 10th edn. Harlow: Pearson.
 
 ## 4. Process
-- Schwaber, K. and Sutherland, J. (2020) *The Scrum Guide*. https://scrumguides.org [accessed _date_]. Product Goal, Product Backlog, Definition of Done, review and retrospective.
-- GitHub (n.d.) *GitHub Docs: Planning and tracking with Projects* and *Configuring issue templates for your repository*. https://docs.github.com [accessed _date_]. Board, labels, issue templates and releases.
+- Schwaber, K. and Sutherland, J. (2020) *The Scrum Guide*. https://scrumguides.org. Product Goal, Product Backlog, Definition of Done, review and retrospective.
+- GitHub (n.d.) *GitHub Docs: Planning and tracking with Projects* and *Configuring issue templates for your repository*. https://docs.github.com. Board, labels, issue templates and releases.
 
 ## 5. Behaviour examples and diagram tools
-- Cucumber (n.d.) *Gherkin reference*. https://cucumber.io/docs/gherkin/reference/ [accessed _date_]. Rule, Scenario and tag syntax for the feature files.
-- PlantUML (n.d.) *Sequence diagram* and *Class diagram* language references. https://plantuml.com/sequence-diagram and https://plantuml.com/class-diagram [accessed _date_]. Used for the domain model, SSDs, interaction diagrams and design class diagram.
+- Cucumber (n.d.) *Gherkin reference*. https://cucumber.io/docs/gherkin/reference/. Rule, Scenario and tag syntax for the feature files.
+- PlantUML (n.d.) *Sequence diagram* and *Class diagram* language references. https://plantuml.com/sequence-diagram and https://plantuml.com/class-diagram . Used for the domain model, SSDs, interaction diagrams and design class diagram.
 
 ## 6. AI assistance
 AI assistance is declared in the group AI interaction log (`Decisions_and_Reviews/AI_Interaction_Log/`).

@@ -1,7 +1,7 @@
 # UC11 View the production overview: SSD and operation contracts
 
 **Board item:** #25 SSD and operation contracts – UC11 production overview (shared)
-**Owner:** Rani | **Reviewer:** _name_
+**Owner:** Rani | **Reviewer:** Tsubasa, Jack, Arno
 **Diagram:** `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC11_ViewProductionOverview.puml`
 
 UC11 reads records made in every section, so this file also fixes how each overview list is derived. Sections A–D must use the same rules when they mark something as blocked or awaiting a decision.

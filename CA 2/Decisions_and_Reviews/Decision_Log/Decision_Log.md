@@ -41,7 +41,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 - **Decision:** Use GitHub Projects (kanban) with every backlog item as a GitHub issue, instead of Trello or Planner.
 - **Reasoning:** Keeping the board, issues, commits and pull requests in one place lets each commit link to its card through the issue number. This makes progress and review easier to trace, and avoids keeping two tools in step.
 - **Rejected alternatives:** Trello or Planner mirrored from GitHub Issues. Rejected because keeping two tools synchronised adds work without adding evidence.
-- **Consequences:** Board columns follow the brief: Backlog, Ready, In Progress, Peer Review, Blocked, Done. Commit messages reference issue numbers, for example `(#6)`. Board captures are exported for submission. _Confirm with the lecturer that this is acceptable._
+- **Consequences:** Board columns follow the brief: Backlog, Ready, In Progress, Peer Review, Blocked, Done. Commit messages reference issue numbers, for example `(#6)`. Board captures are exported for submission. 
 - **Evidence:** Project board · issue #5
 
 ## DEC-03: Scope changes from lecturer instructions

@@ -1,7 +1,7 @@
 # Controller Pattern Decision (CA2)
 
 **Board item:** #43 Integrate CRC cards and agree the controller pattern
-**Owner:** Arno · **Reviewer:** TODO
+**Owner:** Arno · **Reviewer:** Tsubasa, Rani, Jack
 **Status:** Proposed. The group must agree this decision at the group meeting. Then, add DEC-10 to the decision log.
 
 <!-- Language: ASD-STE100 Simplified Technical English. Class names, operation names, requirement IDs and GRASP terms are technical names. They do not change. -->
@@ -56,7 +56,7 @@ The design has **one use-case controller for each section**. The design also has
 ```markdown
 ## DEC-10: Controller pattern for CA2 design
 
-- **Date:** TODO
+- **Date:** 26/11/26
 - **Context:** Each section designed its own controller. UC11 reads data from all sections. UC11 had no controller (#43).
 - **Decision:** One use-case controller for each section (A to D). Also, one ProductionOverviewController for UC11. This controller only reads data.
 - **Reasoning:** Each controller keeps high cohesion. The design does not use one facade controller. UC11 only reads data. Thus, its controller is small. It asks the domain objects for their data.

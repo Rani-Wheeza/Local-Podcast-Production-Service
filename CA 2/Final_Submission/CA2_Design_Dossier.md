@@ -95,15 +95,15 @@ The [revised analysis baseline](https://github.com/Rani-Wheeza/Local-Podcast-Pro
 
 <a id="fig-1"></a>
 
-![Production Record System use-case diagram](CA 2/Final_Submission/Appendices/Images/Use_Case_Model.png)
+![Production Record System use-case diagram](../../CA%201/Diagrams/use-case-model.png)
 
-*Figure 1: Use-case diagram. Source: `CA 2/Final_Submission/Appendices/Images/Use_Case_Model.png`.*
+*Figure 1: Use-case diagram. Source: `CA 1/Diagrams/use-case-model.puml.txt`.*
 
-<a id="fig-2(CA 2/Final_Submission/Appendices/Images/domain-model.png)"></a>
+<a id="fig-2"></a>
 
-![Refined domain model](CA 2/Final_Submission/Appendices/Images/domain-model.png)
+![Refined domain model](../Diagrams/Domain_Model/domain-model.png)
 
-*Figure 2: Refined domain model with the CA2 changes. Source: `CA 2/Final_Submission/Appendices/Images/domain-model.png`.*
+*Figure 2: Refined domain model with the CA2 changes. Source: `CA 2/Diagrams/Domain_Model/domain_Model.puml`.*
 
 ## 3. Product Goal and Product Backlog
 
@@ -201,9 +201,9 @@ The SSD shows the editor and the system as a black box. It has two system operat
 
 <a id="fig-3"></a>
 
-![SSD – UC2 Record a proposal decision](CA 2/Final_Submission/Appendices/Images/SSD_UC2_RecordDecision.png)
+![SSD – UC2 Record a proposal decision](../Diagrams/System_Sequence_Diagrams/SSD_UC2_RecordDecision.png)
 
-*Figure 3: SSD for UC2. Source: `CA 2/Final_Submission/Appendices/Images/SSD_UC2_RecordDecision.png`.*
+*Figure 3: SSD for UC2. Source: `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC2_RecordDecision.puml`.*
 
 ### 5.4 Operation contract CO4
 
@@ -286,9 +286,9 @@ In GS1 there is no earlier decision, so the result is "allowed". `Proposal` then
 
 <a id="fig-4"></a>
 
-![Interaction diagram – UC2 accepted with conditions](CA 2/Final_Submission/Appendices/Images/OID_UC2_Accepted.png)
+![Interaction diagram – UC2 accepted with conditions](../Diagrams/Object_Interaction_Diagrams/OID_UC2_Accepted.png)
 
-*Figure 4: Interaction diagram, UC2 main flow (GS1). Source: `CA 2/Final_Submission/Appendices/Images/OID_UC2_Accepted.png`.*
+*Figure 4: Interaction diagram, UC2 main flow (GS1). Source: `CA 2/Diagrams/Object_Interaction_Diagrams/OID_UC2_Accepted.puml`.*
 
 ### 7.2 Alternatives and the controlled failure
 
@@ -300,27 +300,27 @@ The controller does not save. The system tells the editor that the proposal alre
 
 <a id="fig-5"></a>
 
-![Interaction diagram – UC2 rejected](CA 2/Final_Submission/Appendices/Images/OID_UC2_Rejected.png)
+![Interaction diagram – UC2 rejected](../Diagrams/Object_Interaction_Diagrams/OID_UC2_Rejected.png)
 
-*Figure 5: Interaction diagram, rejected (GS13). Source: `CA 2/Final_Submission/Appendices/Images/OID_UC2_Rejected.png`.*
+*Figure 5: Interaction diagram, rejected (GS13). Source: `CA 2/Diagrams/Object_Interaction_Diagrams/OID_UC2_Rejected.puml`.*
 
 <a id="fig-6"></a>
 
-![Interaction diagram – UC2 returned for revision](CA 2/Final_Submission/Appendices/Images/OID_UC2_Returned.png)
+![Interaction diagram – UC2 returned for revision](../Diagrams/Object_Interaction_Diagrams/OID_UC2_Returned.png)
 
-*Figure 6: Interaction diagram, returned for revision (GS14). Source: `CA 2/Final_Submission/Appendices/Images/OID_UC2_Returned.png`.*
+*Figure 6: Interaction diagram, returned for revision (GS14). Source: `CA 2/Diagrams/Object_Interaction_Diagrams/OID_UC2_Returned.puml`.*
 
 <a id="fig-7"></a>
 
-![Interaction diagram – UC2 held](CA 2/Final_Submission/Appendices/Images/OID_UC2_Held.png)
+![Interaction diagram – UC2 held](../Diagrams/Object_Interaction_Diagrams/OID_UC2_Held.png)
 
-*Figure 7: Interaction diagram, held for future consideration (GS15). Source: `CA 2/Final_Submission/Appendices/Images/OID_UC2_Held.png`.*
+*Figure 7: Interaction diagram, held for future consideration (GS15). Source: `CA 2/Diagrams/Object_Interaction_Diagrams/OID_UC2_Held.puml`.*
 
 <a id="fig-8"></a>
 
-![Interaction diagram – UC2 already decided](CA 2/Final_Submission/Appendices/Images/OID_UC2_AlreadyDecided.png)
+![Interaction diagram – UC2 already decided](../Diagrams/Object_Interaction_Diagrams/OID_UC2_AlreadyDecided.png)
 
-*Figure 8: Interaction diagram, controlled failure (CO4). Source: `CA 2/Final_Submission/Appendices/Images/OID_UC2_AlreadyDecided.png`.*
+*Figure 8: Interaction diagram, controlled failure (CO4). Source: `CA 2/Diagrams/Object_Interaction_Diagrams/OID_UC2_AlreadyDecided.puml`.*
 
 ### 7.3 Messages and operations
 
@@ -347,9 +347,9 @@ The design class diagram shows the classes, the operations and the dependencies 
 
 <a id="fig-9"></a>
 
-![Design class diagram – UC2](CA 2/Final_Submission/Appendices/Images/DCD_UC2_RecordDecision.png)
+![Design class diagram – UC2](../Diagrams/Design_Class_Diagram/DCD_UC2_RecordDecision.png)
 
-*Figure 9: Design class diagram for UC2. Source: `CA 2/Final_Submission/Appendices/Images/DCD_UC2_RecordDecision.png`.*
+*Figure 9: Design class diagram for UC2. Source: `CA 2/Diagrams/Design_Class_Diagram/DCD_UC2_RecordDecision.puml`.*
 
 ## 9. Design structure and shared interfaces
 
@@ -361,9 +361,9 @@ The dependencies go in one direction only. The controllers use the domain and th
 
 <a id="fig-10"></a>
 
-![view.png](**../Diagrams/Package_layer_view/Package_layer_view.png**)
+![Package and layer view](../Diagrams/Package_layer_view/Package_layer_view.png)
 
-*Figure 10: Package and layer view (proposed). The group must review this view. Source: `CA 2/Final_Submission/Appendices/Images/Package_layer_view.png` in this folder. Add it to `CA 2/Diagrams/` before the tag. It uses DEC-10, the design class diagram and the integrated CRC list.*
+*Figure 10: Package and layer view (proposed). The group must review this view. Source: `CA 2/Diagrams/Package_layer_view/Package_View.puml`. It uses DEC-10, the design class diagram and the integrated CRC list.*
 
 ### 9.2 Interfaces, result types and conventions
 
@@ -475,7 +475,7 @@ The design has these limitations at commit `17ae664`:
 
 ### 12.1 Decisions
 
-The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) has 11 decisions (DEC-01 to DEC-11). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
+The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) 13 decisions (DEC-01 to DEC-13). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
 
 ### 12.2 Peer review
 

@@ -4,12 +4,12 @@
 
 ### Date and Participants
 Review Date: 26/11/2026
-Participants: Jack O'Mahoney, Rani-Wheeza and JanArnoCoetzer 
+Participants: Rani Wheeza, Jan Arno Coetzer, Jack O'Mahoney and Tsubasa Hirose
 
 ### Work Discussed
-Most of the work we discussed for my iteration came up either in class, when we talked about the tasks I was doing or still needed to do, or in comments on GitHub task reviews.
+We discussed the iteration tasks in class and in GitHub task reviews. The main work discussed was the UC2 Design Class Diagram (#44), including its classes, operations and relationships.
 ### Feedback and Agreed Actions
-During Iteration 3, I worked on my assigned tasks, asked for reviews, and received feedback from the rest of the team. I made the requested changes and completed the tasks.
+During Iteration 3, I worked on my assigned tasks, asked for reviews and received feedback from the rest of the team. For #44, I added `selectProposal(proposal)` to `ProposalController` and changed the Proposal-to-ProposalDecision relationship to a directed association that shows Proposal receiving ProposalDecision. I made these review changes and completed the task.
 ## My Iteration 3 Retrospective
 
 ### What Went Well

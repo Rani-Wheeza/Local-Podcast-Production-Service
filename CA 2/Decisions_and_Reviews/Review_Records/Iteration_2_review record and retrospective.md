@@ -32,4 +32,4 @@
 - **Issue:** Section B and the shared UC11 card stayed open after the other sections had finished their SSDs and contracts, so the iteration increment was not complete at the same time.
 - **Improvement:** finish a section's SSD and contracts before starting the next design card for that section.
 
-**Retro points agreed by:** Rani. Arno and Jack have not replied yet.
+**Retro points agreed by:** Rani and Jack. Arno have not replied yet.

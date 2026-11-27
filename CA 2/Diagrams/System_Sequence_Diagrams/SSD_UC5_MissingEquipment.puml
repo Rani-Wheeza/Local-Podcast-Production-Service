@@ -12,6 +12,6 @@ note right of S
   No item was reported missing in this flow.
   When one is reported, it is visible on the
   session; the system does not block the
-  planning record (US5, GS40, GS41).
+  planning record (US5, GS40, GS41, GS47).
 end note
 @enduml

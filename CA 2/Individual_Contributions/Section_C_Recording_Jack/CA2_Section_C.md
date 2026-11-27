@@ -99,6 +99,7 @@ CA1 user stories and acceptance criteria to preserve:
 |---|---|---|---|---|---|
 | GS40: Record a session and its missing equipment | Success | The session retains its date, location, required equipment and the component reported missing. | FR6 / US5 | UC5 | Missing equipment is visible, but the system does not assume the session cannot proceed. |
 | GS41: Missing equipment remains visible without stopping the session | Boundary | Missing equipment is shown on the session even though staff continue with the planning record. | FR6 / US5 | UC5 | No rule is assumed that prevents the session from being recorded or proceeding. |
+| GS47: Record a session with no missing equipment | Alternative | The optional missing-item input is omitted and the session is recorded without a missing item. | FR6 / US5 | UC5 | A missing item is optional; it does not have to be supplied for a valid session. |
 | GS42: Record several source recordings for one session | Success | Several files are linked to the same recording session and keep their working filenames. | FR7 / US6 | UC6 | One session may produce several source recordings. |
 | GS43: Link sources to a draft | Success | An existing draft identifies the source recordings used to create it. | FR7 / US6 | UC6 | A draft links to its sources rather than relying on filenames to identify them. |
 | GS44: Identify the approved draft | Alternative | One draft is approved through UC8 while another remains awaiting review. | FR7 / US6 | UC6, UC8 | A11: approved is a status of a draft, not a separate draft record. RD-04 lists the agreed draft-status values. |
@@ -184,7 +185,7 @@ note right of S
   No item was reported missing in this flow.
   When one is reported, it is visible on the
   session; the system does not block the
-  planning record (US5, GS40, GS41).
+  planning record (US5, GS40, GS41, GS47).
 end note
 @enduml
 ```

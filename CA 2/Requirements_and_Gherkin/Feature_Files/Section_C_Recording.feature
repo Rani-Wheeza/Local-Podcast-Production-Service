@@ -27,6 +27,14 @@ Feature: Recording sessions, source recordings, drafts and permissions
       And the session shows the "microphone" as reported missing
       And the session is not refused because an item is missing
 
+    @FR6 @UC5 @alternative @GS47
+    Scenario: Record a session with no missing equipment
+      Given the episode "Episode 2: The Last Currach Builder" exists
+      When the production coordinator records a session on 4 November in the "studio" at "Collective studio" needing a "recorder" and a "microphone", with no item reported missing
+      Then the session is recorded
+      And the session shows the date 4 November, the location "studio" at "Collective studio" and the equipment "recorder" and "microphone"
+      And the session does not show an item as missing
+
   Rule: Source recordings keep their working names, and a draft names the sources it uses (FR7)
 
     @FR7 @UC6 @success @GS42

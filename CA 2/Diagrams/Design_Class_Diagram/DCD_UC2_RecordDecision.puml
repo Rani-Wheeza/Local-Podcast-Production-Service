@@ -30,6 +30,7 @@ class Proposal {
   programmeType
   proposedBy
   --
+  +getDetails()
   +canRecordDecision(): boolean
   +recordDecision(outcome, editor, today, conditions, note)
   +currentState()

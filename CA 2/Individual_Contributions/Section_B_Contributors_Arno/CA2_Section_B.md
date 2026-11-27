@@ -403,7 +403,7 @@ The Section B classes (Contributor, Contribution, Consent) only record informati
 
 ## Outstanding Questions
 
-Each question asks about the work of Kerry Community Media Collective, and the scenario does not answer it. The group does not send these questions to the lecturer. Instead, as with Q14 and Q15 (DEC-05), the group agrees a working assumption for each question, shown in the "Design until the answer" column, and records the agreement in the decision log (DEC-__). The design follows these assumptions and does not add any other rule. If the client later gives an answer, the group changes the affected decision.
+Each question asks about the work of Kerry Community Media Collective, and the scenario does not answer it. As with Q14 and Q15 (DEC-05), the group agrees a working assumption for each question, shown in the "Design until the answer" column. Agreed assumptions are recorded in the decision log (for example DEC-11 for Q3). The design follows these assumptions and does not add any other rule.
 
 ### Questions for the client
 
@@ -428,7 +428,7 @@ Each question asks about the work of Kerry Community Media Collective, and the s
 | Q16 is "yes"                                            | Change Consent so that it can be for more than one contribution. Examine the Creator decision and GS20 again. |
 | Q17 is "yes"                                            | Add a withdrawal operation. Agree its effect on publication with Section D.                                   |
 
-### Record of questions to the client
+### Status of open questions
 The group resolves open questions through recorded decisions and assumptions (DEC-05).
 
 | ID    | Answer | Decision log |

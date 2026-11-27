@@ -1,7 +1,7 @@
 # Iteration 1 – Review Record and Retrospective
 
 **Board item:** #10
-**Date:** _27/11/26_ · **Present:** Rani, Arno, Jack, Tsubasa
+**Date:** _25/11/26_ · **Present:** Rani, Arno, Jack, Tsubasa
 
 ## Review
 

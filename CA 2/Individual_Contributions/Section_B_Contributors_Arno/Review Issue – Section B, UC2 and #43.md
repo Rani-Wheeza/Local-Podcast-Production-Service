@@ -2,7 +2,7 @@
 
 **Author:** Arno (@JanArnoCoetzer)  
 **Related issues:** #12, #16, #22, #29, #37, #40, #43, #44  
-**Review issue:** #50  
+**Review issue:** #50
 
 
 ## What is done
@@ -23,7 +23,7 @@ All Section B paths start at `Individual_Contributions/Section_B_Contributors_Ar
 
 ## Not done yet
 
-- #22: SSDs for UC3 and UC4, and operation contracts CB1 to CB3.
+- #22: SSDs for UC3 and UC4, and operation contracts CB1 to CB4.
 - #20: copy the Section B feature file to `Requirements_and_Gherkin/Feature_Files/`.
 - New issue: add `evidenceLocation` to Consent in the domain model.
 
@@ -58,7 +58,7 @@ All Section B paths start at `Individual_Contributions/Section_B_Contributors_Ar
 | R17 | @Rani-Wheeza                  | Peer review of the requirements review. Make sure that it agrees with the CA1 analysis.                                                                                                | Requirements Review                                    | #12                |
 | R18 | @TsubasaHMTU                  | GS24 must use the same blocked and release words as GS3, GS4 and the Section D scenarios.                                                                                              | `contributors-consent.feature`, GS24                   | #16, #20, #26      |
 | R19 | All                           | Agree the shared test data (names, episodes, dates and records).                                                                                                                       | Updated Gherkin Scenarios, Review decisions and limits | #20, #26           |
-| R20 | @Rani-Wheeza                  | Agree the numbers CB1 to CB3 for the Section B operation contracts.                                                                                                                    | SSDs and contracts (in progress)                       | #22, #21, #24      |
+| R20 | @Rani-Wheeza                  | Agree the numbers CB1 to CB4 for the Section B operation contracts.                                                                                                                    | SSDs and contracts (in progress)                       | #22, #21, #24      |
 | R21 | @Jack-O-Mahoney               | In the DCD, is the UC2 decision result an enumeration (DecisionResult) or a boolean?                                                                                                   | `OID_UC2_AlreadyDecided.puml`                          | #44, #45           |
 
 ## Checklist

@@ -52,6 +52,7 @@ class Consent {
   form
   intendedUse
   dateGiven
+  evidenceLocation
 }
 
 class RecordingSession {

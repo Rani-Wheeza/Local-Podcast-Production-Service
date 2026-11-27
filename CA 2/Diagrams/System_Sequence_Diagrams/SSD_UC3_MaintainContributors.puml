@@ -1,0 +1,40 @@
+@startuml SSD_UC3_MaintainContributors
+title SSD - UC3 Maintain contributor and episode details
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+opt contributor not yet recorded
+  PC -> S : recordContributor(name, contactPreference, availability)
+  alt name given and no contributor with this name
+    S --> PC : contributor recorded
+  else contributor with this name already recorded
+    S --> PC : existing contributor shown, no new record (GS20)
+  else name missing
+    S --> PC : contributor not recorded: name required
+  end
+end
+
+loop for each role on an episode (1..*)
+  PC -> S : recordContribution(contributor, episode, role, agreedCredit)
+  alt contributor and episode found
+    S --> PC : contribution linked to the contributor and the episode,\nconsent shown as outstanding (GS20, GS21)
+  else contributor or episode not found
+    S --> PC : contribution not recorded
+  end
+end
+
+opt contact preference or availability changes
+  PC -> S : updateContributorDetails(contributor, contactPreference, availability)
+  S --> PC : contributor with updated details,\ncontributions not changed (GS21)
+end
+
+note right of S
+  One contributor can have more than one
+  contribution to the same episode (GS20).
+  Role and agreed credit are kept for each
+  contribution, not on the contributor (FR4).
+  Scenarios: GS20, GS21
+end note
+@enduml

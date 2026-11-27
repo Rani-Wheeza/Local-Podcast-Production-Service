@@ -1,0 +1,27 @@
+@startuml SSD_UC4_RecordConsent
+title SSD - UC4 Record contributor consent
+hide footbox
+
+actor ":Production Coordinator" as PC
+participant ":Production Record System" as S
+
+PC -> S : selectContribution(contribution)
+S --> PC : contributor, episode, role, agreed credit\nand earlier consent records
+
+PC -> S : recordConsent(contribution, form, intendedUse, dateGiven, evidenceLocation)
+alt all items given and form permitted (C5)
+  S --> PC : consent recorded with its form, intended use,\ndate given and evidence location (GS22, GS23)
+else form not paper, email or verbal at the start of a recording
+  S --> PC : consent not recorded: form not permitted (C5)
+else intended use, date given or evidence location missing
+  S --> PC : consent not recorded: missing item requested (FR5)
+end
+
+note right of S
+  dateGiven = the date the contributor gave
+  consent, not the date staff enter it (GS23).
+  One consent covers all drafts and channels
+  of the episode until Q3 is answered (A15).
+  Scenarios: GS22, GS23, GS24
+end note
+@enduml

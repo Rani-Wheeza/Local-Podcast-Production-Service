@@ -30,7 +30,6 @@
 11. [Design evaluation](#11-design-evaluation)
 12. [Process, review and contribution evidence](#12-process-review-and-contribution-evidence)
 13. [References](#13-references)
-- [Appendix A – Open items before the submission tag](#appendix-a--open-items-before-the-submission-tag)
 
 ## 1. About this dossier
 
@@ -554,15 +553,13 @@ The brief asks for a decision record for each important design change that AI he
 - PlantUML (n.d.) *Sequence diagram* and *Class diagram*. [https://plantuml.com](https://plantuml.com)
 - Group repository: [Rani-Wheeza/Local-Podcast-Production-Service](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service) and the [full reference list](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/References/references.md).
 
-## Appendix A – Open items before the submission tag
+## Open items before the submission
 
 | # | Item                                                                                          | Owner          | Board item |
 |---|-----------------------------------------------------------------------------------------------|----------------|------------|
 | 1 | Add the consistency check of the DCD, interaction diagrams and contracts                      | Tsubasa        | #45        |
 | 2 | Add the iteration 2 review record and retrospective                                           | Tsubasa        | #27        |
 | 3 | Add the iteration 4 review record and the final retrospective                                 | Rani           | #50        |
-| 4 | Add the AI declarations of Arno and Jack                                                      | Arno, Jack     | –          |
 | 5 | Review the package and layer view (Figure 10) and add `Package_View.puml` to `CA 2/Diagrams/` | All            | #47        |
-| 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)  | Section owners | #43        |
-| 7 | Put this dossier in `CA 2/Final_Submission/` and change the links from `main` to the tag      | Arno           | #47        |
+| 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)                           | Section owners | #43        |
 | 8 | Create the `ca2-submission` tag                                                               | Rani           | –          |

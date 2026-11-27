@@ -157,7 +157,6 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 ## DEC-12: Extend NFR1 to private correspondence and sensitive contributor information 
 
 - **Date:** _27/11/26_
-- **Status:** Proposed. This entry waits for agreement from all members.
 - **Context:** NFR1 only covers internal editorial notes in a provided partner or volunteer view. E5 and R5 also identify private correspondence and sensitive contributor information. Rani reviewed the Section B access matrix and asked for a decision-log entry because the extension changes a requirement (#40, R16).
 - **Decision:** Extend NFR1: "If the system provides a partner or volunteer view, the view must not display internal editorial notes. Access to private correspondence and sensitive contributor information must follow the agreed permissions for that production role." The verification also compares access to other information with the agreed role permissions.
 - **Reasoning:** The extension keeps the existing restriction and its condition (Q9). It adds no new permission. It only requires access to follow the permissions that Q7 gives.

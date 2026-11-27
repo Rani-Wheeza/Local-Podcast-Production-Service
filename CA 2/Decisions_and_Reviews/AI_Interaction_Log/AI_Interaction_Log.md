@@ -1,8 +1,8 @@
 # Group AI Declaration
-The group used generative AI as a supporting tool. Tools: Claude (Rani), Perplexity (Arno), _tool_ (Jack), _tool_ (Tsubasa). Affected artefacts: section files A–D, SSDs, operation contracts, CRC cards and GRASP notes, UC2 interaction diagrams, decision-log entries, review comments and issue descriptions. All AI-supported changes to the shared design were reviewed by at least one other member and agreed through GitHub issues or the decision log. Individual declarations follow.
+The group used generative AI as a supporting tool. Tools: Claude (Rani), Perplexity (Arno), Copilot (Jack), Claude (Tsubasa). Affected artefacts: section files A–D, SSDs, operation contracts, CRC cards and GRASP notes, UC2 interaction diagrams, decision-log entries, review comments and issue descriptions. All AI-supported changes to the shared design were reviewed by at least one other member and agreed through GitHub issues or the decision log. Individual declarations follow.
 
 # Tsubasa Hirose
-## AI Declartion
+## AI Declaration
 - AI was used for English translation, review and critique, questions about structure, and locating relevant passages in the course references (Sessions 9–14, the Session 11 laboratory workbook and the CA2 brief). 
 - AI reviewed my SSDs (UC8–UC10), operation contracts (OC01–OC04), CRC cards and GRASP rationale against the course references, and pointed out inconsistencies between them.
 - For some items, AI also suggested corrected examples (PlantUML fragments, contract wording) and design options. One example is the choice of how to represent blocked drafts, per-channel outcomes, scheduled versus published publications, and the publication-date history. I chose among these options and recorded the choices as decisions. They were then reviewed by the group through pull requests.

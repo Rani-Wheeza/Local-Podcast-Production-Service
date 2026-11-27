@@ -363,7 +363,7 @@ The dependencies go in one direction only. The controllers use the domain and th
 
 ![Package and layer view](../Diagrams/Package_layer_view/Package_layer_view.png)
 
-*Figure 10: Package and layer view (proposed). The group must review this view. Source: `CA 2/Diagrams/Package_layer_view/Package_View.puml`. It uses DEC-10, the design class diagram and the integrated CRC list.*
+*Figure 10: Package and layer view. Source: `CA 2/Diagrams/Package_layer_view/Package_View.puml`. It uses DEC-10, the design class diagram and the integrated CRC list.*
 
 ### 9.2 Interfaces, result types and conventions
 
@@ -558,9 +558,8 @@ Design changes that AI helped to identify were agreed through the normal decisio
 | 1 | Add the consistency check of the DCD, interaction diagrams and contracts     | Tsubasa        | #45        |
 | 2 | Add the iteration 2 review record and retrospective                          | Tsubasa        | #27        |
 | 3 | Add the iteration 4 review record and the final retrospective                | Rani           | #50        |
-| 4 | Add the group AI declaration (tools used and affected artefacts) to the log  | All            | –          |
-| 5 | Each member adds an individual contribution statement                        | All            | –          |
-| 6 | Review the package and layer view (Figure 10)                                | All            | #47        |
-| 7 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)          | Section owners | #43        |
-| 8 | Change the dossier links from `main` to the tag                              | Arno           | #47        |
-| 9 | Create the `ca2-submission` tag                                              | Rani           | #49        |
+| 4 | Each member adds an individual contribution statement                        | All            | –          |
+| 5 | Review the package and layer view (Figure 10)                                | All            | #47        |
+| 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)          | Section owners | #43        |
+| 7 | Change the dossier links from `main` to the tag                              | Arno           | #47        |
+| 8 | Create the `ca2-submission` tag                                              | Rani           | #49        |

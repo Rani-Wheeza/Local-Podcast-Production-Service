@@ -178,3 +178,63 @@ I understand that any ai generated work may contain errors so to prevent as many
 
 ## Conclusion ##
 I confirm that Ai was mainly used as a helper tool when guiding me through my CA2 Contribution. I stayed responsible for as much of the decisions made as possible to keep as much of the work as possible to my understanding
+
+# Jan Arno Coetzer
+
+## AI Declaration – CA2
+
+### 1. how i used ai
+
+section B, the UC2 alternative-flow diagrams (#37) and the CRC integration (#43) changed a lot during CA2. other sections renamed things, the group agreed new decisions, and review comments kept coming in. i mainly used ai (perplexity) as a tracking assistant to keep up with this. it checked my files against the brief, the baseline, the decision log and the other sections, and flagged anything that no longer matched.
+
+i also used it to help draft and reword parts of my artefacts. i made the design decisions, checked everything before committing, and the group reviewed my work through the github issues.
+
+### 2. tracking and consistency (main use)
+
+| what i tracked | how ai helped | what i did with it |
+|---|---|---|
+| **progress against the brief** | compared my repo with the CA2 brief and the board, and listed what was done and what was left | used the lists to plan my next task and check nothing was missed |
+| **names and numbers across sections** | checked that class names, operation names, scenario numbers (GS20–GS25, DEC-06) and contract numbers (CB1–CB4) matched across my cards, contracts, diagrams and the other sections | fixed the mismatches it found in my own files, and raised the ones in other sections on github |
+| **conflicts between sections (#43)** | collected every section's classes into one list and pointed out where two sections gave the same job to different classes (3.1–3.12) | agreed each fix with the owner on #43 before marking it done |
+| **review items and open questions** | kept track of the review items (R1–R21), who each was for, and which were answered | used it to follow up on items that were still open |
+| **repo state** | checked my commits against the team repo after each push, and where each file goes | it caught a commit that had missed a file and a merge that had dropped decision-log rows. i fixed both |
+| **peer reviews** | cross-checked teammates' files (DCD #44, UC2 main flow #36, iteration 3 record #46) against my diagrams and the definition of done | i decided what to raise and kept comments short. for example, it found a message in #36 that had no operation in the DCD, which i checked in both files before commenting |
+
+### 3. drafting and wording
+
+ai also helped draft and reword parts of my work, mostly to keep the same layout and wording as the rest of the group:
+
+- the section B CRC cards, GRASP justification, SSDs (UC3, UC4) and contracts (CB1–CB4), in the same layout as section A
+- the four UC2 alternative-flow diagrams (#37) as plantuml
+- decision-log entries (DEC-10 to DEC-12), baseline assumption A15 and the iteration 1 review record
+- fixing `contributors-consent.feature` so it parses, and fixing overlapping labels in the domain model
+- issue comments and commit messages
+
+i checked each draft against FR4, FR5, the gherkin scenarios and the agreed decisions, and changed it where needed. Rani reviewed the cards and GRASP (#29) and the contract numbers (#22), and i fixed her points.
+
+### 4. where i made the decision
+
+i made the final call on every design decision in my work. ai sometimes gave options or suggestions, but i chose between them, and shared decisions were agreed with the group on github.
+
+for example, for which class creates Contribution, the options were Contributor, Episode or the controller. i chose Episode, because each contribution is for one episode, and Contributor would then need to know about episodes.
+
+### 5. responsibility and checking
+
+ai is prone to errors, so i rechecked everything as i was working with it, not just at the end. this meant:
+
+- checking each change against the CA2 brief, the baseline, the domain model and the agreed decisions
+- rendering the plantuml diagrams and looking at them before committing
+- making and pushing every commit myself
+- not treating ai suggestions as group decisions. shared decisions were agreed on github first
+
+### 6. reflection
+
+time was short for CA2, and ai helped me get my part done by the deadline. overall it was a fantastic tool for tracking the work and spotting inconsistencies, which would have taken a lot longer to find by hand with so many files and changes.
+
+### 7. declaration
+
+i confirm that ai was used as a supporting tool for my CA2 contribution. i stayed responsible for the decisions, the content i submitted, and making sure it matches my understanding of the design. this covers my own use of ai only.
+
+**Name:** Jan Arno Coetzer  
+**Assessment:** OOAD CA2  
+**Date:** 27/11/26

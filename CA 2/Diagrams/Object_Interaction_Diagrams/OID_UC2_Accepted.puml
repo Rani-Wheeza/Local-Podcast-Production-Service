@@ -40,7 +40,7 @@ P -> P : allowed = canRecordDecision()
 activate P
 opt p has an earlier decision
   P -> L : open = leavesProposalOpen()
-  note right of L : The answer is true if the latest\noutcome is returnedForRevision\nor heldForFutureConsideration.
+  note right of L : The answer is true if the latest\noutcome is returnedForRevision or\nheldForFutureConsideration.
 end
 deactivate P
 note over P : allowed = true. In GS1 the proposal has no\nearlier decision. OID_UC2_AlreadyDecided\nshows allowed = false.

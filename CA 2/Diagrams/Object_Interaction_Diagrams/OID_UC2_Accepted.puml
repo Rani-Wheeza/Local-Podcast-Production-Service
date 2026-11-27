@@ -18,8 +18,8 @@ participant "d : ProposalDecision" as D
 PE -> PCtl : selectProposal(proposal)
 activate PCtl
 PCtl -> Repo : p = find(proposal)
-PCtl -> P : details, earlier decisions and conditions
-P --> PCtl : proposal details
+PCtl -> P : details = getDetails()
+P --> PCtl : proposal details, earlier decisions and conditions
 PCtl --> PE : The system shows the proposal details,\nits earlier decisions and conditions.
 deactivate PCtl
 

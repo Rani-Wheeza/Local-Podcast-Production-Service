@@ -235,7 +235,8 @@ The contract numbers are CB1 to CB4. Rani agreed them in #22 (R20).
 | Preconditions       | `contribution` exists. The user is the production coordinator (A6).                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Postconditions      | A `Consent` instance `n` was created. `n.form` was set to paper, email or verbal at the start of a recording (C5). `n.intendedUse`, `n.dateGiven` and `n.evidenceLocation` were set. `n.dateGiven` is the date the contributor gave consent, not the date staff entered it (GS23). `n` was associated with `contribution`. Earlier consents were not changed. The consent for `contribution` is no longer outstanding for all drafts and channels of the episode (A15). |
 | Controlled failures | Form not one of the three in C5: nothing is created. Intended use, date given or evidence location missing: nothing is created and the missing item is requested (FR5).                                                                                                                                                                                                                                                                                                 |
-| Note                | The domain model has no `Consent.evidenceLocation`. FR5 needs it. Add it when the domain model is updated (#43 3.12).                                                                                                                                                                                                                                                                                                                                                   |
+| Note | `evidenceLocation` was added to Consent in the domain model (DEC-13). |
+
 
 ## CRC Cards
 
@@ -262,7 +263,6 @@ Each card uses the same layout as Section A (#28). Each responsibility refers to
 
 ### Episode (Section A, Rani): rows to add
 
-<!-- The group agreed two items. Episode creates Contribution. Section D examines consent through Episode. Ask Rani to add these rows to her card, or record them in #43. -->
 
 | Responsibilities                                                                                                                                                            | Collaborators             |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
@@ -432,8 +432,8 @@ Each question asks about the work of Kerry Community Media Collective, and the s
 The group resolves open questions through recorded decisions and assumptions (DEC-05).
 
 | ID    | Answer | Decision log |
-|-------|----------------------|--------|--------------------|--------------|
-| Q3    | Assumption: The group adopted an assumption: one consent covers all drafts and channels (A15). | DEC-11 |
+|-------|----------------------|--------|
+| Q3    | Assumption: one consent covers all drafts and channels (A15). | DEC-11 |
 | Q7    | Open. Access follows the agreed role permissions; the "Open" cells in the access matrix stay open. | DEC-12 |
 | Q9    | Open. NFR1 applies only if a partner or volunteer view is provided. | DEC-12 |
 | Q10   | Open. | – |

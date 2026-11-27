@@ -182,6 +182,61 @@ The group must resolve the dependencies below before final integration. Until th
 
 The scenarios do not establish rules for missing-field rejection, consent withdrawal or automatic validation. The group must agree on these behaviours before new tests treat them as requirements.
 
+## System Sequence Diagrams (#22)
+
+| Use case | Diagram                                                                    | System operations                                                     |
+|----------|----------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| UC3      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC3_MaintainContributors.puml` | `recordContributor`, `recordContribution`, `updateContributorDetails` |
+| UC4      | `CA 2/Diagrams/System_Sequence_Diagrams/SSD_UC4_RecordConsent.puml`        | `selectContribution` (query), `recordConsent`                         |
+
+`selectContribution` only gives information. It changes nothing. Thus, it has no contract (the same as `selectProposal` in Section A).
+
+## Operation Contracts (#22)
+
+The contract numbers are CB1 to CB4. Rani agreed them in #22 (R20).
+
+### CB1: recordContributor
+
+| Item                | Content                                                                                                                                                                                           |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Operation           | `recordContributor(name, contactPreference, availability)`                                                                                                                                        |
+| Cross-references    | UC3, FR4, A6 · GS20, GS21                                                                                                                                                                         |
+| Preconditions       | The user is the production coordinator (A6).                                                                                                                                                      |
+| Postconditions      | A `Contributor` instance `c` was created. `c.name` was set. `c.contactPreference` and `c.availability` were set if given. `c` has no contributions.                                               |
+| Controlled failures | Name missing: nothing is created and the name is requested. A contributor with the same name is already recorded: no new contributor is created, and the system shows the existing record (GS20). |
+
+### CB2: recordContribution
+
+| Item                | Content                                                                                                                                                                                                                                                                                                                                  |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Operation           | `recordContribution(contributor, episode, role, agreedCredit)`                                                                                                                                                                                                                                                                           |
+| Cross-references    | UC3, FR4 · GS20, GS21                                                                                                                                                                                                                                                                                                                    |
+| Preconditions       | `contributor` and `episode` exist. Section A created the episode (CO2).                                                                                                                                                                                                                                                                  |
+| Postconditions      | A `Contribution` instance `k` was created. `k.role` and `k.agreedCredit` were set. `k` was associated with `contributor` and with `episode` (*Episode has Contribution*). Earlier contributions of the contributor and the episode were not changed (GS20, GS21). No `Consent` was created, so the consent for `k` is outstanding (BR5). |
+| Controlled failures | Contributor or episode not found: nothing is created. Role missing: nothing is created and the role is requested.                                                                                                                                                                                                                        |
+| Note                | A contributor can have two contributions to the same episode (GS20). If one consent can cover both, the answer to OQ-B1 changes this contract.                                                                                                                                                                                           |
+
+### CB3: updateContributorDetails
+
+| Item                | Content                                                                                                                                   |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Operation           | `updateContributorDetails(contributor, contactPreference, availability)`                                                                  |
+| Cross-references    | UC3, FR4 · GS21                                                                                                                           |
+| Preconditions       | `contributor` exists.                                                                                                                     |
+| Postconditions      | Each item given replaced its previous value. The contributions of the contributor, with their roles and agreed credits, were not changed. |
+| Controlled failures | Contributor not found: nothing changes.                                                                                                   |
+
+### CB4: recordConsent
+
+| Item                | Content                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Operation           | `recordConsent(contribution, form, intendedUse, dateGiven, evidenceLocation)`                                                                                                                                                                                                                                                                                                                                                                                           |
+| Cross-references    | UC4, FR5, C5, BR5, A2, A15 · GS22, GS23, GS24                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Preconditions       | `contribution` exists. The user is the production coordinator (A6).                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Postconditions      | A `Consent` instance `n` was created. `n.form` was set to paper, email or verbal at the start of a recording (C5). `n.intendedUse`, `n.dateGiven` and `n.evidenceLocation` were set. `n.dateGiven` is the date the contributor gave consent, not the date staff entered it (GS23). `n` was associated with `contribution`. Earlier consents were not changed. The consent for `contribution` is no longer outstanding for all drafts and channels of the episode (A15). |
+| Controlled failures | Form not one of the three in C5: nothing is created. Intended use, date given or evidence location missing: nothing is created and the missing item is requested (FR5).                                                                                                                                                                                                                                                                                                 |
+| Note                | The domain model has no `Consent.evidenceLocation`. FR5 needs it. Add it when the domain model is updated (#43 3.12).                                                                                                                                                                                                                                                                                                                                                   |
+
 ## CRC Cards
 
 The CRC cards give the Section B system operations to classes. The domain classes come from the refined domain model. Section B adds two design classes: a use-case controller and a repository. The GRASP section gives the reasons for these classes.

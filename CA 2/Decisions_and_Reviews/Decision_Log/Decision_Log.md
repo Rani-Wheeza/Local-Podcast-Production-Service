@@ -12,6 +12,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 | DEC-02 | _02/11/26_ | GitHub Projects used as the group board | Agreed |
 | DEC-03 | _04/11/26_ | Scope changes from lecturer instructions | Agreed (lecturer instruction) |
 | DEC-04 | _09/11/26_ | Reconciliation decisions recorded separately | Agreed |
+| DEC-05 | _13/11/26_ | Q14 and Q15 resolved by group decision | Agreed |
 | DEC-06 | _17/11/26_ | Gherkin scenario numbers allocated by section | Agreed |
 | DEC-07 | _18/11/26_ | Add the proposer to FR1 | Agreed |
 | DEC-08 | _24/11/26_ | Add a note to ProposalDecision | Agreed |

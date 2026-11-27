@@ -19,6 +19,7 @@ This is the agreed analysis that all CA2 design work builds on. It is the Scenar
 | DraftReview linked to PublicationChannel                                                                                       | 9      | RD-07                |
 | `Draft.versionNumber` added                                                                                                    | 9      | RD-12                |
 | `Publication.status` added: scheduled or published                                                                             | 9      | OC02, OC04           |
+| `PublicationDateChange` added. `Publication.reasonForDateChange` removed                                                   | 9      | OC03, GS5            |
 | Gherkin organised by section feature file                                                                                      | 7      | RD-09                |
 | Contributor concerns remain deferred                                                                                           | 2.3    | RD-17                |
 
@@ -365,7 +366,7 @@ Scenarios must use the terms in Section 8, especially Blocked, awaiting review a
 
 # 9. Domain model
 
-The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 changes in RD-04, RD-07 and RD-12, and `Publication.status` from OC02 and OC04. It has no methods, controllers, repositories, interface controls, keys or navigability. The arrow after each association name shows reading direction only.
+The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 changes in RD-04, RD-07 and RD-12, `Publication.status` from OC02 and OC04, and `PublicationDateChange` from OC03 and GS5. It has no methods, controllers, repositories, interface controls, keys or navigability. The arrow after each association name shows reading direction only.
 
 ![Refined domain model](../../Diagrams/Domain_Model/domain-model.png)
 
@@ -387,7 +388,8 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 | Draft               | versionNumber, versionDescription, status (awaiting review, returned for changes, postponed, withdrawn, approved) | FR7, RD-04, RD-12 |
 | Permission          | materialDescription, materialSource, permittedUse, status                                                         | FR8               |
 | DraftReview         | outcome, reviewDate, reviewedBy, comments                                                                         | FR9               |
-| Publication         | scheduledDate, actualDate, reasonForDateChange, status (scheduled, published)                                    | FR10, OC02, OC04  |
+| Publication         | scheduledDate, actualDate, status (scheduled, published)                                                          | FR10, OC02, OC04  |
+| PublicationDateChange | earlierDate, newDate, reason, changeDate                                                                        | OC03, GS5         |
 | PublicationChannel  | name                                                                                                              | FR10              |
 | Correction          | type, reason, correctionDate                                                                                      | FR11              |
 
@@ -411,6 +413,7 @@ The conceptual model uses the 15 classes from the CA1 analysis, with the CA2 cha
 | DraftReview is for PublicationChannel     | 0..\* to 1       | Approval applies per channel (A9, BR3). Added in CA2 (RD-07)                                                                                         |
 | Draft is released as Publication          | 1 to 0..\*       | An approved draft can go to more than one channel                                                                                                    |
 | PublicationChannel carries Publication    | 1 to 0..\*       | A channel carries many publications                                                                                                                  |
+| Publication records PublicationDateChange | 1 to 0..\*       | A date change keeps the earlier date and the reason (GS5, OC03). Added in CA2. `reasonForDateChange` is not an attribute of Publication.             |
 | Publication is amended by Correction      | 1 to 0..\*       | A publication can be corrected more than once                                                                                                        |
 | Correction introduces replacement Draft   | 0..1 to 0..1     | Only a new audio version brings a replacement; a metadata correction does not                                                                        |
 
@@ -431,6 +434,8 @@ Several multiplicities come from reasoning, not scenario evidence, for example z
 - **Draft carries approved status (A11).** How versions relate is unresolved (Q4), so a richer version structure is not justified.
 
 - **Publication carries status (scheduled, published).** OC02 sets it to scheduled when a date is recorded. OC04 allows a correction only when it is published. The attribute is stored so those contracts have a field to test.
+
+- **A date change is a PublicationDateChange (OC03, GS5).** It keeps the earlier date, the new date, the reason and the change date. `reasonForDateChange` is not an attribute of Publication, because a later change would overwrite them.
 
 - **Publication links to Draft, not directly to Episode.** The episode is reached through the draft.
 

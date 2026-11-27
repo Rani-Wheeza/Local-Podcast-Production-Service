@@ -89,8 +89,14 @@ class DraftReview {
 class Publication {
   scheduledDate
   actualDate
-  reasonForDateChange
   status
+}
+
+class PublicationDateChange {
+  earlierDate
+  newDate
+  reason
+  changeDate
 }
 
 class PublicationChannel {
@@ -124,6 +130,7 @@ DraftReview "0..*" -- "1" PublicationChannel : is for >
 Draft "1" -- "0..*" Publication : is released as >
 PublicationChannel "1" -- "0..*" Publication : carries >
 
+Publication "1" -- "0..*" PublicationDateChange : records >
 Publication "1" -- "0..*" Correction : is amended by >
 Correction "0..1" -- "0..1" Draft : introduces replacement >
 

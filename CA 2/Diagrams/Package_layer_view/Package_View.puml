@@ -1,0 +1,32 @@
+@startuml Package_View
+title Package and layer view - Production Record System (CA2, proposed)
+skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultTextAlignment left
+skinparam nodesep 120
+skinparam ranksep 50
+
+package "User interface (not designed in CA2)" as UI
+
+package "Application layer" as APP {
+  rectangle "<b>Use-case controllers</b>\nProposalController (A)\nContributorConsentController (B)\nRecordingDraftController (C)\nReviewPublicationController (D)\nProductionOverviewController (UC11, read only)" as CTL
+}
+
+package "Technical services" as TS {
+  rectangle "<b>Interfaces</b>\nClock\nProposalRepository\nPartnerOrganisationRepository\nContributorRepository\nDraftRepository\nPublicationRepository" as SVC
+}
+
+package "Domain layer" as DOM {
+  rectangle "<b>B Contributors</b>\nContributor\nContribution\nConsent\nConsentForm" as DB
+  rectangle "<b>A Proposals</b>\nProposal\nProposalDecision\nDecisionOutcome\nPartnerOrganisation\nEpisode" as DA
+  rectangle "<b>C Recording and drafts</b>\nRecordingSession\nEquipmentItem\nSourceRecording\nDraft\nPermission" as DC
+  rectangle "<b>D Review and publication</b>\nDraftReview\nReviewOutcome\nPublication\nPublicationDateChange\nPublicationChannel\nCorrection\nCorrectionType" as DD
+}
+
+UI -down-> CTL : system operations
+CTL -right-> SVC : find, save,\ncurrent date
+CTL -down-> DOM : delegates
+DB -right-> DA : Episode
+DC -left-> DA : Episode
+DD -left-> DC : Draft
+@enduml

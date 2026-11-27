@@ -8,3 +8,4 @@ Planned contents:
 - Traceability from requirements and rules to Gherkin, SSDs, contracts and design classes
 - The AI interaction log, or a link to it (`Decisions_and_Reviews/AI_Interaction_Log/`)
 - Any diagram too large to read clearly in the dossier itself
+

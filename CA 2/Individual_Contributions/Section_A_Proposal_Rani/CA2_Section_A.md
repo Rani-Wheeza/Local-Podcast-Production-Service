@@ -234,6 +234,7 @@ GS1 and GS2 keep their CA1 numbers. New scenarios use GS10–GS19.
 | Preconditions | `proposal` exists. It has no recorded decision, or its latest decision is returned for revision or held. The user acts as proposal editor (who may decide each programme type is open, Q5). |
 | Postconditions | A `ProposalDecision` instance `d` was created. `d.outcome` was set to accepted, rejected, returned for revision or held (BR2). `d.decisionDate` was set to the current date and `d.decidedBy` to the editor. `d.conditions` and `d.note` were set if given. `d` was associated with `proposal` (*Proposal receives ProposalDecision*). Earlier decisions were not changed. The proposal's displayed state follows its latest decision; it is no longer shown as having no recorded decision. |
 | Controlled failures | Latest decision is accepted or rejected: no decision is created (reopening depends on Q2). Outcome not one of the four in BR2: no decision is created. |
+| Outcome names | The BR2 outcomes map to `DecisionOutcome`: accepted → `accepted`, rejected → `rejected`, returned for revision → `returnedForRevision`, held → `heldForFutureConsideration`. Gherkin and screens use the plain words. |
 
 ### Design notes from the SSDs and contracts
 

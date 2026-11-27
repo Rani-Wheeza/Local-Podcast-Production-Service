@@ -403,7 +403,7 @@ The Section B classes (Contributor, Contribution, Consent) only record informati
 
 ## Outstanding Questions
 
-Each question asks about the work of Kerry Community Media Collective. The group cannot answer these questions. Thus, the group sends all of them to the lecturer, who acts as the client. Until the client gives an answer, the design records the question. The design does not assume a rule.
+Each question asks about the work of Kerry Community Media Collective, and the scenario does not answer it. The group does not send these questions to the lecturer. Instead, as with Q14 and Q15 (DEC-05), the group agrees a working assumption for each question, shown in the "Design until the answer" column, and records the agreement in the decision log (DEC-__). The design follows these assumptions and does not add any other rule. If the client later gives an answer, the group changes the affected decision.
 
 ### Questions for the client
 

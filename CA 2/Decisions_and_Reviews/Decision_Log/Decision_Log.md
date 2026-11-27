@@ -17,6 +17,10 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 | DEC-07 | _18/11/26_ | Add the proposer to FR1 | Agreed |
 | DEC-08 | _24/11/26_ | Add a note to ProposalDecision | Agreed |
 | DEC-09 | _25/11/26_ | UC2 selected for detailed design; UC8 second if time allows | Agreed |
+| DEC-10 | _26/11/26_ | Controller pattern for CA2 design | Agreed |
+| DEC-11 | _27/11/26_ | One consent covers all drafts and channels until Q3 is answered | Agreed |
+| DEC-12 | _27/11/26_ | Extend NFR1 to private correspondence and sensitive contributor information | Agreed |
+| DEC-13 | _27/11/26_ | Add evidenceLocation to Consent | Agreed |
 
 ---
 
@@ -49,8 +53,9 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
   2. Four artefacts are removed from CA2: architecture and integration contract, CA3 slice specifications, technology decision record, and project and contribution evidence.
   3. CA2 is now worth 30% of the module instead of 15%.
 - **Reasoning:** Lecturer instruction.
-- **Consequences:** The backlog card for architecture and integration contracts was deleted, and contribution evidence was removed from the walkthrough card. The implementation catalogue is ordered by value, dependency and risk instead of CA3 slices. The `Architecture/Integration_Contracts/` and `Individual_Contributions/` folders are no longer needed. _Ask the lecturer how the rubric marks for the removed artefacts are redistributed._
+- **Consequences:** The backlog card for architecture and integration contracts was deleted, and contribution evidence was removed from the walkthrough card. The implementation catalogue is ordered by value, dependency and risk instead of CA3 slices. The `Architecture/Integration_Contracts/` folder is no longer needed. 
 - **Evidence:** Reconciliation record, Section 3 (L2–L4)
+- **Update (27/11/26):** The updated brief (Part 2) restores individual contribution evidence. Each member submits a contribution statement and an individual AI declaration.
 
 ## DEC-04: Reconciliation decisions recorded separately
 
@@ -128,7 +133,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 ---
 ## DEC-10: Controller pattern for CA2 design
 
-- **Date:** _27/11/26_
+- **Date:** _26/11/26_
 - **Context:** Each section designed its own controller. UC11 reads data from all sections. UC11 had no controller (#43).
 - **Decision:** One use-case controller for each section: ProposalController (A), ContributorConsentController (B), RecordingDraftController (C) and ReviewPublicationController (D). Also, one ProductionOverviewController for UC11. This controller only reads data.
 - **Reasoning:** Each controller keeps high cohesion. The design does not use one facade controller. UC11 only reads data. Thus, its controller is small. It asks the domain objects for their data.
@@ -149,7 +154,7 @@ Identifiers such as FR, BR, UC, D and RD refer to the Scenario 29 CA1 dossier an
 
 ---
 
-## DEC-12: Extend NFR1 to private correspondence and sensitive contributor information (proposed)
+## DEC-12: Extend NFR1 to private correspondence and sensitive contributor information 
 
 - **Date:** _27/11/26_
 - **Status:** Proposed. This entry waits for agreement from all members.

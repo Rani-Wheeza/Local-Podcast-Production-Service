@@ -36,7 +36,7 @@
 
 This dossier explains and justifies the CA2 design for Scenario 29. It does not repeat each repository file. The group repository is the authoritative source for the editable artefacts and the version history. Each section of this dossier gives links to the files that contain the full detail.
 
-The word limit of the brief applies to the text only. Diagrams, tables, references and appendices are not part of the count. The text of this dossier has approximately 3,310 words.
+The word limit of the brief applies to the text only. Diagrams, tables, references and appendices are not part of the count. The text of this dossier has approximately 4,300 words, including table text.
 
 The dossier uses ASD-STE100 Simplified Technical English. The sentences are short and use one meaning for each word. Class names, operation names and identifiers (FR, BR, UC, GS, RD, DEC) are technical names. They are the same as in the repository.
 
@@ -96,13 +96,13 @@ The [revised analysis baseline](https://github.com/Rani-Wheeza/Local-Podcast-Pro
 
 <a id="fig-1"></a>
 
-![Production Record System use-case diagram](CA 1/Diagrams/use-case-model.png)
+![Production Record System use-case diagram](../../CA%201/Diagrams/use-case-model.png)
 
 *Figure 1: Use-case diagram. Source: `CA 1/Diagrams/use-case-model.puml.txt`.*
 
 <a id="fig-2"></a>
 
-![Refined domain model](CA 2/Diagrams/Domain_Model/domain-model.png)
+![Refined domain model](../Diagrams/Domain_Model/domain-model.png)
 
 *Figure 2: Refined domain model with the CA2 changes. Source: `CA 2/Diagrams/Domain_Model/domain_Model.puml`.*
 
@@ -171,7 +171,7 @@ All other use cases have analysis and behaviour only. Each section owner wrote t
 
 ### 5.1 Detailed use case
 
-The baseline (section 6.5) contains the detailed use case in the two-column format. The primary actor is the proposal editor. The editor identifies the proposal. The system shows its details, its earlier decisions and its earlier conditions.
+[Section A](../Individual_Contributions/Section_A_Proposal_Rani/CA2_Section_A.md) contains the detailed use case in the two-column format. The primary actor is the proposal editor. The editor identifies the proposal. The system shows its details, its earlier decisions and its earlier conditions.
 
 The editor gives the outcome, any conditions and an optional note. The system records the decision with the date and the name of the editor. Then it shows the new state.
 
@@ -468,8 +468,8 @@ The design has these limitations at commit `17ae664`:
 - The consistency check of the design class diagram, the interaction diagrams and the contracts (#45) is not in the repository.
 - The design class diagram does not show the return type "recorded" or "refused". It shows this only in a note.
 - The editor comes from the session. The design has no class for the session or the user, because the user interface is outside the scope.
-- The domain model does not agree completely with the contracts. Change 3.12 in the integrated CRC list records this. Examples are `Consent.evidenceLocation` and `EquipmentItem`.
-- Some changes in the integrated CRC list are not complete. Examples are one `Draft` card (3.1), a shared `Clock` (3.4) and an `EpisodeRepository` (3.6).
+- The domain model does not include `EquipmentItem` yet (change 3.12 in the integrated CRC list).
+- Two changes in the integrated CRC list are not complete: one `Draft` card (3.1) and the status for each channel (3.10).
 - UC8 has no full design. Thus, the dossier shows the integration of the sections only through the CRC cards, the contracts and DEC-10.
 
 ## 12. Process, review and contribution evidence
@@ -509,7 +509,7 @@ The brief also asks for one short final retrospective. The group must write it b
 
 | Member  | Main contributions                                                                                                                                                      |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Rani    | Scenario 29 CA1 baseline, reconciliation record, revised baseline, implementation catalogue, Section A (UC1, UC2), UC2 main-flow interaction diagram (#36)              |
+| Rani    | Scenario 29 CA1 baseline, scenario suitability matrix (#2), Product Goal (#3), Definition of Done (#4), board, labels and templates (#5), reconciliation record, revised baseline, refined domain model (#8), implementation catalogue, Section A (UC1, UC2), UC11 SSD and contracts (#25), UC2 main-flow interaction diagram (#36), decision log, README, references |
 | Arno    | Section B (UC3, UC4, CB1–CB4), UC2 alternative interaction diagrams (#37), integrated CRC list and controller pattern (#43), Section B review issue, this dossier (#47) |
 | Jack    | Section C (UC5–UC7, OC05–OC09), the use-case format (RD-11), UC2 design class diagram (#44), iteration 3 record                                                         |
 | Tsubasa | Section D (UC8–UC10, OC01–OC04), review of the reconciliation record (#6), consistency check (#45, open)                                                                |
@@ -563,6 +563,6 @@ The brief asks for a decision record for each important design change that AI he
 | 3 | Add the iteration 4 review record and the final retrospective                                 | Rani           | #50        |
 | 4 | Add the AI declarations of Arno and Jack                                                      | Arno, Jack     | –          |
 | 5 | Review the package and layer view (Figure 10) and add `Package_View.puml` to `CA 2/Diagrams/` | All            | #47        |
-| 6 | Close the open changes in the integrated CRC list (3.1, 3.2, 3.4, 3.5, 3.6, 3.9, 3.10, 3.12)  | Section owners | #43        |
+| 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)  | Section owners | #43        |
 | 7 | Put this dossier in `CA 2/Final_Submission/` and change the links from `main` to the tag      | Arno           | #47        |
 | 8 | Create the `ca2-submission` tag                                                               | Rani           | –          |

@@ -54,7 +54,7 @@ Analysis and design work was shared by section. Each section file holds that sec
 - **Reviews:** each item has a named reviewer. Review comments and changes are recorded on its issue.
 - **Commits:** commit messages reference the issue number, for example `(#21)`.
 - **Decisions:** group decisions are recorded in the decision log (DEC-01 onwards).
-- **Baseline:** the final agreed state is tagged `ca2-baseline` (#49).
+- **Baseline:** the final agreed state is tagged `ca2-submission` (#49).
 
 ## Repository layout
 

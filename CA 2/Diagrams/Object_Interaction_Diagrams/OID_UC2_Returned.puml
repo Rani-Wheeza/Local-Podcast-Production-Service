@@ -13,25 +13,26 @@ participant "p : Proposal" as P
 participant "latest : ProposalDecision" as L
 participant "d : ProposalDecision" as D
 
-PE -> PCtl : recordDecision(proposal, returned for revision, conditions, note)
+PE -> PCtl : recordDecision(proposal, returnedForRevision, conditions, note)
 activate PCtl
 PCtl -> Repo : p = find(proposal)
 PCtl -> Clk : today = currentDate()
 note right of PCtl
-  editor = the signed-in Proposal Editor (the actor).
-  Section A must give the source of editor (R3).
+  editor = the signed-in Proposal Editor,
+  taken from the session by the controller.
+  It is not entered by the actor (UC2 SSD).
 end note
-PCtl -> P : result = recordDecision(returned for revision, editor, today, conditions, note)
+PCtl -> P : result = recordDecision(returnedForRevision, editor, today, conditions, note)
 activate P
 P -> P : allowed = canRecordDecision()
 activate P
 opt p has an earlier decision
   P -> L : open = leavesProposalOpen()
-  note right of L : The answer is true if the latest\noutcome is "returned" or "held".
+  note right of L : The answer is true if the latest\noutcome is returnedForRevision or\nheldForFutureConsideration.
 end
 deactivate P
 note over P : allowed = true. OID_UC2_AlreadyDecided\nshows allowed = false.
-P -> D ** : create(returned for revision, editor, today, conditions, note)
+P -> D ** : create(returnedForRevision, editor, today, conditions, note)
 note right of D
   decisionDate = today. decidedBy = editor.
   The earlier decisions do not change (CO4).

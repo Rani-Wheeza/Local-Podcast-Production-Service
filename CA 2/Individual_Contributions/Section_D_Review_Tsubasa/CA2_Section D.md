@@ -354,3 +354,16 @@ The CRC cards assign every effect of OC01–OC04 to a class. `Draft` is Section 
 | Keep the earlier date, the new date, the reason and the change date | PublicationDateChange       | Information Expert | `Publication.reasonForDateChange` holds the reason                 | A later change would overwrite the earlier date and the reason.                                                                                |
 | Know its name only                                                  | PublicationChannel          | Low Coupling       | The channel also knows its reviews and publications                | No operation starts at the channel and follows those links.                                                                                    |
 | Receive the six operations and delegate them                        | ReviewPublicationController | Controller         | One controller per use case, or a repository that saves the result | The three use cases share the draft and the publication. The operations already receive the objects, so a repository would be database access. |
+
+## Task #42 — Review relationships for review, publication and correction
+
+Review the CA1 associations and multiplicities for review, publication and correction against the agreed group domain model. Record whether each relationship agrees with the model. Q6 stays open.
+
+| Relationship | Current model | Review or decision | Open question or impact |
+|---|---|---|---|
+| Draft and DraftReview | One Draft is reviewed in zero or more DraftReviews. | Agrees with the group model. | None. A returned draft can be reviewed again as another DraftReview. |
+| DraftReview and PublicationChannel | CA1 has no association between them. | The group model adds it: each DraftReview is for one PublicationChannel (RD-07). | A9 stays an assumption. The scenario does not test approval for every channel at once. |
+| Draft and Publication | One Draft is released as zero or more Publications. The episode is reached through the Draft. | Agrees with the group model. | The zero-or-more multiplicity is an assumption carried from CA1. A9 stays an assumption. |
+| PublicationChannel and Publication | One channel carries zero or more Publications. | Agrees with the group model. | None. |
+| Publication and Correction | One Publication is amended by zero or more Corrections. | Agrees with the group model. | None for the multiplicity. |
+| Correction and Draft | A Correction introduces zero or one replacement Draft. A Draft is introduced by zero or one Correction. | Agrees with the group model. Only a new audio version brings a replacement. | Q6 stays open. This review does not decide how a replacement or a withdrawal is handled. A14 stays an assumption. |

@@ -1,4 +1,4 @@
-# Section B: Outstanding Questions
+# Section B: Record of Outstanding Questions
 
 Member 2: Arno Coetzer  
 

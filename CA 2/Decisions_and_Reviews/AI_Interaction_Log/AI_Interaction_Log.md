@@ -164,3 +164,17 @@ This declaration describes my individual use of AI and does not represent the AI
 **Name:** Rani Wheeza  
 **Assessment:** OOAD CA2  
 **Date:** 27/11/26
+
+# Jack O'Mahoney
+
+## AI Declaration – CA2
+
+- I used Ai mainly for creating headings and understanding parts of each task i was assinged to do
+- Ai was also used as an additional reviewer for when i reviewed other teamates work mainly just to help speed up the cross checking between files to save on not going back and forth between files constantly
+- Ai was used too for when i had an error with my plantuml to help fix it and make sure it ran properly
+- It was used aswell to draft descriptions for the github tasks
+
+I understand that any ai generated work may contain errors so to prevent as many errors as possible i made sure to review and check over anything it made for me as best i could before using any part in my work
+
+## Conclusion ##
+I confirm that Ai was mainly used as a helper tool when guiding me through my CA2 Contribution. I stayed responsible for as much of the decisions made as possible to keep as much of the work as possible to my understanding

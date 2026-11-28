@@ -3,9 +3,9 @@
 **Scenario:** 29 Local Podcast Production Service (Kerry Community Media Collective)  
 **Module:** Software Analysis and Design (SAAD71000), CA2  
 **Board item:** #47 Compile and review the final CA2 design dossier  
-**Source state:** group repository `main` at commit `17ae664` (27/11/26)  
+**Source state:** group repository, tag `ca2-submission` (28/11/26)  
 **Language:** ASD-STE100 Simplified Technical English  
-**Status:** Draft for group review. The `ca2-submission` tag does not exist yet.
+**Status:** Final submission
 
 | Member         | Section                      | Use cases      |
 |----------------|------------------------------|----------------|
@@ -43,7 +43,7 @@ The dossier uses ASD-STE100 Simplified Technical English. The sentences are shor
 
 ### 2.1 Scenario comparison and selection
 
-Each member presented the scenario from their CA1. The group compared the four scenarios against the four criteria of the brief. The criteria are scope, behavioural richness, object-oriented potential and suitability for detailed design. The [scenario suitability matrix](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Scenario_Suitability_Matrix/Scenario%20suitability%20matrix.md) records the ratings and the reasons.
+Each member presented the scenario from their CA1. The group compared the four scenarios against the four criteria of the brief. The criteria are scope, behavioural richness, object-oriented potential and suitability for detailed design. The [scenario suitability matrix](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Scenario_Suitability_Matrix/Scenario%20suitability%20matrix.md) records the ratings and the reasons.
 
 | Scenario                                          | Member  | Main strength                                        | Main problem for CA2                            |
 |---------------------------------------------------|---------|------------------------------------------------------|-------------------------------------------------|
@@ -56,7 +56,7 @@ The ratings were close. All four scenarios had high ratings for behaviour, objec
 
 ### 2.2 Lecturer instructions
 
-The lecturer gave instructions after the approval. The [reconciliation record](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Reconciliation_Record/CA1_Reconciliation_Record.md) (section 3) records each instruction and the group response.
+The lecturer gave instructions after the approval. The [reconciliation record](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Reconciliation_Record/CA1_Reconciliation_Record.md) (section 3) records each instruction and the group response.
 
 | ID | Instruction                                   | Group response                                                                                                                    |
 |----|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
@@ -91,7 +91,7 @@ Tsubasa did a peer review of the reconciliation decisions on issue #6. The group
 
 ### 2.4 Agreed baseline
 
-The [revised analysis baseline](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Analysis_Baseline/analysis-baseline.md) is the CA1 analysis with the changes above. It contains the use-case catalogue, the detailed UC2 specification, the Gherkin index, the refined domain model and the traceability table. The CA1 material that did not change stays in the CA1 folder. This dossier does not repeat it.
+The [revised analysis baseline](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Analysis_Baseline/analysis-baseline.md) is the CA1 analysis with the changes above. It contains the use-case catalogue, the detailed UC2 specification, the Gherkin index, the refined domain model and the traceability table. The CA1 material that did not change stays in the CA1 folder. This dossier does not repeat it.
 
 <a id="fig-1"></a>
 
@@ -111,7 +111,7 @@ The [revised analysis baseline](https://github.com/Rani-Wheeza/Local-Podcast-Pro
 
 > Give Kerry Community Media Collective one reliable production record, so that staff can see where every programme stands from proposal to publication and any later correction, and what is blocking it, while editorial notes and sensitive contributor information stay restricted by role.
 
-The [Product Goal](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Product_Goal/product-goal.md) gives the users, the value and the result. It does not name diagrams or technical tasks. The group added "any later correction" after the iteration 1 review.
+The [Product Goal](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Product_Goal/product-goal.md) gives the users, the value and the result. It does not name diagrams or technical tasks. The group added "any later correction" after the iteration 1 review.
 
 ### 3.2 Backlog and board
 
@@ -127,9 +127,11 @@ The backlog contains analysis and design tasks, review tasks, defects and design
 
 The group changed the backlog after the lecturer instruction L6. The interaction-diagram cards for each section became shared UC2 cards. The group closed the cards that were not necessary as "Not planned" (#33 to #35, #38, #39).
 
+Board captures at the time of submission are in [`Final_Submission/Board_Captures/`](Board_Captures/).
+
 ### 3.3 Definition of Done
 
-The [Definition of Done](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Definition_of_Done/definition-of-done.md) applies to all items. A draft alone is not "Done". An item is "Done" only when these conditions are true:
+The [Definition of Done](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Definition_of_Done/definition-of-done.md) applies to all items. A draft alone is not "Done". An item is "Done" only when these conditions are true:
 
 - The editable source (`.md`, `.puml`, `.feature`) is in the repository and the exported image is easy to read.
 - The identifiers and terms agree with the glossary and the baseline.
@@ -141,7 +143,7 @@ Each diagram must also have a PlantUML source that renders without errors. Each 
 
 ## 4. Selected design scope
 
-The lecturer limited detailed design to one or two use cases (L6). The group selected UC2 "Record a proposal decision" for the full design. UC8 "Review a draft" was the second use case, but the group did not have time to design it. The [implementation catalogue](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Group_Documents/Implementation_Catalogue/implementation-catalogue.md) records the order, the depth and the reasons.
+The lecturer limited detailed design to one or two use cases (L6). The group selected UC2 "Record a proposal decision" for the full design. UC8 "Review a draft" was the second use case, but the group did not have time to design it. The [implementation catalogue](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Group_Documents/Implementation_Catalogue/implementation-catalogue.md) records the order, the depth and the reasons.
 
 ### 4.1 Why UC2
 
@@ -184,7 +186,7 @@ The use case does not let the editor reopen an accepted or rejected proposal. Th
 
 ### 5.2 Gherkin scenarios
 
-The scenarios are in [`Section_A_Proposal.feature`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Requirements_and_Gherkin/Feature_Files/Section_A_Proposal.feature). The tags give the requirement, the use case, the rule and the case type. Each section uses its own number block (DEC-06).
+The scenarios are in [`Section_A_Proposal.feature`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Requirements_and_Gherkin/Feature_Files/Section_A_Proposal.feature). The tags give the requirement, the use case, the rule and the case type. Each section uses its own number block (DEC-06).
 
 | ID   | Scenario                                                                                  | Type        | Rules          |
 |------|-------------------------------------------------------------------------------------------|-------------|----------------|
@@ -223,11 +225,11 @@ Each section wrote SSDs and contracts for its use cases. The table gives a summa
 
 | Section                                                                                                                                                       | SSDs                       | Contracts                                                                                                                   | Feature file        |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [A](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Individual_Contributions/Section_A_Proposal_Rani/CA2_Section_A.md)       | UC1, UC2                   | CO1 recordProposal, CO2 addPlannedEpisode, CO3 updateProposalDetails, CO4 recordDecision                                    | GS1, GS2, GS10–GS16 |
-| [B](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Individual_Contributions/Section_B_Contributors_Arno/CA2_Section_B.md)   | UC3, UC4                   | CB1 recordContributor, CB2 recordContribution, CB3 updateContributorDetails, CB4 recordConsent                              | GS20–GS25           |
-| [C](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Individual_Contributions/Section_C_Recording_Jack/CA2_Section_C.md)      | UC5 (two), UC6, UC7 (two)  | OC05 recordRecordingSession, OC06 recordSourceRecording, OC07 recordDraft, OC08 recordPermission, OC09 viewDraftPermissions | GS40–GS47           |
-| [D](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Individual_Contributions/Section_D_Review_Tsubasa/CA2_Section%20D.md)    | UC8 (two), UC9 (two), UC10 | OC01 recordReview, OC02 recordPublicationDate, OC03 changePublicationDate, OC04 recordCorrection                            | GS3–GS5, GS30–GS36  |
-| [Shared](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Behavioural_Design/Operation_Contracts/UC11_Production_Overview.md) | UC11                       | CO11.1 viewProductionOverview, CO11.2 viewDraftBlockers                                                                     | GS2, GS4, GS24      |
+| [A](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Individual_Contributions/Section_A_Proposal_Rani/CA2_Section_A.md)       | UC1, UC2                   | CO1 recordProposal, CO2 addPlannedEpisode, CO3 updateProposalDetails, CO4 recordDecision                                    | GS1, GS2, GS10–GS16 |
+| [B](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Individual_Contributions/Section_B_Contributors_Arno/CA2_Section_B.md)   | UC3, UC4                   | CB1 recordContributor, CB2 recordContribution, CB3 updateContributorDetails, CB4 recordConsent                              | GS20–GS25           |
+| [C](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Individual_Contributions/Section_C_Recording_Jack/CA2_Section_C.md)      | UC5 (two), UC6, UC7 (two)  | OC05 recordRecordingSession, OC06 recordSourceRecording, OC07 recordDraft, OC08 recordPermission, OC09 viewDraftPermissions | GS40–GS47           |
+| [D](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Individual_Contributions/Section_D_Review_Tsubasa/CA2_Section%20D.md)    | UC8 (two), UC9 (two), UC10 | OC01 recordReview, OC02 recordPublicationDate, OC03 changePublicationDate, OC04 recordCorrection                            | GS3–GS5, GS30–GS36  |
+| [Shared](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Behavioural_Design/Operation_Contracts/UC11_Production_Overview.md) | UC11                       | CO11.1 viewProductionOverview, CO11.2 viewDraftBlockers                                                                     | GS2, GS4, GS24      |
 
 The sections share some rules. These rules have an effect on the design of more than one section:
 
@@ -236,13 +238,13 @@ The sections share some rules. These rules have an effect on the design of more 
 - GS5 (date change): `changePublicationDate` creates a `PublicationDateChange`. It keeps the earlier date and the reason. A later change does not replace them.
 - UC11 (overview): the overview only reads data. It asks the class that keeps each item, for example `Proposal.currentState()` and `Episode.outstandingConsents()`.
 
-The SSD files are in [`Diagrams/System_Sequence_Diagrams/`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/tree/main/CA%202/Diagrams/System_Sequence_Diagrams).
+The SSD files are in [`Diagrams/System_Sequence_Diagrams/`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/tree/ca2-submission/CA%202/Diagrams/System_Sequence_Diagrams).
 
 ## 6. Responsibilities: CRC cards and GRASP decisions
 
 ### 6.1 CRC cards for UC2
 
-The CRC cards give the work in CO4 to classes. The domain classes come from the refined domain model. The design adds a controller, a repository and a clock interface. The full cards are in Section A. The [integrated CRC list](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Object_Oriented_Design/CRC_Cards/integrated-crc-cards.md) gives the cards of all sections.
+The CRC cards give the work in CO4 to classes. The domain classes come from the refined domain model. The design adds a controller, a repository and a clock interface. The full cards are in Section A. The [integrated CRC list](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Object_Oriented_Design/CRC_Cards/integrated-crc-cards.md) gives the cards of all sections.
 
 | Class                | Knowing                                 | Doing                                                                                                                      | Collaborators                       |
 |----------------------|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
@@ -336,7 +338,7 @@ Each message in the interaction diagrams agrees with an operation in the design 
 | `recordDecision(outcome, editor, today, conditions, note)` | Proposal           | `+recordDecision(outcome, editor, today, conditions, note)` | CO4 postconditions  |
 | `canRecordDecision()`                                      | Proposal           | `+canRecordDecision(): boolean`                             | CO4 preconditions   |
 | `leavesProposalOpen()`                                     | ProposalDecision   | `+leavesProposalOpen(): boolean`                            | CO4 failure         |
-| `create(...)`                                              | ProposalDecision   | Association *Proposal receives ProposalDecision*            | CO4 "d was created" |
+| `create(...)`                                              | ProposalDecision   | `+create(outcome, editor, today, conditions, note)`         | CO4 "d was created" |
 | `currentState()`                                           | Proposal           | `+currentState()`                                           | BR1, A13            |
 
 ## 8. Design class diagram
@@ -433,7 +435,7 @@ The design does not let an object get into an incorrect state. `Proposal` create
 
 The compiler of this dossier compared the UC2 artefacts. Each message in the interaction diagrams has an operation in the design class diagram (section 7.3). The operation parameters agree with the SSD and with CO4. The preconditions of CO4 agree with `canRecordDecision()`. The postconditions agree with the creation of `ProposalDecision` and with the unchanged earlier decisions.
 
-The second controlled failure of CO4 is an outcome that is not in BR2. No interaction diagram shows it. The `DecisionOutcome` enumeration prevents this outcome before the call. Thus, a diagram for it is not necessary. This comparison does not replace the group consistency check (#45).
+The second controlled failure of CO4 is an outcome that is not in BR2. No interaction diagram shows it. The `DecisionOutcome` enumeration prevents this outcome before the call. Thus, a diagram for it is not necessary. The group consistency check (#45) confirmed this and aligned three small differences: the outcome names, the `create` operation and the source of the editor ([UC2 consistency check](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Object_Oriented_Design/Consistency_Check/UC2_consistency_check.md)).
 
 ### 11.5 Testability
 
@@ -462,9 +464,8 @@ The group rejected these alternatives. Section 6.3 gives the reasons.
 
 ### 11.8 Risks and limitations
 
-The design has these limitations at commit `17ae664`:
+The design has these limitations:
 
-- The consistency check of the design class diagram, the interaction diagrams and the contracts (#45) is not in the repository.
 - The design class diagram does not show the return type "recorded" or "refused". It shows this only in a note.
 - The editor comes from the session. The design has no class for the session or the user, because the user interface is outside the scope.
 - The domain model does not include `EquipmentItem` yet (change 3.12 in the integrated CRC list).
@@ -475,7 +476,7 @@ The design has these limitations at commit `17ae664`:
 
 ### 12.1 Decisions
 
-The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) has 13 decisions (DEC-01 to DEC-13). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
+The [decision log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Decisions_and_Reviews/Decision_Log/Decision_Log.md) has 13 decisions (DEC-01 to DEC-13). Each decision gives the context, the decision, the reasons, the rejected alternatives and the consequences. The reconciliation record keeps the RD decisions, so the log does not repeat them (DEC-04).
 
 ### 12.2 Peer review
 
@@ -487,14 +488,14 @@ The group did reviews on GitHub issues and pull requests. Each card has a review
 
 ### 12.3 Iteration records and retrospective
 
-The group recorded the iteration reviews in [`Decisions_and_Reviews/Review_Records/`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/tree/main/CA%202/Decisions_and_Reviews/Review_Records).
+The group recorded the iteration reviews in [`Decisions_and_Reviews/Review_Records/`](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/tree/ca2-submission/CA%202/Decisions_and_Reviews/Review_Records).
 
 | Iteration | Board item | Record                                                                                                   |
 |-----------|------------|----------------------------------------------------------------------------------------------------------|
 | 1         | #10        | Group review and retrospective. Goal: agree the scenario, Product Goal, Definition of Done and baseline. |
-| 2         | #27        | Not in the repository                                                                                    |
+| 2         | #27        | Group review and retrospective                                                                                    |
 | 3         | #46        | Individual record by Jack                                                                                |
-| 4         | #50        | Not in the repository                                                                                    |
+| 4         | #50        | Group review and final retrospective                                                                                    |
 
 The iteration 1 retrospective gives one item to keep, one problem and one improvement:
 
@@ -502,7 +503,7 @@ The iteration 1 retrospective gives one item to keep, one problem and one improv
 - Problem: decision statuses stayed "Proposed" after the group agreed them. Copies of files did not stay the same.
 - Improvement: update the decision log in the same meeting as the decision. Keep one copy of each document.
 
-The brief also asks for one short final retrospective. The group must write it before the tag.
+The iteration 4 record contains the final retrospective.
 
 ### 12.4 Contributions
 
@@ -511,7 +512,7 @@ The brief also asks for one short final retrospective. The group must write it b
 | Rani    | Scenario 29 CA1 baseline, scenario suitability matrix (#2), Product Goal (#3), Definition of Done (#4), board, labels and templates (#5), reconciliation record, revised baseline, refined domain model (#8), implementation catalogue, Section A (UC1, UC2), UC11 SSD and contracts (#25), UC2 main-flow interaction diagram (#36), decision log, README, references |
 | Arno    | Section B (UC3, UC4, CB1–CB4), UC2 alternative interaction diagrams (#37), integrated CRC list and controller pattern (#43), Section B review issue, this dossier (#47) |
 | Jack    | Section C (UC5–UC7, OC05–OC09), the use-case format (RD-11), UC2 design class diagram (#44), iteration 3 record                                                         |
-| Tsubasa | Section D (UC8–UC10, OC01–OC04), review of the reconciliation record (#6), consistency check (#45, open)                                                                |
+| Tsubasa | Section D (UC8–UC10, OC01–OC04), review of the reconciliation record (#6), consistency check (#45), iteration 2 record (#27)                                                               |
 
 Each member also submits an individual contribution statement. The commit history and the board show the work of each member.
 
@@ -530,7 +531,7 @@ Each member also explains their own section and their use of AI.
 
 ### 12.6 AI declarations
 
-The [AI interaction log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/Decisions_and_Reviews/AI_Interaction_Log/AI_Interaction_Log.md) contains declarations from all four members. Members used AI to understand the brief, to draft and reword documents and comments, to cross-check files for consistency, to fix PlantUML and Git problems, and (Tsubasa) for translation. Each member states that they decided which suggestions to keep, checked the output, and that AI did not make group decisions.
+The [AI interaction log](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/Decisions_and_Reviews/AI_Interaction_Log/AI_Interaction_Log.md) contains declarations from all four members. Members used AI to understand the brief, to draft and reword documents and comments, to cross-check files for consistency, to fix PlantUML and Git problems, and (Tsubasa) for translation. Each member states that they decided which suggestions to keep, checked the output, and that AI did not make group decisions.
 
 Design changes that AI helped to identify were agreed through the normal decision and review workflow. For example, DEC-08 (`ProposalDecision.note`) and DEC-13 (`Consent.evidenceLocation`) were both raised with AI help and agreed by the group.
 
@@ -549,17 +550,19 @@ Design changes that AI helped to identify were agreed through the normal decisio
 - ASD (2021) *ASD-STE100 Simplified Technical English*. [https://www.asd-ste100.org](https://www.asd-ste100.org)
 - Cucumber (n.d.) *Gherkin reference*. [https://cucumber.io/docs/gherkin/reference/](https://cucumber.io/docs/gherkin/reference/)
 - PlantUML (n.d.) *Sequence diagram* and *Class diagram*. [https://plantuml.com](https://plantuml.com)
-- Group repository: [Rani-Wheeza/Local-Podcast-Production-Service](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service) and the [full reference list](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/main/CA%202/References/references.md).
+- Group repository: [Rani-Wheeza/Local-Podcast-Production-Service](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service) and the [full reference list](https://github.com/Rani-Wheeza/Local-Podcast-Production-Service/blob/ca2-submission/CA%202/References/references.md).
 
-## Open items before the submission
+## Pre-submission checklist (completed)
 
-| # | Item                                                                         | Owner          | Board item |
-|---|------------------------------------------------------------------------------|----------------|------------|
-| 1 | Add the consistency check of the DCD, interaction diagrams and contracts     | Tsubasa        | #45        |
-| 2 | Add the iteration 2 review record and retrospective                          | Tsubasa        | #27        |
-| 3 | Add the iteration 4 review record and the final retrospective                | Rani           | #50        |
-| 4 | Each member adds an individual contribution statement                        | All            | –          |
-| 5 | Review the package and layer view (Figure 10)                                | All            | #47        |
-| 6 | Close the open changes in the integrated CRC list (3.1, 3.10, 3.12)          | Section owners | #43        |
-| 7 | Change the dossier links from `main` to the tag                              | Arno           | #47        |
-| 8 | Create the `ca2-submission` tag                                              | Rani           | #49        |
+| # | Item                                                                         | Owner          | Board item | Status |
+|---|------------------------------------------------------------------------------|----------------|------------|--------|
+| 1 | Add the consistency check of the DCD, interaction diagrams and contracts     | Tsubasa        | #45        | Done   |
+| 2 | Add the iteration 2 review record and retrospective                          | Tsubasa        | #27        | Done   |
+| 3 | Add the iteration 4 review record and the final retrospective                | Rani           | #50        | Done   |
+| 4 | Each member adds an individual contribution statement                        | All            | –          | Done   |
+| 5 | Review the package and layer view (Figure 10)                                | All            | #47        | Done   |
+| 6 | Record the open changes in the integrated CRC list (3.1, 3.10, 3.12)         | Section owners | #43        | Done; recorded as limitations in 11.8 |
+| 7 | Remove Section B duplicate files and lecturer wording                        | Arno           | #12        | Done   |
+| 8 | Change the dossier links from `main` to the tag                              | Rani           | #47        | Done   |
+| 9 | Update the dossier status line                                               | Rani           | #49        | Done   |
+| 10 | Create the `ca2-submission` tag                                             | Rani           | #49        | Done   |
